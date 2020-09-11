@@ -1,0 +1,149 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 2}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Part 1}
+
+\paragraph{(1.1)}
+Homogeneity follows from the nature of the budget constraint; given that the maximization problem is given by
+\[ \max u(x) \]
+\[ p \cdot x \le w \]
+But the constraint $p \cdot x \le w$ holds if and only if $\alpha p \cdot x \le \alpha w$. Hence the maximizer $x^*(p,w) = x^*(\alpha p, \alpha w)$, since the maximization problems are equivalent. So the demand is homogeneous of degree 0.
+
+Now, we suppose the utility is weakly monotonic.
+To show Walras' law, suppose $x^*(p,w)$ is a maximizer for the utility maximization problem, but suppose $p\cdot x^* < w$.
+\paragraph{(1.2)}
+\paragraph{(1.3)}
+We take the general form:
+\[ u(x) = \left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{1/\rho} \]
+The first order conditions are given by:
+\[ \frac{\partial u}{\partial x_k} = \alpha_k\left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho) - 1} x_k^{\rho - 1} = \lambda p_k \]
+Equivalently,
+\[ \alpha_k\left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho) - 1} x_k^{\rho} = \lambda p_k x_k \]
+Summing over all $k$, we get
+\[ \left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho) - 1} \sum_{k=1}^N \alpha_k x_k^{\rho} = \lambda w \]
+\[ \left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho)} = \lambda w \]
+\[ \lambda = \frac{1}{w}\left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho)} \]
+Plugging in our Lagrange multiplier to the FOC, we get
+\[ \alpha_k\left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho) - 1} x_k^{\rho - 1} = \frac{p_k}{w}\left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{(1/\rho)} \]
+\[ \alpha_k x_k^{\rho - 1}\left( \sum_{i=1}^N \alpha_i x_i^\rho \right)^{- 1}  = \frac{p_k}{w} \]
+\[ \alpha_k x_k^{\rho - 1}  = \frac{p_k}{w}\left( \sum_{i=1}^N \alpha_i x_i^\rho \right) \]
+\[ x_k^{\rho - 1}  = \frac{p_k}{\alpha_k}\left( \frac{1}{w}\sum_{i=1}^N \alpha_i x_i^\rho \right) \]
+\[ x_k = \left(\frac{p_k}{\alpha_k}\right)^{\frac{1}{\rho-1}}\left( \frac{1}{w}\sum_{i=1}^N \alpha_i x_i^\rho \right)^{\frac{1}{\rho-1}} \]
+Note the sum term is the same for all $k$. Working to eliminate this, we get
+\[ x_k^\rho = \left(\frac{p_k}{\alpha_k}\right)^{\frac{\rho}{\rho-1}}\left( \frac{1}{w}\sum_{i=1}^N \alpha_i x_i^\rho \right)^{\frac{\rho}{\rho-1}} \]
+\[ \alpha_k x_k^\rho = \frac{p_k^{\frac{\rho}{\rho-1}}}{\alpha_k^{\frac{1}{\rho-1} }}\left( \frac{1}{w}\sum_{i=1}^N \alpha_i x_i^\rho \right)^{\frac{\rho}{\rho-1}} \]
+\[ \sum \alpha_k x_k^\rho = \left(\sum \frac{p_k^{\frac{\rho}{\rho-1}}}{\alpha_k^{\frac{1}{\rho-1} }} \right)\left( \frac{1}{w}\sum_{i=1}^N \alpha_i x_i^\rho \right)^{\frac{\rho}{\rho-1}} \]
+\[ \sum_{k=1}^N \alpha_k x_k^\rho =  \left(\sum_{k=1}^N \left(\frac{p_k^\rho}{\alpha_k w^\rho}\right)^{\frac{1}{\rho-1}} \right)\left(\sum_{i=1}^N \alpha_i x_i^\rho \right)^{\frac{\rho}{\rho-1}} \]
+\[ \left( \sum_{k=1}^N \alpha_k x_k^\rho \right)^{\frac{1}{\rho-1}} =  \left(\sum_{k=1}^N \left(\frac{p_k^\rho}{\alpha_k w^\rho}\right)^{\frac{1}{\rho-1}} \right)^{-1} \]
+Plugging back in, we get
+\[ x_k = \left(\frac{p_k}{\alpha_k}\right)^{\frac{1}{\rho-1}}\left( \frac{1}{w}\sum_{i=1}^N \alpha_i x_i^\rho \right)^{\frac{1}{\rho-1}} \]
+\[ x_k = \left(\frac{p_k}{\alpha_k w}\right)^{\frac{1}{\rho-1}}\left(\sum_{k=1}^N \left(\frac{p_k^\rho}{\alpha_k w^\rho}\right)^{\frac{1}{\rho-1}} \right)^{-1} \]
+\[ x_k = w \left(\frac{p_k}{\alpha_k}\right)^{\frac{1}{\rho-1}}\left(\sum_{k=1}^N \left(\frac{p_k^\rho}{\alpha_k }\right)^{\frac{1}{\rho-1}} \right)^{-1} \]
+\[ x_k = w \left(\frac{\alpha_k}{p_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1} \]
+\paragraph{(1.4)}
+We first compute the partial derivative:
+\[ \frac{\partial x_l}{\partial p_k} =  \frac{\rho}{1-\rho}w \left(\frac{\alpha_l}{p_l}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\frac{\alpha_i}{p_i^\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \left(\alpha_k^{\frac{1}{1-\rho}}p_k^{\frac{-\rho}{1-\rho} - 1} \right) \]
+\[  =  \frac{\rho}{1-\rho}w \left(\frac{\alpha_l\alpha_k}{p_lp_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\frac{\alpha_i}{p_i^\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2}  \]
+For an off-diagonal entry:
+\[ S_{lk} = \frac{\partial x_l}{\partial p_k} + \frac{\partial x_l}{\partial w} x_k \]
+\[ =  \frac{\rho}{1-\rho}w \left(\frac{\alpha_l\alpha_k}{p_lp_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\frac{\alpha_i}{p_i^\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} + w \left(\frac{\alpha_k\alpha_l}{p_kp_l}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[ =  \frac{w}{1-\rho}\left(\frac{\alpha_l\alpha_k}{p_lp_k}  \right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\frac{\alpha_i}{p_i^\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2}  \]
+For the symmetric case, we first compute:
+\[ \frac{\partial x_k}{\partial p_k} =  w\left(  -\frac{1}{1-\rho}\left(\alpha_k p_k^{\rho-2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1}  + \frac{\rho}{1-\rho} \left(\frac{\alpha_k^2}{p_k^2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \right) \]
+The Slutsky matrix entry on the diagonal is then
+\[ S_{kk} = w\left(  -\frac{1}{1-\rho}\left(\alpha_k p_k^{\rho-2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1}  + \frac{1}{1-\rho} \left(\frac{\alpha_k^2}{p_k^2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2}  \right) \]
+\[  = -\frac{w}{1-\rho}\left( \left(\alpha_k p_k^{\rho-2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1}  - \left(\frac{\alpha_k^2}{p_k^2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2}  \right) \]
+\[  = -\frac{w}{1-\rho}\left(\frac{\alpha_k}{p_k^2} \right)^{\frac{1}{1-\rho}}\left( p_k^{\frac{\rho}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)  - \alpha_k^{\frac{1}{1-\rho}}  \right)\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[  = -\frac{w}{1-\rho}\left(\frac{\alpha_k}{p_k^2} \right)^{\frac{1}{1-\rho}}\left( \left(\sum_{i=1}^N \left( \frac{\alpha_i p_k^\rho}{p_i^\rho} \right)^{\frac{1}{1-\rho}} \right)  - \alpha_k^{\frac{1}{1-\rho}}  \right)\left(\sum_{i=1}^N \left(\frac{\alpha_i}{p_i^\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\paragraph{(1.5)}
+We let
+\[ w(p) = p \cdot x(\tilde{p}, \tilde{w}) \]
+\[ = \sum_{k=1}^N p_k \tilde{w} \left(\frac{\alpha_k}{\tilde{p_k}}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i \tilde{p_i}^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1} \]
+We now consider
+\[ x(p, w(p))_k = w(p) \left(\frac{\alpha_k}{p_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1} \]
+Then
+\[ \frac{\partial x(p, w(p))_l}{\partial p_k} = \frac{\partial w(p)}{\partial p_k} \left(\frac{\alpha_l}{p_l}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1} + \frac{\rho}{1-\rho}w(p)\left(\frac{\alpha_l\alpha_k}{p_lp_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[ = w \left(\frac{\alpha_l\alpha_k}{p_lp_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} + \frac{\rho}{1-\rho}w(p)\left(\frac{\alpha_l\alpha_k}{p_lp_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[ = \frac{w}{1-\rho}\left(\frac{\alpha_l\alpha_k}{p_lp_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[ = S_{lk} \]
+In the symmetric case,
+\[ \frac{\partial x(p, w(p))_k}{\partial p_k} = \frac{\partial w(p)}{\partial p_k} \left(\frac{\alpha_k}{p_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1} - \frac{1}{1-\rho}w(p)\left(\frac{\alpha_k}{p_k^{2-\rho}}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1}\]\[ + \frac{\rho}{1-\rho}w(p)\left(\frac{\alpha_k^2}{p_k^2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[ =  - \frac{1}{1-\rho}w(p)\left(\frac{\alpha_k}{p_k^{2-\rho}}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1} + \frac{1}{1-\rho}w(p)\left(\frac{\alpha_k^2}{p_k^2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[  = -\frac{w}{1-\rho}\left( \left(\alpha_k p_k^{\rho-2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1}  - \left(\frac{\alpha_k^2}{p_k^2}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2}  \right) \]
+\[  = -\frac{w}{1-\rho}\left(\frac{\alpha_k}{p_k^2} \right)^{\frac{1}{1-\rho}}\left( \left(\sum_{i=1}^N \left( \frac{\alpha_i p_k^\rho}{p_i^\rho} \right)^{\frac{1}{1-\rho}} \right)  - \alpha_k^{\frac{1}{1-\rho}}  \right)\left(\sum_{i=1}^N \left(\frac{\alpha_i}{p_i^\rho }\right)^{\frac{1}{1-\rho}} \right)^{-2} \]
+\[ = S_{kk} \]
+\paragraph{(1.6)}
+A matrix $M$ is negative semidefinite if for all vectors $x$,
+\[ x^TMx \le 0 \]
+$M$ is positive definite if for all vectors $x \neq 0$,
+\[ x^T M x > 0 \]
+By Sylvester's criterion, we know that the determinant of all the principal minors must be positive for a matrix to be positive definite. Similarly, the determinant of all the principal minors must be nonpositive for a matrix to be negative semidefinite.
+
+If a matrix is negative definite, we show the diagonal entries must be negative. Consider the entry $M_{ii}$. Consider $x = (0, 0, 0, ... 1, ....)$ where $x_i = 1$ and $x_{j} = 0$ for $j \neq i$. Then $x^T M x = M_{ii} < 0$ by negative definiteness. Hence $M_{ii} < 0$ for all $i$.
+
+Similarly, if $M$ is positive definite, consider $M_{ii}$. Consider the $x = (0, 0, 0, ... 1, ....)$ where $x_i = 1$ and $x_{j} = 0$ for $j \neq i$. Once again, $x^T M x = M_{ii}$, so by positive definiteness, $M_{ii} > 0$.
+\paragraph{(1.7)}
+At $(p,w)$ the utility of $x(p,w)$ is
+\[ u(x) = \left( \sum_{i=1}^N \alpha_i \left(w \left(\frac{\alpha_k}{p_k}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-1}\right)^\rho \right)^{1/\rho} \]
+\[ = \left( \sum_{k=1}^N \alpha_kw^\rho \left(\frac{\alpha_k}{p_k}\right)^{\frac{\rho}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-\rho} \right)^{1/\rho} \]
+\[ = \left( \sum_{k=1}^N w^\rho \left(\frac{\alpha_k}{p_k^\rho}\right)^{\frac{1}{1-\rho}}\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-\rho} \right)^{1/\rho} \]
+\[ = \left( w^\rho \left( \sum_{k=1}^N  \left(\frac{\alpha_k}{p_k^\rho}\right)^{\frac{1}{1-\rho}} \right)\left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{-\rho} \right)^{1/\rho} \]
+\[ = \left( w^\rho \left(\sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{1-\rho} \right)^{1/\rho} \]
+\[ = w \left( \sum_{i=1}^N \left(\alpha_i p_i^{-\rho }\right)^{\frac{1}{1-\rho}} \right)^{\frac{1-\rho}{\rho}}  \]
+\paragraph{(1.8)}
+\paragraph{(1.9)}
+\paragraph{(1.10)}
+
+\section*{Part 2}
+\paragraph{(2.1)}
+\paragraph{(2.2)}
+\paragraph{(2.3)}
+\paragraph{(2.4)}
+\paragraph{(2.5)}
+\begin{itemize}
+\item[--]
+\item[--]
+\item[--]
+\item[--]
+\item[--]
+\end{itemize}
+
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
