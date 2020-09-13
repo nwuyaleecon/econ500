@@ -284,25 +284,14 @@ Now, we note that if $u_{12} >> 0$, it is possible for $u_{22}$ and $u_{11}$ to 
 
 Examine the condition we found:
 \[ 2u_1u_2u_{12} \ge u_1^2 u_{22} + u_2^2 u_{11}\]
-
-We note that if $u_{12} = 0$, and $u_1(0) = 0$ and $u_2(0) = 0$ then we must have both
-\[ u_{22} \le 0\]
-\[ u_{11} \le 0\]
-We note that if $u_{12} = 0$, it is obvious that diminshing marginal utility implies that our condition holds. Now, we show that diminishing marginal utility is necessary for the condition if $u_1(0) = 0$ and $u_2(0) = 0$.
-To show this, we use contradiction. Suppose $u_{11} > 0$ (logic is symmetric for $u_{22} > 0$). Then since $u_{12} = 0$, we have
-\[ - u_1^2 u_{22} \ge u_2^2 u_{11} \]
-\[ u_{22} \le - \frac{u_2^2}{u_1^2}u_{11} \]
-Then, integrating with respect to $x_1$ over both sides from $a$ to $1$ and noting $u_2$ has no dependence on $x_1$ (since $u_{12} = 0$), we get
-\[ \int_a^1 u_{22} dx_1 \le - \int_a^x \frac{u_2^2}{u_1^2}u_{11} dx_1 \]
-\[ u_{22} (1-a) \le \frac{u_2^2}{u_1(1)} - \frac{u_2^2}{u_1(a)} \]
-But taking the limit as $a \to 0$, the RHS goes to $-\infty$ and the LHS goes to $u_{22}$, and hence this inequality is impossible. Therefore, this implies that our conditions imply that diminishing marginal utility is necessary for indifference curve convexity.
-
-We note that a special case of our condition occurs for utilities of the form
+\[ 2u_{12} \ge \frac{u_1}{u_2} u_{22} + \frac{u_2}{u_1}u_{11} \]
+We note that if $u_{12} = 0$, we will have that diminishing marginal utility is sufficient for quasiconcaavity. For necessity, we refine this to suppose
 \[ u(x_1, x_2) = g(x) + h(y)\]
-where
-\[ g'(0) = 0 \]
-\[ h'(0) = 0 \]
-We also note that by the lemma we proved in the previous part, any monotonically increasing transformation $f$ on such a utility preserves the condition; as a special case, we note that the CES utilities are a monotonically increasing transform $f(t) = t^{1/\rho}$ on such a utility ($g(t) = h(t) = t^\rho$) and hence for CES utilities, diminishing marginal utility is an equivalent condition to indifference curve convexity.
+Then if $g(t) = K_g t^\rho$, $h(t) = K_h t^\rho$, where $K$s are positive, then we have the condition becomes
+\[ 0 \ge C\left(\frac{x_1}{x_2}\right)^{\rho - 1}u_{22} + D\left(\frac{x_2}{x_1}\right)^{\rho - 1}u_{11} \]
+for some positive constants $C, D$. Note that $u_{11}$ has no $x_2$ dependence, and $u_{22}$ has no $x_1$ dependence. Thus, if $u_{11} > 0$ for some $x_1$, we can pick $x_2$ arbitrarily to fail the condition, and vice versa for $u_{22}$. Hence, for this class of functions, diminishing marginal utility is necessary for indifference curve convexity.
+
+As a special case, we note that the CES utilities are a monotonically increasing transformation $f(t) = t^{1/\rho}$ on such a utility. As we showed in the previous part, increasing transformations preserve the condition, and hence for CES utilities, diminishing marginal utility is an equivalent condition to indifference curve convexity.
 
 The underlying principle for convexity of the indifference curves is diminishing marginal rate of substitution, not diminishing marginal utility. We have noted that for a large class of utility functions (including many of the common utilites economists work with), the conditions on diminishing marginal rate of substitution are equivalent by diminishing marginal utility. Hence, maybe it is a little overzealous for Millicent to sue.
 \paragraph{(2.5)}
