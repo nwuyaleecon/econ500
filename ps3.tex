@@ -273,7 +273,8 @@ Similarly, if $x-c < x' < x$, we get from concavity
 \[ f(x') \le \frac{x-x'+c}{c}f(x) - \frac{x-x'}{c}f(x+c) \]
 So
 \[ \frac{x' + c - x}{c}f(x) + \frac{x-x'}{c}f(x - c) \le f(x') \le \frac{x-x'+c}{c}f(x) - \frac{x-x'}{c}f(x+c) \]
-\[ \frac{x-x'}{c}(f(x) - f(x - c) ) \ge f(x) - f(x') \le \frac{x-x'}{c}(f(x+c) - f(x)) \]
+\[ \frac{x-x'}{c}(f(x) - f(x - c) ) \ge f(x) - f(x') \ge \frac{x-x'}{c}(f(x+c) - f(x)) \]
+Then again we see as $x' \to x$, the leftmost and rightmost expressions go to $0$, and hence $f(x) -f(x') \to 0$. Hence if we partition $x^n$ into $y^n \le x$, $z^n > x$, both subsequences converge to $x$ and $\lim f(y^n) = \lim f(z^n) = f(x)$.
 
 \paragraph{(2.2)}
 We claim these concepts are equivalent: specifically, we will show that homothetic preferences imply that any utility representation of these preferences is homothetic, that the choice function induced by a homothetic utility function is homothetic, and that homothetic choice functions are represented by preferences that are homothetic. (We only have to prove pref $\to$ utility $\to$ choice $\to$ pref, since any other pair can be proved equivalent following two or more steps through the chain).
