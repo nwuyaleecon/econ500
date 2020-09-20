@@ -1,0 +1,389 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 3}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Part 1}
+We can interpret $\underline{x}_1$ and $\underline{x}_2$ as minimum amounts of consumption for the consumer to start deriving positive utility from the good, and at consumption levels below this, the good behaves more as a ``bad''.
+\paragraph{(1.1)}
+We note that there is a bliss point at $(0,0)$, where the consumer achieves utility $u(0,0) = \underline{x}_1^\alpha\underline{x}_2^\beta$. Now, we suppose we have a  non-bliss point solution. The solution then will lie on the budget constraint. As a further note, we see that we since we can assume $(\underline{x}_1,\underline{x}_2)$ lies in the budget set, we will never have a boundary solution, since consumption levels of good 1 and good 2 must be sustained above $(\underline{x}_1,\underline{x}_2)$ to maintain increasing utility. Hence we have the following maximization:
+\[ \max (ax_1 - \underline{x}_1)^\alpha(bx_2 - \underline{x}_2)^\beta \]
+subject to
+\[ p_1 x_1 + p_2 x_2 \le w \]
+The FOCs are given by
+\[ \lambda p_1 = \alpha a (ax_1 - \underline{x}_1)^{\alpha-1}(bx_2 - \underline{x}_2)^\beta \]
+\[ \lambda p_2 = \beta b (ax_1 - \underline{x}_1)^{\alpha}(bx_2 - \underline{x}_2)^{\beta -1}\]
+\[ \frac{p_1}{p_2}=  \frac{\alpha a (ax_1 - \underline{x}_1)^{\alpha-1}(bx_2 - \underline{x}_2)^\beta}{\beta b (ax_1 - \underline{x}_1)^{\alpha}(bx_2 - \underline{x}_2)^{\beta -1}} \]
+\[  =  \frac{\alpha a (bx_2 - \underline{x}_2)}{\beta b (ax_1 - \underline{x}_1) } \]
+\[ p_1\beta b (ax_1 - \underline{x}_1) = p_2 \alpha a (bx_2 - \underline{x}_2)  \]
+\[ \beta ab p_1x_1 - \beta bp_1\underline{x}_1 = \alpha a bp_2 x_2 - p_2 \alpha a\underline{x}_2 \]
+By budget constraint binding, we get
+\[ p_1x_1+ p_2x_2 = w \]
+\[ \beta ab p_1x_1 - \beta bp_1\underline{x}_1 = \alpha a b(w - p_1x_1) - p_2 \alpha a\underline{x}_2 \]
+\[ (\alpha + \beta) ab p_1x_1 = \alpha abw + \beta bp_1\underline{x}_1- p_2 \alpha a\underline{x}_2  \]
+\[ x_1 = \frac{\alpha abw + \beta bp_1\underline{x}_1- p_2 \alpha a\underline{x}_2}{(\alpha + \beta) ab p_1}  \]
+and
+\[ \beta ab (w - p_2x_2) - \beta bp_1\underline{x}_1 = \alpha a bp_2x_2 - p_2 \alpha a\underline{x}_2 \]
+\[ \beta ab w + p_2 \alpha a\underline{x}_2 - \beta bp_1\underline{x}_1 = (\alpha+\beta) a bp_2x_2 \]
+\[ x_2 = \frac{\beta ab w + p_2 \alpha a\underline{x}_2 - \beta bp_1\underline{x}_1}{(\alpha+\beta) a bp_2} \]
+Hence the Walrasian demand is given by:
+\[ x(p_1, p_2, w) = \left(\frac{\alpha abw + \beta bp_1\underline{x}_1- \alpha ap_2 \underline{x}_2}{(\alpha + \beta) ab p_1}\ , \ \frac{\beta ab w + \alpha ap_2 \underline{x}_2 - \beta bp_1\underline{x}_1}{(\alpha+\beta) a bp_2} \right) \]
+with the exception that $x(p_1, p_2, w) = (0,0)$ if
+\[ \left(\frac{\alpha abw + \beta bp_1\underline{x}_1- \alpha ap_2 \underline{x}_2}{(\alpha + \beta) b p_1} - \underline{x}_1\right)^\alpha\left(\frac{\beta ab w + p_2 \alpha a\underline{x}_2 - \beta bp_1\underline{x}_1}{(\alpha+\beta) a p_2} - \underline{x}_2\right)^\beta < \underline{x}_1^\alpha \underline{x}_2^\beta \]
+
+
+The indirect utility function is then
+\[ v(p_1, p_2, w) = \left(\frac{\alpha abw + \beta bp_1\underline{x}_1- \alpha ap_2 \underline{x}_2}{(\alpha + \beta) b p_1} - \underline{x}_1\right)^\alpha\left(\frac{\beta ab w + p_2 \alpha a\underline{x}_2 - \beta bp_1\underline{x}_1}{(\alpha+\beta) a p_2} - \underline{x}_2\right)^\beta \]
+\[  = \left(\frac{\alpha abw - \alpha bp_1\underline{x}_1- \alpha ap_2 \underline{x}_2}{(\alpha + \beta) b p_1} \right)^\alpha\left(\frac{\beta ab w -\beta ap_2\underline{x}_2 - \beta bp_1\underline{x}_1}{(\alpha+\beta) a p_2} \right)^\beta \]
+\[  = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{abw - bp_1\underline{x}_1- ap_2 \underline{x}_2}{ b p_1} \right)^\alpha\left(\frac{ab w -ap_2\underline{x}_2 - bp_1\underline{x}_1}{a p_2} \right)^\beta \]
+\[  = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(a\frac{w}{p_1} - \underline{x}_1- \frac{ap_2}{bp_1} \underline{x}_2 \right)^\alpha\left(b \frac{w}{p_2} -\underline{x}_2 - \frac{bp_1}{ap_2}\underline{x}_1 \right)^\beta \]
+Including the bliss point condition, the indirect utility function is:
+\[  v(p_1, p_2, w) = \max\left( \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(a\frac{w}{p_1} - \underline{x}_1- \frac{ap_2}{bp_1} \underline{x}_2 \right)^\alpha\left(b \frac{w}{p_2} -\underline{x}_2 - \frac{bp_1}{ap_2}\underline{x}_1 \right)^\beta,\underline{x}_1^\alpha \underline{x}_2^\beta \right) \]
+We can quickly note that this is certainly increasing in $w$ since $a, b, p_1, p_2$ are all positive. We also quickly see this is decreasing in $(p_1, p_2)$; if we scale prices up, then the $w/p_1$ and $w/p_2$ terms decrease, while everything else remains the same. Lastly, we see this is homogeneous of degree 0: we can rewrite our expression using only $w/p_1$, $w/p_2$, $p_1/p_2$, and those terms are all homogeneous of degree 0.
+
+\paragraph{(1.2)}
+We first confirm that $v$ is quasiconvex. We rewrite our indirect utility as
+
+\[ v(p_1, p_2, w)  = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{abw - bp_1\underline{x}_1- ap_2 \underline{x}_2}{ b p_1} \right)^\alpha\left(\frac{ab w -ap_2\underline{x}_2 - bp_1\underline{x}_1}{a p_2} \right)^\beta \]
+\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\frac{(abw - bp_1\underline{x}_1- ap_2 \underline{x}_2)^{\alpha + \beta}}{ a^\beta b^\alpha p_1^\alpha p_2^\beta}  \]
+\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{w}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta}  \]
+
+Consider $(p_1, p_2, w)$ and $(p'_1, p'_2, w')$. Let $p''_1 = \lambda p_1 + (1-\lambda)p'_1$, $p''_2 = \lambda p_2 + (1-\lambda)p'_2)$, and $w''=\lambda w + (1-\lambda)w')$. Take $q''_1 = p''_1/a$, $q''_2=p''_2/b$, $q'_1 = p'_1/a$, $q'_2= p'_2/b$, $q_1 = p_1/a$, $q_2 = p_2/a$. We note that $q''_1 = \lambda q_1 + (1-\lambda) q'_1$, $q''_2 = \lambda q_2 + (1-\lambda) q_2'$. Then
+
+\[ v(p''_1, p''_2, w'') = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{w''}{(q_1'')^{\alpha/(\alpha+\beta)}(q_2'')^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{q''_1}{q''_2}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{q_2''}{q_1''}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta} \]
+\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}(q_1'')^{\alpha}(q_2'')^{\beta}}\left(w'' - \underline{x}_1q''_1- \underline{x}_2 q''_2 \right)^{\alpha + \beta} \]
+\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}(q_1'')^{\alpha}(q_2'')^{\beta}}\left(\lambda(w - \underline{x}_1q_1- \underline{x}_2 q_2) + (1-\lambda)(w' - \underline{x}_1q'_1- \underline{x}_2 q'_2) \right)^{\alpha + \beta} \]
+
+
+
+
+
+TODO FINISH THIS
+
+
+
+We now show that convexity implies quasiconvexity. Suppose $f$ is convex. Then we know
+\[ f(\lambda x + (1-\lambda) x') < \lambda f(x) + (1-\lambda)f(x') \]
+But we know $f(x) \le \max(f(x), f(x'))$, $f(x') \le \max(f(x), f(x'))$, so
+\[ f(\lambda x + (1-\lambda) x') < \lambda f(x) + (1-\lambda)f(x') \le (\lambda + (1-\lambda)) \max(f(x), f(x')) = \max(f(x), f(x')) \]
+And hence convexity implies quasiconvexity. To show an example of a quasiconvex function that fails quasiconvexity, consider $f(x) = \sqrt{x}$. We see that clearly this is quasiconvex:
+\[ f(\lambda x + (1-\lambda)x') = \sqrt{\lambda x + (1-\lambda)x'} \le \sqrt{\max(x, x')} = \max(f(x), f(x')) \]
+But is not convex:
+\[ \sqrt{1/2(0) + 1/2(1)} > 1/2 = 1/2 (0) + 1/2(1) \]
+We note that all monotonically increasing functions in one variable are quasiconvex (but need not be convex, as we see in our example). This is easy to see. Suppose WLOG $x < x'$. Then $f(x) \le f(x')$, and by monotonicity, since $\lambda x + (1-\lambda x') < x'$, we have
+\[ f(\lambda x + (1-\lambda)x') < f(x') = \max(f(x), f(x')) \]
+Hence monotonically increasing functions on one variable are always quasiconvex.
+
+For functions of two variables, we argue that monotonicity doesn't imply either. Consider $f(x,y) = xy$. Clearly, this is monotonically increasing for $x, y \ge 0$. However, we argue this does not satisfy quasiconvexity. Consider $(1,5)$ and $(5,1)$, and $\lambda = 1/2$. Then
+\[ f(3,3) = 9 > 5 = \max(f(5,1), f(1,5)) \]
+We know that since convexity is stronger than quasiconvexity, convexity doesn't hold either.
+
+We argue that not all indirect utility functions are convex. Consider utility given by:
+\[ u(x_1, x_2) = \sqrt{\min(x_1,x_2)} \]
+The demand is
+\[ x = \left(\frac{w}{p_1+p_2}, \frac{w}{p_1+p_2} \right) \]
+\[ v(p_1, p_2, w) = \sqrt{\frac{w}{p_1+p_2}}\]
+Then
+\[ \frac{1}{2} v(1, 1, 0) + \frac{1}{2} v(1, 1, 2) = \frac{1}{2} < \frac{\sqrt{2}}{2} = v(1,1,1)  \]
+Hence, the indirect utility function here is not convex (we note it is still quasiconvex).
+\paragraph{(1.3)}
+The expenditure minimization is given by:
+\[ \min p_1 x_1 + p_2 x_2 \]
+such that
+\[ (ax_1 - \underline{x}_1)^\alpha(bx_2 - \underline{x}_2)^\beta \ge u \]
+Using the FOCs, we have
+\[ \beta b p_1(ax_1 - \underline{x}_1) = p_2 \alpha a (b x_2 - \underline{x}_2) \]
+the constraint binds, so we get
+\[ (ax_1 - \underline{x}_1)^\alpha(bx_2 - \underline{x}_2)^\beta = u \]
+\[ (ax_1 - \underline{x}_1)^{\alpha+\beta} \left(\frac{\beta b p_1}{\alpha a p_2}\right)^\beta = u  \]
+\[ ax_1 - \underline{x}_1  = u^{(1/(\alpha+\beta))} \left(\frac{\alpha a p_2}{\beta b p_1}\right)^{\beta/(\alpha+\beta)}\]
+\[ x_1  = \frac{\underline{x}_1}{a} + \frac{1}{a}u^{(1/(\alpha+\beta))} \left(\frac{\alpha a p_2}{\beta b p_1}\right)^{\beta/(\alpha+\beta)}\]
+Likewise, for $x_2$,
+
+\[ (bx_2 - \underline{x}_2)^{\alpha+\beta} \left(\frac{\alpha a p_2}{\beta b p_1}\right)^\alpha = u  \]
+\[ bx_2 - \underline{x}_2 = u^{(1/(\alpha+\beta))} \left(\frac{\beta b p_1}{\alpha a p_2}\right)^{\alpha/(\alpha + \beta)} \]
+\[ x_2  = \frac{\underline{x}_2}{b} + \frac{u^{(1/(\alpha+\beta))}}{b} \left(\frac{\beta b p_1}{\alpha a p_2}\right)^{\alpha/(\alpha + \beta)} \]
+
+The expenditure function is then:
+
+\[ e(p_1, p_2, u) = \frac{p_1\underline{x}_1}{a} + \frac{p_1}{a}u^{(1/(\alpha+\beta))} \left(\frac{\alpha a p_2}{\beta b p_1}\right)^{\beta/(\alpha+\beta)} + \frac{p_2 \underline{x}_2}{b} + \frac{p_2}{b} u^{(1/(\alpha+\beta))}\left(\frac{\beta b p_1}{\alpha a p_2}\right)^{\alpha/(\alpha + \beta)} \]
+\[ e(p_1, p_2, u) = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + u^{(1/(\alpha+\beta))} \left( \frac{p_1}{a} \left(\frac{\alpha a p_2}{\beta b p_1}\right)^{\beta/(\alpha+\beta)}  + \frac{p_2}{b}\left(\frac{\beta b p_1}{\alpha a p_2}\right)^{\alpha/(\alpha + \beta)} \right) \]
+\[ e(p_1, p_2, u) = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + u^{(1/(\alpha+\beta))} \left( \frac{p_1^{\alpha/(\alpha+\beta)}}{a^{\alpha/(\alpha+\beta)}} \left(\frac{\alpha  p_2}{\beta b }\right)^{\beta/(\alpha+\beta)}  + \frac{p_2^{\beta/(\alpha+\beta)}}{b^{\beta/(\alpha+\beta)}}\left(\frac{\beta  p_1}{\alpha a}\right)^{\alpha/(\alpha + \beta)} \right) \]
+\[ e(p_1, p_2, u) = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \left(\frac{\alpha }{\beta }\right)^{\beta/(\alpha+\beta)}  + \left(\frac{\beta }{\alpha}\right)^{\alpha/(\alpha + \beta)} \right) \]
+\[ e(p_1, p_2, u) = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \]
+We can clearly see this is increasing in $p_1, p_2,$ and $u$. We also see this is homogeneous of degree 1, since in every term, the exponent of $p_1$ and the exponent of $p_2$ in the term sum to 1.
+\paragraph{(1.4)}
+We first show $e$ is concave in $p$. Consider $p, p'$. Let $h, h'$ be the Hicksian demands at those prices, utility $u$.
+\[ e(\lambda p + (1-\lambda) p') = \min_{u(x) \ge u} (\lambda p + (1-\lambda)p')\cdot x \]
+\[ = \min_{u(x) \ge u} (\lambda p\cdot x + (1-\lambda)p'\cdot x) \]
+\[ \ge \min_{u(x) \ge u} (\lambda p\cdot x) + \min_{u(x) \ge u}((1-\lambda)p'\cdot x) \]
+\[ \ge \lambda p\cdot h + (1-\lambda)p'\cdot h' \]
+\[ = \lambda e(p, u) + (1-\lambda)e(p', u) \]
+Hence we have concavity.
+
+
+
+
+TODO
+
+
+
+
+\paragraph{(1.5)}
+We check:
+\[ e(p, v(p,w)) = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left( \frac{v(p_1, p_2, w) p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)}  \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \]
+\[ = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left(\frac{w}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right)\left( \frac{ p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \]
+\[ = \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left(w - \underline{x}_1(p_1/a)- \underline{x}_2 (p_2/b) \right)\]
+\[ = w \]
+As desired. We also can check:
+\[ v(p, e(p,u)) = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{e(p,u)}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta}  \]
+\[  = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{\frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} }{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta}  \]
+\[  = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left( \left( u  \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)}   \right)^{\alpha + \beta}  \]
+\[ = u \]
+also as desired. For the Hicksian and Marshallian demands, we expect to have
+\[ h(p, u) = x(p,e(p,u)) \]
+\[ x(p, w) = h(p, v(p,w))\]
+\[ x_1(p,e(p,u)) = \frac{\alpha ab\left(\frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \right) + \beta bp_1\underline{x}_1- \alpha ap_2 \underline{x}_2}{(\alpha + \beta) ab p_1} \]
+\[  = \frac{\alpha ab\left( \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \right) + (\alpha + \beta) bp_1\underline{x}_1}{(\alpha + \beta) ab p_1} \]
+\[  = \frac{\alpha \left( \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{1}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \right) }{ p_1}+ \frac{1}{a}\underline{x}_1 \]
+\[  =   \frac{u^{1/(\alpha + \beta) }}{a} \left(  \frac{\alpha a p_2}{\beta b p_1} \right)^{\beta/(\alpha + \beta)} + \frac{\underline{x}_1}{a} \]
+\[ x_2(p,e(p,u)) = \frac{\beta ab \left( \frac{p_1\underline{x}_1}{a}+ \frac{p_2 \underline{x}_2}{b} + \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)}\right) + \alpha ap_2 \underline{x}_2 - \beta bp_1\underline{x}_1}{(\alpha+\beta) a bp_2}  \]
+\[= \frac{\beta \left( \left( \frac{u p_1^{\alpha}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)}\right) + (\alpha+\beta) (p_2/b) \underline{x}_2 }{(\alpha+\beta) p_2} \]
+\[= \left( \frac{u p_1^{\alpha}}{a^{\alpha}b^{\beta}p_2^\alpha} \right)^{1/(\alpha + \beta)} \left(  \frac{\beta^{\alpha}}{\alpha^{\alpha}} \right)^{1/(\alpha + \beta)} + \frac{\underline{x}_2}{b} \]
+\[= \frac{u^{1/(\alpha + \beta)} }{b}  \left(  \frac{\beta b p_1}{\alpha a p_2} \right)^{\alpha/(\alpha + \beta)} + \frac{\underline{x}_2}{b} \]
+And we see these match the Hicksian demands found in (1.4). In the reverse direction,
+\[ h_1(p, v(p,w)) = \frac{\underline{x}_1}{a} + \frac{1}{a}v(p_1,p_2,w)^{(1/(\alpha+\beta))} \left(\frac{\alpha a p_2}{\beta b p_1}\right)^{\beta/(\alpha+\beta)} \]
+\[ = \frac{\underline{x}_1}{a} +\frac{\alpha}{a(\alpha+\beta)}\left(\frac{aw}{p_1} - \underline{x}_1 -  \frac{a\underline{x}_2p_2}{bp_1} \right)  \]
+\[ = \frac{\alpha abw + \beta bp_1\underline{x}_1 -  \alpha a\underline{x}_2p_2 }{(\alpha+\beta)abp_1}  \]
+\[ h_2(p,v(p,w)) = \frac{\underline{x}_2}{b} + \frac{u^{(1/(\alpha+\beta))}}{b} \left(\frac{\beta b p_1}{\alpha a p_2}\right)^{\alpha/(\alpha + \beta)} \]
+\[= \frac{\underline{x}_2}{b} + \frac{ \beta}{b(\alpha+\beta)}\left(\frac{w}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right) \left(\frac{b p_1}{a p_2}\right)^{\alpha/(\alpha + \beta)} \]
+\[= \frac{\underline{x}_2}{b} + \frac{ \beta}{b(\alpha+\beta)}\left(\frac{bw}{p_2} - \underline{x}_1\left(\frac{bp_1}{ap_2}\right)- \underline{x}_2  \right) \]
+\[= \frac{\beta abw - \beta bp_1 \underline{x}_1 + \alpha ap_2\underline{x}_2 }{ab(\alpha+\beta)p_2}\]
+which matches the Walrasian demands found in part (1.1).
+
+We then confirm Shepard's lemma.
+\[ \frac{\partial}{\partial p_1} e(p_1, p_2, u) = \frac{\underline{x}_1}{a} + \frac{\alpha}{\alpha+\beta}\left( \frac{u p_1^{-\beta}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \]
+\[ = \frac{\underline{x}_1}{a} + \left( \frac{u p_1^{-\beta}p_2^{\beta}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{\alpha^\beta}{\beta^{\beta}} \right)^{1/(\alpha + \beta)} \]
+\[ = \frac{\underline{x}_1}{a} + \frac{u^{1/(\alpha+\beta)}}{a}\left( \frac{ \alpha a p_2}{\beta p_1 b} \right)^{\beta/(\alpha + \beta)}  \]
+\[ \frac{\partial}{\partial p_2} e(p_1, p_2, u) = \frac{\underline{x}_2}{b} + \frac{\beta}{\alpha+\beta}\left( \frac{u p_1^{\alpha}p_2^{-\alpha}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{(\alpha + \beta)^{\alpha+\beta}}{\alpha^{\alpha}\beta^{\beta}} \right)^{1/(\alpha + \beta)} \]
+\[ = \frac{\underline{x}_2}{b} + \left( \frac{u p_1^{\alpha}p_2^{-\alpha}}{a^{\alpha}b^{\beta}} \right)^{1/(\alpha + \beta)} \left(  \frac{\beta^\alpha}{\alpha^{\alpha}} \right)^{1/(\alpha + \beta)} \]
+\[ = \frac{\underline{x}_2}{b} + \frac{u^{1/(\alpha+\beta)}}{b}\left( \frac{ \beta b p_1}{\alpha a p_2} \right)^{\alpha/(\alpha + \beta)}  \]
+And both of these match the Hicksian demands. Finally, we state and verify Roy's Identity:
+\[ x_i(p, w) = -\frac{\frac{\partial v(p,w)}{\partial p_i}}{\frac{\partial v(p,w)}{\partial w}} \]
+We then check:
+\[ -\frac{\frac{\partial v(p,w)}{\partial p_1}}{\frac{\partial v(p,w)}{\partial w}} = - \frac{\left(\frac{-\alpha w}{(\alpha + \beta)(p_1/a)^{\alpha/(\alpha+\beta) + 1}(p_2/b)^{\beta/(\alpha+\beta)}} - \frac{\underline{x}_1 \beta}{\alpha + \beta}\left(\frac{(p_1/a)^{-\alpha}}{(p_2/b)^\beta}\right)^{1/(\alpha+\beta)} + \frac{\alpha \underline{x}_2}{\alpha + \beta} \left(\frac{(p_2/b)^{\alpha/(\alpha+\beta)}}{(p_1/a)^{\alpha/(\alpha+\beta) + 1}}\right) \right)\frac{1}{a}}{\frac{1}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}}} \]
+\[ = \left(\frac{\alpha w}{(\alpha + \beta)(p_1/a)} + \frac{\underline{x}_1 \beta}{\alpha + \beta} - \frac{\alpha \underline{x}_2}{\alpha + \beta} \left(\frac{p_2/b}{p_1/a}\right) \right)\frac{1}{a} \]
+\[ = \frac{\alpha ab w + \beta b p_1 \underline{x}_1 - \alpha a p_2 \underline{x}_2}{(\alpha + \beta)abp_1} \]
+\[ = x_1(p_1, p_2, w) \]
+\[ -\frac{\frac{\partial v(p,w)}{\partial p_2}}{\frac{\partial v(p,w)}{\partial w}} = - \frac{\left(\frac{-\beta w}{(\alpha + \beta)(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)+1}} + \frac{\underline{x}_1 \beta}{\alpha + \beta}\left(\frac{(p_1/a)^{\beta/(\alpha+\beta)}}{(p_2/b)^{\beta/(\alpha+\beta)+1}}\right) - \frac{\alpha \underline{x}_2}{\alpha + \beta} \left(\frac{(p_2/b)^{-\beta/(\alpha+\beta)}}{(p_1/a)^{\alpha/(\alpha+\beta)}}\right) \right)\frac{1}{b}}{\frac{1}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}}} \]
+\[ = -\left(\frac{-\beta w}{(\alpha + \beta)(p_2/b)} + \frac{\underline{x}_1 \beta}{\alpha + \beta}\left(\frac{p_1/a}{p_2/b}\right) - \frac{\alpha \underline{x}_2}{\alpha + \beta} \right)\frac{1}{b} \]
+\[ = \frac{\beta w}{(\alpha + \beta)p_2} - \frac{\underline{x}_1 \beta}{\alpha + \beta}\left(\frac{p_1/a}{p_2}\right) + \frac{\alpha \underline{x}_2}{(\alpha + \beta)b} \]
+\[ = \frac{\beta a b w - \beta b \underline{x}_1 p_1 + \alpha a \underline{x}_2p_2}{(\alpha + \beta)ab p_2} \]
+\[ = x_2(p_1, p_2, w) \]
+and thus we have verified the identity.
+\paragraph{(1.6)}
+The Slutsky equation is given by:
+\[ \frac{\partial x_l(p,w)}{\partial p_k} = \frac{\partial h_l(p, v(p,w))}{\partial p_k} - x_k(p,w) \frac{\partial x_l(p,w)}{\partial w}  \]
+We first verify a cross effect $l=1, k=2$:
+\[\frac{\partial x_l(p,w)}{\partial p_k} = - \frac{\alpha  \underline{x}_2}{(\alpha + \beta)bp_1} \]
+\[ \frac{\partial h_l(p, v(p,w))}{\partial p_k} = \frac{\beta v(p,w)^{1/(\alpha+\beta)}}{a(\alpha + \beta)p_2^{\alpha/(\alpha + \beta)}}\left( \frac{ \alpha a}{\beta p_1 b} \right)^{\beta/(\alpha + \beta)} \]
+\[ = \frac{\alpha\beta}{a(\alpha + \beta)^2p_2^{\alpha/(\alpha + \beta)}}\left( \frac{ a}{ p_1 b} \right)^{\beta/(\alpha + \beta)}\left(\frac{w}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right) \]
+\[ = \frac{\alpha\beta}{(\alpha + \beta)^2}\left(\frac{w}{p_1p_2} - \frac{\underline{x}_1}{ap_2} - \frac{\underline{x}_2}{bp_1} \right) \]
+\[ x_k(p,w)\frac{\partial x_l(p,w)}{\partial w} = \frac{\beta a b w - \beta b \underline{x}_1 p_1 + \alpha a \underline{x}_2p_2}{(\alpha + \beta)ab p_2} \frac{\alpha }{(\alpha + \beta)p_1} \]
+\[= \alpha \frac{\beta a b w - \beta b \underline{x}_1 p_1 + \alpha a \underline{x}_2p_2}{(\alpha + \beta)^2 ab p_1p_2} \]
+\[ \frac{\partial h_l(p, v(p,w))}{\partial p_k} - x_k(p,w)\frac{\partial x_l(p,w)}{\partial w} = \frac{\alpha\beta}{(\alpha + \beta)^2}\left(\frac{w}{p_1p_2} - \frac{\underline{x}_1}{ap_2} - \frac{\underline{x}_2}{bp_1} \right) - \alpha \frac{\beta a b w - \beta b \underline{x}_1 p_1 + \alpha a \underline{x}_2p_2}{(\alpha + \beta)^2 ab p_1p_2} \]
+\[ = \frac{\alpha }{(\alpha+\beta)^2}\left(\left(\frac{\beta w}{p_1p_2} - \frac{\beta\underline{x}_1}{ap_2} - \frac{\beta\underline{x}_2}{bp_1} \right) - \frac{\beta a b w - \beta b \underline{x}_1 p_1 + \alpha a \underline{x}_2p_2}{ ab p_1p_2} \right) \]
+\[ = \frac{\alpha }{(\alpha+\beta)^2}\left(- \frac{ (\alpha+\beta) a \underline{x}_2p_2}{ ab p_1p_2} \right) \]
+\[ = - \frac{ \alpha \underline{x}_2}{ (\alpha+\beta)b p_1}  \]
+\[ =  \frac{\partial x_l(p,w)}{\partial p_k} \]
+and hence we have verified the Slutsky equation for this cross-effect term.
+
+For an own-effect term, we investigate $l=1$:
+\[\frac{\partial x_l(p,w)}{\partial p_l} = -\frac{\alpha abw  -  \alpha a\underline{x}_2p_2 }{(\alpha+\beta)abp_1^2}\]
+\[ = -\frac{\alpha bw  -  \alpha \underline{x}_2p_2 }{(\alpha+\beta)bp_1^2} \]
+\[ \frac{\partial h_l(p, v(p,w))}{\partial p_l} = -v(p,w)^{1/(\alpha+\beta)}\frac{\beta}{a(\alpha+\beta)p_1^{\beta/(\alpha+\beta)+1}}\left( \frac{ \alpha a p_2}{\beta b} \right)^{\beta/(\alpha + \beta)} \]
+\[ = - \frac{\alpha \beta}{(\alpha+\beta)^2}\left(\frac{w}{p_1^2} -\frac{ \underline{x}_1}{ap_1}- \frac{\underline{x}_2p_2}{bp_1^2} \right)\]
+\[ x_l(p,w)\frac{\partial x_l(p,w)}{\partial w} = \left(\frac{\alpha ab w + \beta b p_1 \underline{x}_1 - \alpha a p_2 \underline{x}_2}{(\alpha + \beta)abp_1}\right)\left(\frac{\alpha}{(\alpha + \beta)p_1}\right)\]
+\[ = \alpha \left(\frac{\alpha ab w + \beta b p_1 \underline{x}_1 - \alpha a p_2 \underline{x}_2}{(\alpha + \beta)^2abp_1^2}\right) \]
+\[ \frac{\partial h_l(p, v(p,w))}{\partial p_l} - x_l(p,w)\frac{\partial x_l(p,w)}{\partial w} = - \frac{\alpha \beta}{(\alpha+\beta)^2}\left(\frac{w}{p_1^2} -\frac{ \underline{x}_1}{ap_1}- \frac{\underline{x}_2p_2}{bp_1^2} \right) - \alpha \left(\frac{\alpha ab w + \beta b p_1 \underline{x}_1 - \alpha a p_2 \underline{x}_2}{(\alpha + \beta)^2abp_1^2}\right)\]
+\[= - \frac{\alpha \beta}{(\alpha+\beta)^2}\left(\frac{(\alpha+\beta)w}{\beta p_1^2} - \frac{(\alpha+\beta)a\underline{x}_2p_2}{\beta abp_1^2}  \right)\]
+\[= - \frac{\alpha }{(\alpha+\beta)b p_1^2}\left(bw- \underline{x}_2p_2  \right)\]
+\[= \frac{\partial x_l(p,w)}{\partial p_l}\]
+And hence we have verified this own-effect case of the Slutsky equation.
+\pagebreak
+\section*{Part 2}
+\paragraph{(2.1)}
+We first show continuity of $v$. Suppose we have a sequence of prices and wealths $p^n, w^n$ converging to $p, w$. Let $x$ be such that $x \in x(p,w)$, and so $v(p,w) = u(x)$. Define the sequence of bundles $x^n = w^n x / (p^n \cdot x)$. Clearly, $x^n$ is affordable at every budget set $(p^n, w^n)$, by definition. Hence $v(p^n, w^n) \ge u(x^n)$. Then since $p^n, w^n \to p, w$, we have by continuity of $u$ that $u(x^n) \to u(wx/(p\cdot x)) = u(x)$. So we therefore have
+\[ \lim \inf v(p^n, w^n) \ge \lim \inf u(x^n) = u(x) = v(p,w) \]
+Now, we consider some sequence $x^n$ such that $x^n \in x(p^n, w^n)$, and $\lim u(x^n) = \lim \sup v(p^n, w^n)$. Since $p^n x^n \le w^n$, we must have that $x^n_i \le \frac{\sup w^n}{\inf p^n_i}$. Note that since $p^n \to p$, $w^n \to w$, we can pick some subsequence so that $\sup w^n$ and $\inf p^n_i$ are all defined. On this subsequence then, $x^n$ is bounded, and since $x^n$ converges, there exists some $x$ such that $x^n$ converges to $x$ on the subsequence where $x^n$ is bounded. Therefore, since $p^n x^n \le w^n$ by choice of $x^n$, we get that $p \cdot x \le w$ due to convergence of $p^n$, $w^n$. Hence $x$ is affordable at $p, w$, so $u(x) \le v(p, w)$. But we chose $x^n$ such that $u(x) = \lim u(x^n) = \lim \sup v(p^n, w^n)$. Hence $\lim \sup v(p^n, w^n) \le v(p,w)$.
+
+We have shown $\lim \sup v(p^n, w^n) \le v(p,w) \le \lim \inf v(p^n, w^n)$. But since $\lim \inf \le \lim \sup$ always, the only possibility is for all three to be equal. Hence $\lim v(p^n, w^n) = v(p,w)$, and we have that $v$ is continuous.
+
+Now, we show any concave function is continuous. Suppose $f$ is concave, and consider a sequence $x^n \to x$. Fix some $c$. Pick some $x'$ such that $x+c > x' > x$. By concavity,
+\[ f(x') \ge \frac{x + c -x'}{c}f(x) + \frac{x'-x}{c}f(x + c)  \]
+Also by concavity,
+\[ f(x) \ge \frac{x'-x}{x'-x+c}f(x-c) + \frac{c}{x'-x+c}f(x') \]
+\[ \frac{c}{x'-x+c}f(x') \le f(x) - \frac{x'-x}{x'-x+c}f(x-c) \]
+\[ f(x') \le \frac{x'-x+c}{c}f(x) - \frac{x'-x}{c}f(x-c) \]
+Hence $f(x')$ is bounded above and below by
+\[ \frac{x + c -x'}{c}f(x) + \frac{x'-x}{c}f(x + c) \le f(x') \le \frac{x'-x+c}{c}f(x) - \frac{x'-x}{c}f(x-c)\]
+\[ \frac{x -x'}{c}f(x) + \frac{x'-x}{c}f(x + c) \le f(x') - f(x) \le \frac{x'-x}{c}f(x) - \frac{x'-x}{c}f(x-c)\]
+\[ \frac{x'-x}{c}(f(x+c) - f(x)) \le f(x') - f(x) \le \frac{x'-x}{c}(f(x) - f(x-c)) \]
+Consider the subsequence of $x^n$ which contains only the $x^i \ge x$. Then that subsequence $x^i$ satisfies
+\[ \frac{x^i-x}{c}(f(x+c) - f(x)) \le f(x^i) - f(x) \le \frac{x^i-x}{c}(f(x) - f(x-c)) \]
+And hence since $x^i \to x$, $f(x^i) - f(x) \to 0$.
+
+Similarly, if $x-c < x' < x$, we get from concavity
+\[ f(x') \ge \frac{x' - (x- c)}{c}f(x) + \frac{x-x'}{c}f(x - c)  \]
+\[ f(x) \ge \frac{x-x'}{x-x'+c}f(x+c) + \frac{c}{x-x'+c}f(x') \]
+\[ f(x') \le \frac{x-x'+c}{c}f(x) - \frac{x-x'}{c}f(x+c) \]
+So
+\[ \frac{x' + c - x}{c}f(x) + \frac{x-x'}{c}f(x - c) \le f(x') \le \frac{x-x'+c}{c}f(x) - \frac{x-x'}{c}f(x+c) \]
+\[ \frac{x-x'}{c}(f(x) - f(x - c) ) \ge f(x) - f(x') \le \frac{x-x'}{c}(f(x+c) - f(x)) \]
+
+\paragraph{(2.2)}
+We claim these concepts are equivalent: specifically, we will show that homothetic preferences imply that any utility representation of these preferences is homothetic, that the choice function induced by a homothetic utility function is homothetic, and that homothetic choice functions are represented by preferences that are homothetic. (We only have to prove pref $\to$ utility $\to$ choice $\to$ pref, since any other pair can be proved equivalent following two or more steps through the chain).
+
+We first show homothetic preferences imply that any utility function that represents these preferences is also homothetic. Suppose $\succeq$ is homothetic, and suppose $u$ represents $\succeq$. Suppose $u$ is not homothetic; that $\exists x, y, \alpha$ such that $u(x) = u(y)$ and $u(\alpha x) \neq u(\alpha y)$. WLOG, let  $u(\alpha x) < u(\alpha y)$. Since $u$ represents $\succeq$, we must have $\alpha y \succ \alpha x$. Using $1/\alpha$ as the scaling, since $\succeq$ is homothetic, $ y \succ x$. But $u(x) \ge u(y)$ and $y \succ x$ implies $x \not \succeq y$, so we have a contradiction of the fact that $u$ represents $\succeq$. Hence we have shown that homothetic preferences are always represented by homothetic utility functions.
+
+We now show that homothetic utility functions induce homothetic choice functions. Suppose $u$ is homothetic. Consider the induced choice function $C_u$. Let
+\[ x \in C_u(\{ x : px \le w \}) \]
+\[ y \in C_u(\{ x: px \le \alpha w \}) \]
+We claim $x \in C_u(\{ x: px \le \alpha w \})$ and $y \in C_u(\{ x : px \le w \})$. From our first assumption, since $x$ was affordable under the first budget, $\alpha x$ is affordable in the second: $p \cdot (\alpha x) \le \alpha w$. Suppose some $y \in C_u(\{ x: px \le \alpha w \})$. Since $C$ is induced by $u$, we must have $u(y) \ge u(\alpha x)$. By homotheticity, this implies $u(y/\alpha) \ge u( x)$. But $p \cdot y/\alpha \le w$, so by utility maximization, we have $u(x) = u(y/\alpha)$, and by homotheticity, $u(\alpha x) = u(y)$. Hence, we must have $\alpha x \in C_u(\{ x : px \le \alpha w)$ and $y/\alpha \in C_u(\{ x: px \le w \})$. So we are done.
+
+Finally, we show that a homothetic choice function with a preference representation must have that representation be homothetic. Suppose $x, y$ are such that $x \in C(\{ x: px \le w \})$ for some $p, w$, and WLOG suppose $py \le w$. Then since $\succeq$ represents this choice function, we have $x \succeq y$. By homotheticity of $C$, then we know that at $(p, \alpha w)$, $\alpha x \in C(\{ x : px \le \alpha w \})$, and $p(\alpha y) \le \alpha w$. Hence, since $\alpha x$ was chosen for this budget set when $\alpha y$ was affordable, $\alpha x \succeq \alpha y$. Hence $x\succeq y$ implies $\alpha x \succeq \alpha y$, so the preferences are homothetic.
+
+In order to show that the MRS is constant on rays for a homothetic utility function, we first show a lemma. We claim that for any homothetic utility function $u$, $\exists g, v$ such that $g$ is a monotonically increasing transformation, and $v$ is homogeneous of some degree 1, and $u = g \circ v$. To show this, we consider the preferences induced by $u$. We proved earlier that these preferences will be homothetic ($u$ induces a homothetic choice function, which implies that the preference representation is homothetic). For any $x$, there is some $\lambda_x$ such that $x \sim \lambda_x \vec{1}$. Consider the utility representation $v(x) = \lambda_x$. It is clear that $v$ represents $\succeq$, since
+$x \succeq y$ iff $\lambda_x \vec{1} \succeq \lambda_y \vec{1} $ iff $\lambda x \ge \lambda y$. We know $v$ is homothetic, since we showed previously that any utility representation of homothetic preferences is homothetic. We further note that $v$ is homogeneous of degree 1:
+\[ x \sim \lambda_x \vec{1} \iff \alpha \sim \alpha \lambda_x \vec{1} \]
+by homotheticity. Hence $v(\alpha x) = \alpha \lambda_x = \alpha v(x)$. Since $u$ and $v$ both represent $\succeq$, there exists some monotonic transformation $g$ such that $g\circ v = u$, and hence we are done.
+
+We now show that the MRS is constant on rays through the origin. Suppose $u$ is homothetic. By our lemma, there exists some $g$, $v$, such that $u = g \circ v$, $v$ homogeneous of degree 1. The MRS is given by:
+\[ - \frac{\frac{du}{dx_1}(\alpha \vec{x})}{\frac{du}{dx_2}(\alpha \vec{x})} = -\frac{g' \frac{dv}{dx_1}(\alpha \vec{x})}{g' \frac{dv}{dx_2}(\alpha \vec{x})} \]
+\[ = - \frac{\frac{dv}{dx_1}(\alpha \vec{x})}{\frac{dv}{dx_2}(\alpha \vec{x})} \]
+\[ = - \frac{\alpha \frac{dv}{dx_1}(\vec{x})}{\alpha \frac{dv}{dx_2}(\vec{x})} \]
+\[ = - \frac{\frac{dv}{dx_1}(\vec{x})}{\frac{dv}{dx_2}(\vec{x})} \]
+Where in the second to last step we have used homogeneity of degree 1 for $v$. Hence, the value of the MRS is independent of $\alpha$, and so the MRS is constant on rays through the origin.
+
+We now show any homogeneous utility function is homothetic. Suppose $u$ is homogeneous of some degree $k$, and let $u(x) = u(y)$. Then $u(\alpha x) = \alpha^k u(x) = \alpha^k u(y) = u(\alpha y)$, and hence $u$ is homothetic.
+
+We now show the converse need not hold. Consider $u(x) = x + 1$. Then $u(x) = u(y)$ implies that $x = y$ which implies $u(\alpha x) = u(\alpha y)$. However, $u$ is not homogeneous of any degree.
+\paragraph{(2.3)}
+Consider utility $u$ homothetic. Define the function
+\[ \tilde{x}(p) = x(p,1) \]
+Then by definition of the demand, the induced choice function $C$ is such that
+\[ x(p,w) \in C(\{ x : px \le w\}) \]
+From 2.2, we know that $C$ is homothetic, so
+\[ \frac{1}{w}x(p,w) \in C(\{ x: px \le 1) \]
+But
+\[ \tilde{x}(p) = x(p,1) \in C(\{ x: px \le 1) \]
+Since the demand is single-valued by assumption, we then have
+\[\frac{1}{w}x(p,w) = \tilde{x}(p) \]
+\[ x(p,w) =\tilde{x}(p) w \]
+as desired. Then, it is trivial to see $\partial x / \partial w = \tilde{x}(p) \ge 0$. Hence, there are no Giffen goods for homothetic utility functions. In reality, I might not expect preferences to be homothetic, despite how convenient they are. I do expect to see some wealth effects in the extreme limit; i.e. if someone gets the same utility out of 1 donut and \$1, I don't expect them to derive the same utility out of 100000000000 donuts and \$100000000000. (Money is a convenient numeraire good.)
+\paragraph{(2.4)}
+The FOCs are: for $i < n$,
+\[ \frac{\partial \tilde{u}}{\partial x_i} - \lambda p_i = 0 \]
+for $i = n$
+\[ 1- \lambda p_n = 0 \]
+Then we can eliminate $\lambda = 1/p_n$. Hence for $i < n$,
+\[ \frac{\partial \tilde{u}}{\partial x_i} = \frac{p_i}{p_n} \]
+becomes the FOC.
+
+We note that rewriting the binding budget constraint as
+\[ \sum_{i=1}^{n-1} p_ix_i = \frac{w}{p_n} - x_n \]
+We then have a hidden dependence; our wealth has manifested itself in the consumption $x_n$. Thus, the textbook cannot really claim there is no wealth effect; the wealth effect is instead found in the price effect of $p_n$.
+
+\pagebreak
+\section*{Part 3}
+\paragraph{(3.1)}
+Consider a Cobb-Douglas utility function $x_1^\alpha x_2^{(1-\alpha)}$. The demands are
+\[ x = \left( \frac{\alpha w}{p_1}, \frac{\alpha w}{p_2} \right) \]
+And hence $\partial x_1 / \partial p_2 = 0 = \partial x_2 / \partial p_1$.
+
+Now we provide an example where the cross price derivatives of the Marshallian demand are nonsymmetric. Consider the example from problem 1. The Marshallian demands are:
+\[ x_1  = \frac{\alpha ab w + \beta b p_1 \underline{x}_1 - \alpha a p_2 \underline{x}_2}{(\alpha + \beta)abp_1} \]
+\[ x_2 = \frac{\beta a b w - \beta b \underline{x}_1 p_1 + \alpha a \underline{x}_2p_2}{(\alpha + \beta)ab p_2} \]
+\[ \frac{\partial x_1}{\partial p_2} = - \frac{\alpha a\underline{x}_2}{(\alpha + \beta)abp_1} \]
+\[ \frac{\partial x_2}{\partial p_1} = - \frac{- \beta b \underline{x}_1}{(\alpha + \beta)abp_2} \]
+And these are generally not equal (we can pick whatever $\alpha, \beta, a, b, ...$ to make these nonequal).
+However, the Hicksian demands are:
+\[ h_1 = \frac{\underline{x}_1}{a} + \frac{u^{1/(\alpha+\beta)}}{a}\left( \frac{ \alpha a p_2}{\beta p_1 b} \right)^{\beta/(\alpha + \beta)}  \]
+\[ h_2 = \frac{\underline{x}_2}{b} + \frac{u^{1/(\alpha+\beta)}}{b}\left( \frac{ \beta b p_1}{\alpha a p_2} \right)^{\alpha/(\alpha + \beta)}  \]
+\[ \frac{\partial h_1}{\partial p_2} = \frac{u^{1/(\alpha+\beta)}\beta}{a(\alpha + \beta)}\left( \frac{ \alpha a p_2}{\beta p_1 b} \right)^{-\alpha/(\alpha + \beta)} \left(\frac{\alpha a}{\beta p_1 b} \right) \]
+\[ = \frac{u^{1/(\alpha+\beta)}}{(\alpha + \beta)}\left( \frac{\beta }{ a p_2} \right)^{\alpha/(\alpha + \beta)} \left(\frac{\alpha }{ p_1 b} \right)^{\beta/(\alpha+\beta)} \]
+\[ \frac{\partial h_2}{\partial p_1} = \frac{u^{1/(\alpha+\beta)}\alpha}{b(\alpha + \beta)}\left( \frac{ \beta b p_1}{\alpha a p_2} \right)^{-\beta/(\alpha + \beta)} \left(\frac{\beta b}{\alpha a p_2} \right) \]
+\[= \frac{u^{1/(\alpha+\beta)}}{(\alpha + \beta)}\left( \frac{\alpha } { b p_1}\right)^{\beta/(\alpha + \beta)} \left(\frac{\beta }{ ap_2} \right)^{\alpha/(\alpha + \beta)}\]
+And we see these two cross price derivatives are equal.
+\paragraph{(3.2)}
+Consider the following utility:
+\[ u(x_1, x_2) = \min(x_1 + 10, 2(x_1 + x_2)) \]
+If $p_1 > p_2$, the consumer will consume at the vertex point
+\[ x_1 + 10 = 2x_1 + 2x_2 \]
+\[ 2x_2 + x_1 = 10 \]
+\[ p_1 x_1 + p_2 x_2 = w \]
+\[ p_1 (10 - 2x_2) + p_2 x_2 = w\]
+\[ x_2 = \frac{10 p_1 - w}{ 2p_1 - p_2} \]
+\[ x_1 = \frac{10 p_2 - 2w}{p_2 - 2p_1} \]
+Then the cross price derivatives are
+\[ \frac{\partial x_2}{\partial p_1} = \frac{10( 2p_1 - p_2) - 2(10p_1 - w)}{(p_2 - 2p_1)^2}\]
+\[ =  \frac{2w -10p_2}{(p_2 - 2p_1)^2}\]
+\[ \frac{\partial x_1}{\partial p_2} = \frac{10(p_2 - 2p_1) - (10p_2 - 2w)}{(p_2 - 2p_1)^2}\]
+\[ =  \frac{2w -20p_1}{(p_2 - 2p_1)^2}\]
+Then for example, at $w=1$, $p_1 = 0.15$, $p_2 = 0.1$, these two cross price derivatives have different signs.
+
+Yes, it is true that the cross price derivatives of Walrasian demand need not have the same sign. However, we can salvage our terminology by making complements/substitutes directional: i.e., we can claim $x_1$ is a substitute to $x_2$ if $dx_1/dp_2 > 0$, or a complement to $x_2$. We note in general that mismatched signs will require unusual behavior in wealth effects, so most of the time it will hold that these ar symmetric. For mathematical symmetry, we can more comfortably talk about Hicksian demand changes in price.
+
+\paragraph{(3.3)}
+Using Shepard, we know
+\[ D_p h = D^2p e \]
+Somehow, it makes sense for Slutsky symmetry due to the symmetry of the second derivative matrix of expenditure; if I observe expenditure when I change $p_k$ and then $p_l$ shouldn't be different from first changing $p_l$ and then $p_k$.
+\paragraph{(3.4)}
+Consider the utility function given by $u(x_1, x_2) = \max(x_1, 1)\max(x_2, 1)$. We note this is clearly not quasiconcave since the upper contour sets are not convex; the indifference curves look like $c = xy$, but behave as $c=x$ and $c=y$ near the tails. The expenditure function is then:
+\[ e(p_1, p_2, u) = \min(p_1 u, p_2 u, 2\sqrt{up_1p_2}) \]
+\paragraph{(3.5)}
+Note that in the previous problem, when our solutions are interior, the expenditure is $2 \sqrt{u p_1 p_2}$. Note if $u \le 4$, there is no interior solution, and the convex hull is $x+y = u$, which gives us the same expenditure function on this region: $e(p_1, p_2, u \le 4) = \min(p_1 u, p_2 u)$. For $u > 4$, the conditions for an interior solution are
+\[ \frac{u}{4} > \frac{p_1}{p_2} > \frac{4}{u}\]
+If $p_1/p_2 \ge u/4$, we consume only good $2$; if $p_1/p_2 < 4/u$, we consume only good $1$. When we replace our upper contour sets with their convex hulls, we find the same conditions for interior, and the same boundary results. Thus, our expenditure function is still
+\[ e(p_1, p_2, u) = \min(p_1 u, p_2 u, 2\sqrt{up_1p_2}) \]
+\paragraph{(3.6)}
+We can formalize the intuition from 3.4, 3.5 by arguing that the expenditure function generated by any non-quasiconcave utility $u$ is equal to the expenditure function generated by utility $u'$ with upper contour sets being the convex hulls the upper contour sets of $u$. Consider a non-quasiconcave $u$. Then define \[ u'(x) = \max_{x', x'': u(x') = u(x''), \ x = \lambda x' + (1-\lambda)x''}(u(x), u(x')) \] We note by construction this is quasiconcave. It suffices to argue that this generates the same expenditure function. Since $u'(x) \ge u(x)$ everywhere, we know that $e(p, u) ge e'(p,u)$. It suffices to show $e'(p, u) \ge e(p,u)$. We note that if the the utility functions are equivalent at the optimal bundle, then it is clear that the expenditures are equal. So we show the other case; suppose that $\exists x$ such that $u = u'(x)$, $p\cdot x = e'(p,u)$, and $u(x) < u'(x) = u$. By definition of $u'$, this implies that $u'(x) = u(x') = u(x'')$ for some $x', x''$ such that $x = \lambda x' + (1-\lambda)x''$. So this implies that $u(x) < u(x') = u(x'')$. Due to expenditure minimization, we must have $p \cdot x', p\cdot x'' \ge p \cdot x$. But since $x = \lambda x' + (1-\lambda)x''$, we require $p \cdot x' = p\cdot x'' = p \cdot x$, else we cannot have $p \cdot (\lambda x' + (1-\lambda)x'') = p\cdot x$. Hence both $x', x''$ are affordable at $p$, and $u = u(x') = u(x'') > u(x)$. By expenditure minimization, this implies $e(p,u) \le p \cdot x' = p \cdot x = e'(p,u) $ as desired. Hence, the expenditure functions for $u$ and $u'$ are equal, and we are done.
+
+Hence, any expenditure function we find can be generated by some quasiconcave utility function. However, I slightly disagree with Millicent. We might not want to cut ourselves off to only quasiconcave utility functions, since this implies indifference in places where we may not want indifference. Specifically, I can think of at least one use case where we may want to consider non-quasiconcave utilities: risk aversion. If we ask a consumer to spend \$1 purchasing tickets for two lotteries, where the fraction of their wealth spent on the tickets increases/decreases their chances of winning either lottery, even if we observe the risk-averse case of consumers purchasing extreme points (i.e. spending all on one lottery), we still may not want to assume indifference in between mixtures. (i.e. sometimes a non-quasiconcave utility happens in real life)
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
