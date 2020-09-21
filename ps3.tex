@@ -81,20 +81,31 @@ We first confirm that $v$ is quasiconvex. We rewrite our indirect utility as
 \[ v(p_1, p_2, w)  = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{abw - bp_1\underline{x}_1- ap_2 \underline{x}_2}{ b p_1} \right)^\alpha\left(\frac{ab w -ap_2\underline{x}_2 - bp_1\underline{x}_1}{a p_2} \right)^\beta \]
 \[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\frac{(abw - bp_1\underline{x}_1- ap_2 \underline{x}_2)^{\alpha + \beta}}{ a^\beta b^\alpha p_1^\alpha p_2^\beta}  \]
 \[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{w}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta}  \]
+\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\frac{\left(w - \underline{x}_1(p_1/a)- \underline{x}_2(p_2/a) \right)^{\alpha + \beta}}{(p_1/a)^\alpha(p_2/b)^\beta}  \]
+Consider $(p_1, p_2, w)$ and $(p'_1, p'_2, w')$. Let $p''_1 = \lambda p_1 + (1-\lambda)p'_1$, $p''_2 = \lambda p_2 + (1-\lambda)p'_2)$, and $w''=\lambda w + (1-\lambda)w')$. Take $q''_1 = p''_1/a$, $q''_2=p''_2/b$, $q'_1 = p'_1/a$, $q'_2= p'_2/b$, $q_1 = p_1/a$, $q_2 = p_2/a$. We note that $q''_1 = \lambda q_1 + (1-\lambda) q'_1$, $q''_2 = \lambda q_2 + (1-\lambda) q_2'$. Further, denote $\omega = w - \underline{x}_1q_1- \underline{x}_2 q_2$, $\omega' = w' - \underline{x}_1q'_1- \underline{x}_2 q'_2$. Then $\omega'' = \lambda \omega + (1-\lambda) \omega' = w'' - \underline{x}_1q''_1 - \underline{x}_2 q''_2$. So we have
 
-Consider $(p_1, p_2, w)$ and $(p'_1, p'_2, w')$. Let $p''_1 = \lambda p_1 + (1-\lambda)p'_1$, $p''_2 = \lambda p_2 + (1-\lambda)p'_2)$, and $w''=\lambda w + (1-\lambda)w')$. Take $q''_1 = p''_1/a$, $q''_2=p''_2/b$, $q'_1 = p'_1/a$, $q'_2= p'_2/b$, $q_1 = p_1/a$, $q_2 = p_2/a$. We note that $q''_1 = \lambda q_1 + (1-\lambda) q'_1$, $q''_2 = \lambda q_2 + (1-\lambda) q_2'$. Then
+\[ v(p''_1, p''_2, w'') =  \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\frac{(\omega'')^{\alpha + \beta}}{(q_1'')^\alpha (q_2'')^\beta} \]\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{\omega''}{(q_1'')^{\alpha/(\alpha+\beta)} (q_2'')^{\beta/(\alpha+\beta)}} \right)^{\alpha + \beta} \]
 
-\[ v(p''_1, p''_2, w'') = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{w''}{(q_1'')^{\alpha/(\alpha+\beta)}(q_2'')^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{q''_1}{q''_2}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{q_2''}{q_1''}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta} \]
-\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}(q_1'')^{\alpha}(q_2'')^{\beta}}\left(w'' - \underline{x}_1q''_1- \underline{x}_2 q''_2 \right)^{\alpha + \beta} \]
-\[ = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}(q_1'')^{\alpha}(q_2'')^{\beta}}\left(\lambda(w - \underline{x}_1q_1- \underline{x}_2 q_2) + (1-\lambda)(w' - \underline{x}_1q'_1- \underline{x}_2 q'_2) \right)^{\alpha + \beta} \]
+But we know that since $\alpha/(\alpha+\beta)$ and $\beta/(\alpha + \beta)$ are both $< 1$, we have that
+\[ q_1''^{\alpha/(\alpha+\beta)} \ge (\lambda q_1)^{\alpha/(\alpha+\beta)} + ((1-\lambda) q'_1)^{\alpha/(\alpha+\beta)} \]
+\[ q_2''^{\beta/(\alpha+\beta)} \ge (\lambda q_2)^{\beta/(\alpha+\beta)} + ((1-\lambda) q'_2)^{\beta/(\alpha+\beta)} \]
+So
+\[ q_1''^{\alpha/(\alpha+\beta)}q_2''^{\beta/(\alpha+\beta)} \ge \left( (\lambda q_1)^{\alpha/(\alpha+\beta)} + ((1-\lambda) q'_1)^{\alpha/(\alpha+\beta)} \right)\left((\lambda q_2)^{\beta/(\alpha+\beta)} + ((1-\lambda) q'_2)^{\beta/(\alpha+\beta)} \right)\]
+\[ \ge (\lambda q_1)^{\alpha/(\alpha+\beta)}(\lambda q_2)^{\beta/(\alpha+\beta)} + ((1-\lambda) q'_1)^{\alpha/(\alpha+\beta)}((1-\lambda) q'_2)^{\beta/(\alpha+\beta)} \]
+\[ = \lambda q_1^{\frac{\alpha}{\alpha+\beta}}q_2^{\frac{\beta}{\alpha+\beta}} + (1-\lambda)(q'_1)^{\frac{\alpha}{\alpha+\beta}}(q'_2)^{\frac{\beta}{\alpha+\beta}}\]
+\[ \ge \min \left(q_1^{\frac{\alpha}{\alpha+\beta}}q_2^{\frac{\beta}{\alpha+\beta}}, (q'_1)^{\frac{\alpha}{\alpha+\beta}}(q'_2)^{\frac{\beta}{\alpha+\beta}} \right) \]
+Plugging this back in, we have
+\[ v(p''_1, p''_2, w'') = \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{\omega''}{(q_1'')^{\alpha/(\alpha+\beta)} (q_2'')^{\beta/(\alpha+\beta)}} \right)^{\alpha + \beta} \]
+\[ \le \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{\lambda\omega + (1-\lambda)\omega'}{\min \left(q_1^{\frac{\alpha}{\alpha+\beta}}q_2^{\frac{\beta}{\alpha+\beta}}, (q'_1)^{\frac{\alpha}{\alpha+\beta}}(q'_2)^{\frac{\beta}{\alpha+\beta}} \right)} \right)^{\alpha + \beta}  \]
+\[ \le \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{\max(\omega, \omega')}{\min \left(q_1^{\frac{\alpha}{\alpha+\beta}}q_2^{\frac{\beta}{\alpha+\beta}}, (q'_1)^{\frac{\alpha}{\alpha+\beta}}(q'_2)^{\frac{\beta}{\alpha+\beta}} \right)} \right)^{\alpha + \beta} \]
+\[ \le \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\max \left(\frac{\omega}{q_1^{\frac{\alpha}{\alpha+\beta}}q_2^{\frac{\beta}{\alpha+\beta}}}, \frac{\omega'}{(q_1')^{\frac{\alpha}{\alpha+\beta}}(q_2')^{\frac{\beta}{\alpha+\beta}}}) \right)^{\alpha + \beta} \]
+\[ \le \max (v(p_1, p_2, w), v(p_1', p_2', w')) \]
 
+Hence we have verified quasiconcavity.
 
-
-
-
-TODO FINISH THIS
-
-
+We note that the indirect utility function here is not necessarily convex. If $\alpha + \beta < 1$, then the indirect utility function
+\[ \frac{\alpha^\alpha \beta^\beta}{(\alpha+\beta)^{\alpha + \beta}}\left(\frac{w}{(p_1/a)^{\alpha/(\alpha+\beta)}(p_2/b)^{\beta/(\alpha+\beta)}} - \underline{x}_1\left(\frac{p_1/a}{p_2/b}\right)^{\beta/(\alpha+\beta)}- \underline{x}_2 \left(\frac{p_2/b}{p_1/a}\right)^{\alpha/(\alpha+\beta)} \right)^{\alpha + \beta}  \]
+has a $w^{\alpha + \beta}$ dependence, and so the indirect utility function will not be convex in $w$.
 
 We now show that convexity implies quasiconvexity. Suppose $f$ is convex. Then we know
 \[ f(\lambda x + (1-\lambda) x') < \lambda f(x) + (1-\lambda)f(x') \]
@@ -120,6 +131,9 @@ The demand is
 Then
 \[ \frac{1}{2} v(1, 1, 0) + \frac{1}{2} v(1, 1, 2) = \frac{1}{2} < \frac{\sqrt{2}}{2} = v(1,1,1)  \]
 Hence, the indirect utility function here is not convex (we note it is still quasiconvex).
+
+We note that not all indirect utility functions can be non-convex; consider a constant utility function $u(x) = c$. The indirect utility function generated by this is then constant, which is trivially convex (not strictly convex, but convex).
+
 \paragraph{(1.3)}
 The expenditure minimization is given by:
 \[ \min p_1 x_1 + p_2 x_2 \]
@@ -155,12 +169,7 @@ We first show $e$ is concave in $p$. Consider $p, p'$. Let $h, h'$ be the Hicksi
 \[ = \lambda e(p, u) + (1-\lambda)e(p', u) \]
 Hence we have concavity.
 
-
-
-
-TODO
-
-
+Intuitively, in the utility maximization problem, we only have quasiconvexity since we take our convexity/quasiconvexity over $p$ and $w$, whereas we take concavity only over $p$ for the expenditure function. This corresponds to our convexity being over the parameters in the onstraint set in the utility maximization problem, whereas we get concavity over the parameters in the objective in the expenditure minimization problem.
 
 
 \paragraph{(1.5)}
@@ -335,7 +344,7 @@ becomes the FOC.
 
 We note that rewriting the binding budget constraint as
 \[ \sum_{i=1}^{n-1} p_ix_i = \frac{w}{p_n} - x_n \]
-We then have a hidden dependence; our wealth has manifested itself in the consumption $x_n$. Thus, the textbook cannot really claim there is no wealth effect; the wealth effect is instead found in the price effect of $p_n$.
+We then have a hidden dependence; our wealth has manifested itself in the consumption $x_n$. Note that if $w$ is too small, we can't find a $x_n$ to cover the desired consumption; then our proof in $2.3$ breaks down. Thus, the textbook cannot really claim there is no wealth effect; the wealth effect is instead found in the price effect of $p_n$, and implicitly assumes wealth is large enough to cover the consumption.
 
 \pagebreak
 \section*{Part 3}
@@ -392,7 +401,7 @@ If $p_1/p_2 \ge u/4$, we consume only good $2$; if $p_1/p_2 < 4/u$, we consume o
 \paragraph{(3.6)}
 We can formalize the intuition from 3.4, 3.5 by arguing that the expenditure function generated by any non-quasiconcave utility $u$ is equal to the expenditure function generated by utility $u'$ with upper contour sets being the convex hulls the upper contour sets of $u$. Consider a non-quasiconcave $u$. Then define \[ u'(x) = \max_{x', x'': u(x') = u(x''), \ x = \lambda x' + (1-\lambda)x''}(u(x), u(x')) \] We note by construction this is quasiconcave. It suffices to argue that this generates the same expenditure function. Since $u'(x) \ge u(x)$ everywhere, we know that $e(p, u) ge e'(p,u)$. It suffices to show $e'(p, u) \ge e(p,u)$. We note that if the the utility functions are equivalent at the optimal bundle, then it is clear that the expenditures are equal. So we show the other case; suppose that $\exists x$ such that $u = u'(x)$, $p\cdot x = e'(p,u)$, and $u(x) < u'(x) = u$. By definition of $u'$, this implies that $u'(x) = u(x') = u(x'')$ for some $x', x''$ such that $x = \lambda x' + (1-\lambda)x''$. So this implies that $u(x) < u(x') = u(x'')$. Due to expenditure minimization, we must have $p \cdot x', p\cdot x'' \ge p \cdot x$. But since $x = \lambda x' + (1-\lambda)x''$, we require $p \cdot x' = p\cdot x'' = p \cdot x$, else we cannot have $p \cdot (\lambda x' + (1-\lambda)x'') = p\cdot x$. Hence both $x', x''$ are affordable at $p$, and $u = u(x') = u(x'') > u(x)$. By expenditure minimization, this implies $e(p,u) \le p \cdot x' = p \cdot x = e'(p,u) $ as desired. Hence, the expenditure functions for $u$ and $u'$ are equal, and we are done.
 
-Hence, any expenditure function we find can be generated by some quasiconcave utility function. However, I slightly disagree with Millicent. We might not want to cut ourselves off to only quasiconcave utility functions, since this implies indifference in places where we may not want indifference. Specifically, I can think of at least one use case where we may want to consider non-quasiconcave utilities: risk aversion. If we ask a consumer to spend \$1 purchasing tickets for two lotteries, where the fraction of their wealth spent on the tickets increases/decreases their chances of winning either lottery, even if we observe the risk-averse case of consumers purchasing extreme points (i.e. spending all on one lottery), we still may not want to assume indifference in between mixtures. (i.e. sometimes a non-quasiconcave utility happens in real life)
+Hence, any expenditure function we find can be generated by some quasiconcave utility function. However, I slightly disagree with Millicent. We might not want to cut ourselves off to only quasiconcave utility functions, since this implies indifference in places where we may not want indifference. Specifically, I can think of at least one use case where we may want to consider non-quasiconcave utilities: risk aversion. If we ask a consumer to spend \$1 purchasing tickets for two lotteries, where the fraction of their wealth spent on the tickets increases/decreases their chances of winning either lottery, even if we observe the risk-averse case of consumers purchasing extreme points (i.e. spending all on one lottery), we still may not want to assume indifference in between mixtures. (i.e. sometimes a non-quasiconcave utility happens in real life) In general, taking the convex hull can mean false indifferences.
 
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
