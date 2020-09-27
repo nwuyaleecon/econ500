@@ -128,9 +128,47 @@ And hence for the two good case, the Slutsky matrix is symmetric.
 
 Lastly, we provide an example of a 3-good scenario ``demand'' functions which are homogeneous of degree 0, satisfy Walras' law and WARP, but do not generate a symmetric Slutsky matrix.
 
+Consider the demands:
+\[ x_1 = w/p_2 \]
+\[ x_2 = 2w/(3p_2) \]
+\[ x_3 = \frac{w}{p_3}\left(1/3 - \frac{p_1}{p_2}\right) \]
+conditional for this being an interior solution, we suppose that $p_1/p_2 < 1/3$ (so $x_3$ is nonnegative), and for WARP, we will suppose $p_3 < p_1$.
 
-TODO 
+We can easily see that these demands are homogeneous of degree 0 and satisfy Walras' law. To check WARP, we know from problem set 2 that it suffices to check compensated price changes. We suppose that
+\[ p_1 \frac{w'}{p_2'} + p_2 \frac{w'}{p_3'} + p_3 \frac{w'}{p_3'}\left(1/3 - \frac{p_1'}{p_2'}\right) = w \]
+This implies
+\[ \frac{p_1}{p_2'} + \frac{p_2}{p_3'} + \frac{p_3}{p_3'} \left(1/3 - \frac{p_1'}{p_2'}\right) = \frac{w}{w'}\]
+\[ \frac{p_1}{p_2'} + \frac{p_2}{p_3'} + \frac{p_3}{3p_3'} - \frac{p_1'p_3}{p_2'p_3'}  = \frac{w}{w'}\]
+\[ \frac{p_1p_3' + p_2p_2'+ p_3p_2'/3 - p_1'p_3}{p_2'p_3'}= \frac{w}{w'}\]
+\[ \frac{w'}{w} = \frac{p_2'p_3'}{p_1p_3' + p_2p_2'+ p_3p_2'/3 - p_1'p_3}\]
 
+Now, we note from our price conditions, because $p_1 > p_3$ and $p_1' > p_3'$, we must have
+\[ p_1'p_1 (9p_1'p_1+9p_1p_3' +9p_1'p_3- 8p_3'p_3) > 0 \]
+Further, because $p_2 > 2p_1$ and $p_2' > 2p_1'$, we get
+
+\[ 2p_1p_3'p_1'p_3+p_1p_3'^2p_2/3-p_1^2p_3'^2  +p_2'^2p_2^2+p_2^2p_2'p_3'/3 + p_1'p_3^2p_2'/3+p_2'^2p_2p_3/3\]
+\[ - 8p_3'p_2p_3p_2'/9-p_1p_3'p_3p_2'/3 - p_1'^2p_3^2 - p_1'p_3p_3'p_2/3 > p_1'p_1 (9p_1'p_1+9p_1p_3' +9p_1'p_3- p_3'p_3)\]
+
+Combining these twe, we have
+\[ 2p_1p_3'p_1'p_3+p_1p_3'^2p_2/3-p_1^2p_3'^2  +p_2'^2p_2^2+p_2^2p_2'p_3'/3 + p_1'p_3^2p_2'/3+p_2'^2p_2p_3/3\]
+\[ - 8p_3'p_2p_3p_2'/9-p_1p_3'p_3p_2'/3 - p_1'^2p_3^2 - p_1'p_3p_3'p_2/3 > 0 \]
+
+Upon close examination, we realize the LHS of this expression factors as
+\[  (p_1p_3' + p_2p_2'+ p_3p_2'/3 - p_1'p_3) (p_1'p_3+p_2'p_2+p_3'p_2/3-p_1p_3') - p_2'p_3'p_2p_3 > 0  \]
+Therefore
+\[  (p_1p_3' + p_2p_2'+ p_3p_2'/3 - p_1'p_3) (p_1'p_3+p_2'p_2+p_3'p_2/3-p_1p_3') > p_2'p_3'p_2p_3   \]
+\[\frac{p_2'p_3'}{p_1p_3' + p_2p_2'+ p_3p_2'/3 - p_1'p_3} < \frac{p_1'p_3+p_2'p_2+p_3'p_2/3 -p_1p_3'}{p_2p_3}  \]
+Using the condition we found earlier, the LHS is exactly $w'/w$, so
+\[\frac{w'}{w} < \frac{p_1'p_3+p_2'p_2+p_3'p_2/3-p_1p_3'}{p_2p_3}  \]
+\[ \frac{p_1'}{p_2} + \frac{p_2'}{p_3} +  \frac{p_3'/3}{p_3} - \frac{p_1p_3'}{p_2p_3}  > \frac{w'}{w} \]
+\[ \frac{p_1'}{p_2} + \frac{p_2'}{p_3} +  \frac{p_3'}{p_3}\left(1/3 - \frac{p_1}{p_2}\right) > \frac{w'}{w} \]
+\[ p_1'\frac{w}{p_2} + p_2'\frac{w}{p_3} + p_3' \frac{w}{p_3}\left(1/3 - \frac{p_1}{p_2} \right) > w' \]
+\[ p' \cdot x > w' \]
+And hence WARP holds. Finally, we can observe the ``Slutsky'' matrix is not symmetric for these ``demands'':
+
+\[\frac{\partial x_1}{\partial p_2} + \frac{\partial x_1}{\partial w}x_2 = -\frac{w}{p_2^2} + \frac{2w}{3p_2^2} = -\frac{w}{3p_2^2} \neq \frac{2w}{3p_2^2}  = \frac{\partial x_2}{\partial p_1} + \frac{\partial x_2}{\partial w}x_1 \]
+
+Thus, Slutsky symmetry is not immediate for $L=3$.
 
 \paragraph{(1.4)}
 We note that these demand functions are already homogeneous of degree 0 in $p,w$, regardless of $\lambda$. In order to satisfy Walras's law, we must have
@@ -147,6 +185,43 @@ for some function $g$ of $u$. For simplicity, we can take the Cobb-Douglas:
 and hence has the expenditure function:
 \[ e(p,u) = u\frac{\prod_{l=1}^L (p_l)^{\lambda_l}}{\prod_{l=1}^L \lambda_l^{\lambda_l}} \]
 \paragraph{(1.5)}
+Suppose we have Hicksian demands $h_l$. We can calculate the expenditure function:
+\[ e(p,u) = p \cdot h(p,u) \]
+for some function $f$. Then the indirect utility satisfies:
+\[ e(p,v(p,w)) = w   \]
+\[ v(p,w) = e^{-1}\left( p, w \right) \]
+where we invert $e$ in the second argument.
+Then the Walrasian demands are
+\[ x(p,w) = h(p,v(p,w)) = h\left(p, e^{-1}\left( p, w \right)\right) \]
+
+On the other side, if we have Walrasian demands, we can use Shepard's lemma to generate a system of differential equations:
+\[ \frac{\partial e}{\partial p_l} = x_l(p, e) \]
+and solve for $e$. After this, we can again use Shepard's lemma to find $h$:
+\[ h_l = \frac{\partial e}{\partial p_l} \]
+
+For an example, we take Cobb-Douglas utility:
+\[ u(x, y) = x^\alpha y^{1-\alpha} \]
+Solving the EMP, we find the FOCs
+\[ p_x = \lambda \alpha x^{\alpha - 1}y^{1- \alpha } \]
+\[ p_y = \lambda (1-\alpha) x^{\alpha}y^{- \alpha } \]
+\[ x^\alpha y^{1-\alpha} = u \]
+Solving,
+\[ h_x p_x = \lambda \alpha u \]
+\[ h_y p_y = \lambda (1-\alpha) u \]
+\[ h_x = \lambda \frac{\alpha u}{p_x} \]
+\[ h_y = \lambda \frac{(1-\alpha) u}{p_y} \]
+\[ \lambda \left(\frac{\alpha}{p_x}\right)^\alpha\left(\frac{1-\alpha}{p_y} \right)^{1-\alpha} = 1 \]
+\[ \lambda =  \left(\frac{p_x}{\alpha}\right)^\alpha\left(\frac{p_y}{1-\alpha} \right)^{1-\alpha} \]
+So our Hicksians are:
+\[ h_x(p, u) = \left(\frac{p_x}{\alpha}\right)^\alpha\left(\frac{p_y}{1-\alpha} \right)^{1-\alpha} \frac{\alpha u}{p_x} \]
+\[ h_y(p,u) = \left(\frac{p_x}{\alpha}\right)^\alpha\left(\frac{p_y}{1-\alpha} \right)^{1-\alpha}\frac{(1-\alpha) u}{p_y} \]
+The expenditure function is then
+\[ e(p,u) = \left(\frac{p_x}{\alpha}\right)^\alpha\left(\frac{p_y}{1-\alpha} \right)^{1-\alpha} u  \]
+The indirect utility is then
+\[ v(p,w) = w \left(\frac{\alpha}{p_x}\right)^\alpha\left(\frac{1-\alpha}{p_y} \right)^{1-\alpha} \]
+Plugging these into the Hicksians, we get the expected Walrasian demands:
+\[ x(p,w) = \left(\frac{p_x}{\alpha}\right)^\alpha\left(\frac{p_y}{1-\alpha} \right)^{1-\alpha} \frac{\alpha }{p_x}w \left(\frac{\alpha}{p_x}\right)^\alpha\left(\frac{1-\alpha}{p_y} \right)^{1-\alpha} = \frac{\alpha w}{p_x} \]
+\[ y(p,w) = \left(\frac{p_x}{\alpha}\right)^\alpha\left(\frac{p_y}{1-\alpha} \right)^{1-\alpha} \frac{(1-\alpha) }{p_y}w \left(\frac{\alpha}{p_x}\right)^\alpha\left(\frac{1-\alpha}{p_y} \right)^{1-\alpha} = \frac{(1-\alpha) w}{p_y} \]
 \paragraph{(1.6)}
 \begin{itemize}
 \item We note that since $x$ is feasible for prices $p, p\cdot x$, by utility maximization, we must have
@@ -243,20 +318,17 @@ The relevant derivatives:
 \paragraph{(2.3)}
 \begin{itemize}
 \item We convert this into:
-\[ \max \pi \tilde{u}(x_1) + (1-\pi) \tilde{u}(w - x_1) \]
-The FOC is
-\[ \pi \tilde{u}'(x_1) - (1-\pi)\tilde{u}'(w-x_1) = 0 \]
-\[ \pi \tilde{u}'(x_1) = (1-\pi)\tilde{u}'(w-x_1)  \]
-We are interested in comparative statics, so we take the derivative with respect to $\pi$:
-
-\[ \tilde{u}'(x_1) + \pi \tilde{u}''(x_1) \frac{\partial x_1}{\partial \pi} = -\tilde{u}'(w-x_1) - (1-\pi)\tilde{u}''(w-x_1)\frac{\partial x_1}{\partial \pi} \]
-\[ (\pi \tilde{u}''(x_1) + (1-\pi)\tilde{u}''(w-x_1)) \frac{\partial x_1}{\partial \pi} = -\tilde{u}'(x_1)-\tilde{u}'(w-x_1)  \]
-\[ \frac{\partial x_1}{\partial \pi} =\frac{-\tilde{u}'(x_1)-\tilde{u}'(w-x_1) }{\pi \tilde{u}''(x_1) + (1-\pi)\tilde{u}''(w-x_1)} \]
-\[ \frac{\partial x_2}{\partial \pi} = -\frac{\partial x_1}{\partial \pi} = \frac{\tilde{u}'(x_1)+\tilde{u}'(w-x_1) }{\pi \tilde{u}''(x_1) + (1-\pi)\tilde{u}''(w-x_1)} \]
-If $u'' < 0$, then as $\pi$ increases, $x_1$ increases and $x_2$ decreases. If $u'' > 0$, then as $\pi$ increases, $x_1$ decreases and $x_2$ increases. If $u'$ is not monotonic, it is difficult to say something about these derivatives.
-
-\item
-
+\[ \max \pi \tilde{u}(x_1) + (1-\pi) \tilde{u}(w - x_1) = \max f(x_1, \pi) \]
+We can quickly observe that, assuming $\tilde{u}$ is differentiable and strictly increasing,
+\[ \frac{\partial^2 }{\partial x_1 \partial \pi} = \tilde{u}'(x_1) + \tilde{u}'(w-x_1) > 0 \]
+We then know that $f$ satisfies strictly increasing differences. Then we know from monotone comparative statics, that as $\pi$ increases, $x_1$ also increases.
+\item With multiple goods, we have
+\[ \max \pi_1 \tilde{u}(x_1) + \pi_2 \tilde{u}(x_2) .... + (1 - \sum_{i=1}^{n-1} \pi_i )\tilde{u} \left(w - \sum_{i=1}^{n-1} x_i \right) = f(\vec{x}, \vec{\pi}) \]
+Once again, supposing $\tilde{u}$ is differentiable and strictly increasing, we can easily confirm that for all $i$,
+\[ \frac{\partial^2 }{\partial x_i \partial \pi_i} = \tilde{u}'(x_i) + \tilde{u}'\left(w - \sum_{i=1}^{n-1} x_i \right) > 0  \]
+and further, for $i, j$, where $j \neq i$,
+\[ \frac{\partial^2 }{\partial x_i \partial \pi_j} = \tilde{u}'\left(w - \sum_{i=1}^{n-1} x_i \right) > 0 \]
+Hence, we have established that the maximization function $f$ is supermodular so once again we can apply monotone comparative statics; as $\pi_i$ increases so does $x_i$.
 \end{itemize}
 \paragraph{(2.4)}
 \paragraph{(2.5)}
