@@ -1,0 +1,264 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 4}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Part 1}
+\paragraph{(1.1)}
+We require
+\begin{itemize}
+\item $x(p,w)$ to be homogeneous of degree 0 in $p,w$
+\item $p \cdot x(p,w) = w$
+\item The Slutsky matrix, whose entries are: \[ S_{lk} = \frac{\partial x_l}{\partial p_k} + \frac{\partial x_l}{\partial w}x_k \]
+is symmetric and negative definite.
+\end{itemize}
+\paragraph{(1.2)}
+\begin{itemize}
+\item We first check that these are homogeneous of degree 0 in $(p,w)$. Indeed:
+\[ x_1(p,w) = \frac{w}{p_1 + \alpha p_2}= \frac{\lambda w}{\lambda p_1 + \alpha \lambda p_2} = x_1(\lambda p, \lambda w) \]
+\[ x_2(p,w) = \frac{w}{p_1 + \alpha p_2}= \frac{\lambda w}{\lambda p_1 + \alpha \lambda p_2} = x_2(\lambda p, \lambda w) \]
+Now, we check that Walras's law is satisfied:
+\[ p_1x_1 + p_2x_2 = \frac{p_1 w}{p_1 + \alpha p_2} + \frac{p_2 w}{p_1 + \alpha p_2} = \frac{w(p_1 + p_2)}{(p_1 + \alpha p_2)}  = w\]
+For this, we need
+\[  \frac{p_1 + p_2}{p_1 + \alpha p_2} = 1 \]
+\[ \alpha = 1 \]
+Lastly, we check that for this value of $\alpha$, the Slutsky matrix has the desired properties. The Slutsky matrix is
+\[ S =
+\begin{bmatrix}
+-\frac{w}{(p_1 + p_2)^2} + \frac{1}{(p_1 + p_2)}\frac{w}{p_1 + p_2} & -\frac{w}{(p_1 + p_2)^2} + \frac{1}{(p_1 + p_2)}\frac{w}{p_1 + p_2}  \\
+-\frac{w}{(p_1 + p_2)^2} + \frac{1}{(p_1 + p_2)}\frac{w}{p_1 + p_2} & -\frac{w}{(p_1 + p_2)^2} + \frac{1}{(p_1 + p_2)}\frac{w}{p_1 + p_2}
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 \\
+0 & 0
+\end{bmatrix}
+ \]
+which is clearly negative semidefinite and symmetric. Hence, these are demand functions iff $\alpha = 1$ (fails Walras's law at least if $\alpha \neq 1$).
+\item The third demand is implied by Walras' law:
+\[ x_3 = \frac{w - p_1x_1 - p_2x_2}{p_3}  \]
+We first check for homogeneity:
+\[ x_1(\lambda p,\lambda w) = \alpha_1 + \lambda(\beta_1 p_1 + \gamma_1 p_2) = \alpha_1 + \beta_1 p_1 + \gamma_1 p_2  \]
+In order for this equality to hold for $\lambda \neq 1$, we need $\beta_1 = 0, \gamma_1 = 0$. Similarly, for
+\[ x_2(\lambda p,\lambda w) = \alpha_2 + \lambda(\beta_2p_1 + \gamma_2 p_2) = \alpha_2 + \beta_2 p_1 + \gamma_2 p_2  \]
+We also require $\beta_2, \gamma_2 = 0$. Finally, we check homogeneity on the last good:
+\[ x_3(\lambda p, \lambda w) = \frac{\lambda w - \lambda p_1 x_1 - \lambda p_2 x_2}{\lambda p_3} = x_3(p, w) \]
+We note by construction, these demands satisfy Walras's law. Finally, we compute the Slutsky matrix. Note that from the parameters we found, $x_1$ and $x_2$ are constant demands, so
+\[ x_3( p, w) = \frac{w - p_1\alpha_1 - p_2\alpha_2}{p_3} \]
+So the Slutsky matrix is:
+\[\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\frac{-\alpha_1}{p_3} + \frac{1}{p_3}\alpha_1 & \frac{-\alpha_2}{p_3} +\frac{1}{p_3}\alpha_2 & -\frac{w - p_1\alpha_1 - p_2\alpha_2}{p_3^2} + \frac{1}{p_3}\frac{w - p_1\alpha_1 - p_2\alpha_2}{p_3}
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{bmatrix}  \]
+And once again this is clearly negative semidefinite and symmetric.
+
+\item Once again, we define $x_3$ such that Walras' law is satisfied. For homogeneity of degree 0, we require:
+\[ x_1(\lambda p,\lambda w) = \alpha_1 + \lambda(\beta_1 p_1 + \gamma_1 p_2) + \lambda^2\delta_1p_1p_2 = \alpha_1 + \beta_1 p_1 + \gamma_1 p_2 + \delta_1 p_1p_2 \]
+For this to hold, we must have
+\[ \lambda(\beta_1 p_1 + \gamma_1 p_2) + \lambda^2\delta_1p_1p_2 = \beta_1 p_1 + \gamma_1 p_2 + \delta_1 p_1p_2 \]
+\[ (\lambda-1)(\beta_1 p_1 + \gamma_1 p_2) + (\lambda^2-1)\delta_1p_1p_2 = 0  \]
+\[ \beta_1 p_1 + \gamma_1 p_2 + (\lambda+1)\delta_1p_1p_2 = 0  \]
+The only way for this to be satisfied at all $\lambda, p_1, p_2$, is to have $\beta_1, \gamma_1, \delta_1 = 0$. The symmetric argument happens for $x_2$: we require $\beta_2, \gamma_2, \delta_2 = 0$. Thus, this is the exact same case as the previous part. We know Walras' law holds by construction of $x_3$. The demands $x_1$, $x_2$, and $x_3$ are the same as the previous part, and hence the Slutsky matrix is the same, so it is symmetric and negative semidefinite.
+\end{itemize}
+\paragraph{(1.3)}
+We will prove that in the case of $2$ goods, we can always derive the expenditure function.
+
+To show symmetry, it suffices to check the two off-diagonal entries. By Walras' law,
+\[ p_1 x_1 + p_2 x_2 = w \]
+\[ x_2 = \frac{w - p_1 x_1}{p_2} \]
+Then we have
+\[ S_{21} = \frac{\partial x_2}{\partial p_1} + \frac{\partial x_2}{\partial w} x_1 \]
+\[ = - \left( \frac{x_1}{p_2} + \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1} \right) + \left( \frac{1}{p_2} - \frac{p_1}{p_2}\frac{\partial x_1}{ \partial w}\right) x_1 \]
+\[ = - \left( \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1} \right) - \left( \frac{p_1}{p_2}\frac{\partial x_1}{ \partial w}\right) x_1 \]
+\[ = - \left( \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1} \right) - \left( \frac{p_1}{p_2}\frac{\partial x_1}{ \partial w}\right) \left( \frac{w - p_2 x_2}{p_1} \right) \]
+\[ = - \left( \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1} \right) + \left( \frac{p_2 x_2 - w}{p_2}\frac{\partial x_1}{ \partial w}\right)\]
+\[ = - \left( \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1} \right) - \frac{w}{p_2}\frac{\partial x_1}{ \partial w} + x_2 \frac{\partial x_1}{ \partial w} \]
+Now, consider the homogeneity condition:
+\[ x_1 (\alpha p_1, \alpha p_2, \alpha w) = x_1(p_1, p_2, w) \]
+Differentiating both sides with respect to $\alpha$, we get
+\[ \frac{\partial (\alpha p_1)}{\partial \alpha}\frac{\partial x_1 (\alpha p_1, \alpha p_2, \alpha w)}{\partial (\alpha p_1)}+\frac{\partial (\alpha p_2)}{\partial \alpha}\frac{\partial x_1 (\alpha p_1, \alpha p_2, \alpha w)}{\partial (\alpha p_2)}+\frac{\partial (\alpha w)}{\partial \alpha}\frac{\partial x_1 (\alpha p_1, \alpha p_2, \alpha w)}{\partial (\alpha w)} = 0 \]
+\[ p_1 \frac{\partial x_1 ( p_1,  p_2,  w)}{\partial p_1}+p_2\frac{\partial x_1 ( p_1,  p_2, w)}{\partial p_2}+ w \frac{\partial x_1 ( p_1,  p_2,  w)}{\partial w} = 0 \]
+\[ p_1 \frac{\partial x_1}{\partial p_1}+p_2\frac{\partial x_1}{\partial p_2}+ w \frac{\partial x_1}{\partial w} = 0 \]
+\[ \frac{\partial x_1}{\partial p_2} = -\frac{p_1}{p_2} \frac{\partial x_1}{\partial p_1}-\frac{w}{p_2} \frac{\partial x_1}{\partial w}\]
+Examining the work up until now, we have
+\[ S_{21} =  - \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1}  - \frac{w}{p_2}\frac{\partial x_1}{ \partial w} + x_2 \frac{\partial x_1}{ \partial w} \]
+Using the identity we derived from homogeneity, we get
+\[ S_{21} =  - \frac{p_1 }{p_2}\frac{\partial x_1}{\partial p_1}  - \frac{w}{p_2}\frac{\partial x_1}{ \partial w} + x_2 \frac{\partial x_1}{ \partial w} \]
+\[ = \frac{\partial x_1}{\partial p_2} +x_2 \frac{\partial x_1}{ \partial w} = S_{12}  \]
+And hence for the two good case, the Slutsky matrix is symmetric.
+
+Lastly, we provide an example of a 3-good scenario ``demand'' functions which are homogeneous of degree 0, satisfy Walras' law and WARP, but do not generate a symmetric Slutsky matrix.
+
+
+TODO 
+
+
+\paragraph{(1.4)}
+We note that these demand functions are already homogeneous of degree 0 in $p,w$, regardless of $\lambda$. In order to satisfy Walras's law, we must have
+\[ \sum_{l=1}^L \lambda_lw = w \]
+\[ \sum_{l=1}^L \lambda_l = 1 \]
+This is clearly necessary, else Walras' law fails. To show sufficiency, we provide an expenditure function and utility function such that these are the demand functions of that utility function. To find the expenditure functions, we use Shepard's lemma:
+\[ \frac{\lambda_l e(p, u)}{p_l} = \frac{\partial e(p,u)}{\partial p_l}  \]
+\[ \frac{\lambda_l}{p_l} = \frac{1}{e(p,u)} \frac{\partial e(p,u)}{\partial p_l}  \]
+\[ \lambda_l \log p_l + g(p_{-l}, u) = \log (e(p,u)) \]
+Noting that this holds for all $l$, we have
+\[ e(p,u) = g(u)\prod_{l=1}^L (p_l)^{\lambda_l}  \]
+for some function $g$ of $u$. For simplicity, we can take the Cobb-Douglas:
+\[ u(x) = \prod_{l=1}^L x_l^{\lambda_l} \]
+and hence has the expenditure function:
+\[ e(p,u) = u\frac{\prod_{l=1}^L (p_l)^{\lambda_l}}{\prod_{l=1}^L \lambda_l^{\lambda_l}} \]
+\paragraph{(1.5)}
+\paragraph{(1.6)}
+\begin{itemize}
+\item We note that since $x$ is feasible for prices $p, p\cdot x$, by utility maximization, we must have
+\[ u(x) \le v(p, p\cdot x) \]
+Since this holds for all $p$, we have
+\[ u(x) \le \max_p v(p, p\cdot x) \]
+Finally, it suffices to argue that for each $x$, $\exists p_x$ such that $u(x) = v(p, p\cdot x)$. This implies that $\max_p v(p, p\cdot) \ge u(x)$, and we will have the desired equality. Take $\tilde{p}$ as suggested in the problem, where
+\[ \tilde{p}_l = \frac{\partial u}{\partial x_l} \] Consider $w = \tilde{p} \cdot x$. Consider $v(\tilde{p},w)$. We know that this is
+\[ \max u(x)  \]
+\[ \tilde{p} \cdot x \le w \]
+Since $u$ is strictly increasing, quasiconcave, and differentiable, the solution satisfies the FOCs:
+\[ \frac{\partial u}{\partial x_l} - \lambda \tilde{p}_l = 0 \]
+\[ \tilde{p} \cdot x = w \]
+By construction of $\tilde{p}_l$, we must have $\lambda = 1$. Further, since $x$ FOCs, we have that $x$ is a maximizer, and hence $v(\tilde{p}, \tilde{p}\cdot x) = u(x)$. And we are done.
+\item The indirect utility function is homogeneous of degree 0 in $(p,w)$. Hence
+\[ v(\lambda p, \lambda w) = (\lambda w)(\lambda p_1)^{-\alpha}(\lambda p_2)^{-\beta} = \lambda ^{1-\alpha - \beta} v(p,w) \]
+In order to have the right homogeneity degree, we must have $1 - \alpha - \beta = 0$, or $\alpha + \beta = 1$.
+
+We then use Roy's identity to find:
+\[ x_1 = \frac{\alpha w p_1^{-\alpha - 1}p_2^{-\beta}}{p_1^{-\alpha}p_2^{-\beta}} = \frac{\alpha w}{p_1} \]
+\[ x_2 = \frac{\beta w p_1^{-\alpha}p_2^{-\beta-1}}{p_1^{-\alpha}p_2^{-\beta}} = \frac{\beta w}{p_2} \]
+Then we get
+\[ u(x_1, x_2) = v(p,w) = \frac{w}{p_1^{\alpha}p_2^{\beta}} = \left(\frac{x_1}{\alpha}\right)^\alpha\left(\frac{x_2}{\beta}\right)^\beta  \]
+\[ = \frac{x_1^{\alpha} x_2^{\beta}}{\alpha^\alpha \beta^\beta} \]
+And this is the utility function. (We conveniently use the fact that we require $\alpha + \beta = 1$ in the middle of this.)
+\end{itemize}
+\pagebreak
+\section*{Part 2}
+\paragraph{(2.1)}
+\begin{itemize}
+\item We start by finding the FOCs:
+\[ u'(x_1) + \lambda = 0 \]
+\[ \delta(1+r) u'(x_2) + \lambda = 0 \]
+\[(1+r)x_1 + x_2 - (1+r)I_1 - I
+_2 = 0 \]
+Then we have
+\[ \begin{bmatrix}
+u''(x_1) & 0 & 1 \\
+0 &  \delta (1+r) u''(x_2) & 1 \\
+1+r & 1 & 0
+\end{bmatrix} \begin{bmatrix} (\partial x_1)/(\partial \delta) \\ (\partial x_2)/(\partial \delta) \\ (\partial \lambda)/(\partial \delta) \end{bmatrix} = \begin{bmatrix} 0 \\ -(1+r)u'(x_2) \\ 0 \end{bmatrix} \]
+and
+
+\[ \begin{bmatrix}
+u''(x_1) & 0 & 1 \\
+0 &  \delta (1+r)u''(x_2) & 1 \\
+1+r & 1 & 0
+\end{bmatrix} \begin{bmatrix} (\partial x_1)/(\partial r) \\ (\partial x_2)/(\partial r) \\ (\partial \lambda)/(\partial r) \end{bmatrix} = \begin{bmatrix} 0 \\ -\delta u'(x_2) \\ I_1-x_1 \end{bmatrix} \]
+The bordered Hessian is:
+\[H = \begin{bmatrix}
+u''(x_1) & 0 & 1 \\
+0 &  \delta(1+r) u''(x_2) & 1 \\
+1+r & 1 & 0
+\end{bmatrix} \]
+We can compute the determinant:
+\[ |H| = - u''(x_1)- \delta(1+r)^2 u''(x_2) \]
+Note that we require $u'' < 0$ in order for the second order conditions to hold. Using Cramer's rule, we get
+\[ \frac{\partial x_1}{\partial \delta} = \frac{\begin{vmatrix}
+0 & 0 & 1 \\
+-(1+r)u'(x_2) &  \delta (1+r)u''(x_2) & 1 \\
+0 & 1 & 0 \end{vmatrix}}{- u''(x_1)- \delta (1+r)^2 u''(x_2)} = \frac{-u'(x_2)(1+r)}{- u''(x_1)- \delta (1+r)^2u''(x_2)} \]
+\[ \frac{\partial x_2}{\partial \delta} = \frac{\begin{vmatrix}
+u''(x_1) & 0 & 1 \\
+0 & -(1+r)u'(x_2)  & 1 \\
+1+r & 0 & 0 \end{vmatrix}}{- \frac{u''(x_1)}{(1+r)^2}- \delta u''(x_2)} = \frac{(1+r)^2u'(x_2)}{- u''(x_1)- \delta (1+r)^2u''(x_2)} \]
+Assuming $u$ is concave and increasing, then we see that $\partial x_1 /\partial \delta$ is negative and $\partial x_2 / \partial \delta$ is positive. This makes intuitive sense; as the discount factor increases, people value their consumption in the future more, and hence will consume less now and save more.
+\[ \frac{\partial x_1}{\partial r} = \frac{\begin{vmatrix}
+0 & 0 & 1 \\
+-\delta u'(x_2) &  \delta(1+r) u''(x_2) & 1 \\
+I_1-x_1 & 1 & 0
+\end{vmatrix}}{- u''(x_1)- \delta (1+r)^2u''(x_2)} = \frac{-\delta u'(x_2) + \delta (x_1 - I_1)(1+r) u''(x_2) }{- u''(x_1)- \delta (1+r)^2u''(x_2)} \]
+\[ \frac{\partial x_2}{\partial r} = \frac{\begin{vmatrix}
+u''(x_1) & 0 & 1 \\
+0 &  -\delta u'(x_2) & 1 \\
+1+r & I_1-x_1 & 0
+\end{vmatrix}}{- u''(x_1)- \delta (1+r)^2u''(x_2)} = \frac{\delta (1+r) u'(x_2) +  x_1 u''(x_1) - I_1 u''(x_1)}{- u''(x_1)- \delta (1+r)^2u''(x_2)} = \frac{u'(x_1) +  (x_1-I_1) u''(x_1)}{- u''(x_1)- \delta (1+r)^2u''(x_2)}\]
+These derivatives are slightly more nuanced to sign. If $x_1 < I_1$ (the consumer is saving in period 1), then clearly $x_2$ increases as $r$ increases, but it is not straightfoward what the sign of $\partial x_1 /\partial r$ is. However, if $x_1 \ge I_1$ (the consumer is borrowing in period 1), then $x_1$ decreases as $r$ increases, and it isn't exactly clear what $x_2$ does.
+\item Let's pick $\tilde{u} = \log$. Then the utility function is Cobb-Douglas, so the demand functions are:
+\[ x_1(\delta, r, I_1, I_2) = \frac{I_1 + \frac{I_2}{1+r}}{(1+\delta)} = \frac{(1+r)I_1 + I_2}{(1+\delta)(1+r)} \]
+\[ x_2(\delta, r, I_1, I_2) = \delta \frac{I_1 + \frac{I_2}{1+r}}{(1+\delta)/(1+r)}= \delta \frac{(1+r) I_1 + I_2}{1 + \delta} \]
+The relevant derivatives:
+\[ \frac{\partial x_1}{\partial \delta} = - \frac{(1+r)I_1 + I_2}{(1+\delta)^2(1+r)} = -\frac{x_1}{1+\delta}\]
+\[ \frac{\partial x_2}{\partial \delta} = \frac{(1+r) I_1 + I_2}{1 + \delta} - \delta \frac{(1+r) I_1 + I_2}{(1 + \delta)^2} \]
+\[ = \frac{(1+r) I_1 + I_2}{(1 + \delta)^2} \]
+\[ \frac{\partial x_1}{\partial r} = \frac{ - I_2}{(1+\delta)(1+r)^2} \]
+\[ \frac{\partial x_2}{\partial r} = \frac{\delta I_1}{1+\delta} \]
+\item We see from our derivatives that as $r$ increases, consumers will consume less in period $1$ since $\partial x_1 / \partial r < 0$, and hence will save more. Consumers then consume more in period $2$, since $\partial x_2 / \partial r > 0$. The larger $I_2$ is, the higher the rate at which people will save money in period $1$ as interest rates rise. The larger $I_1$ is, the higher the rate of consumption will increase in period 2 as a result of an interest rate increase.
+\end{itemize}
+\paragraph{(2.2)}
+\begin{itemize}
+\item
+\item
+\end{itemize}
+\paragraph{(2.3)}
+\begin{itemize}
+\item We convert this into:
+\[ \max \pi \tilde{u}(x_1) + (1-\pi) \tilde{u}(w - x_1) \]
+The FOC is
+\[ \pi \tilde{u}'(x_1) - (1-\pi)\tilde{u}'(w-x_1) = 0 \]
+\[ \pi \tilde{u}'(x_1) = (1-\pi)\tilde{u}'(w-x_1)  \]
+We are interested in comparative statics, so we take the derivative with respect to $\pi$:
+
+\[ \tilde{u}'(x_1) + \pi \tilde{u}''(x_1) \frac{\partial x_1}{\partial \pi} = -\tilde{u}'(w-x_1) - (1-\pi)\tilde{u}''(w-x_1)\frac{\partial x_1}{\partial \pi} \]
+\[ (\pi \tilde{u}''(x_1) + (1-\pi)\tilde{u}''(w-x_1)) \frac{\partial x_1}{\partial \pi} = -\tilde{u}'(x_1)-\tilde{u}'(w-x_1)  \]
+\[ \frac{\partial x_1}{\partial \pi} =\frac{-\tilde{u}'(x_1)-\tilde{u}'(w-x_1) }{\pi \tilde{u}''(x_1) + (1-\pi)\tilde{u}''(w-x_1)} \]
+\[ \frac{\partial x_2}{\partial \pi} = -\frac{\partial x_1}{\partial \pi} = \frac{\tilde{u}'(x_1)+\tilde{u}'(w-x_1) }{\pi \tilde{u}''(x_1) + (1-\pi)\tilde{u}''(w-x_1)} \]
+If $u'' < 0$, then as $\pi$ increases, $x_1$ increases and $x_2$ decreases. If $u'' > 0$, then as $\pi$ increases, $x_1$ decreases and $x_2$ increases. If $u'$ is not monotonic, it is difficult to say something about these derivatives.
+
+\item
+
+\end{itemize}
+\paragraph{(2.4)}
+\paragraph{(2.5)}
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
