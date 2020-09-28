@@ -346,19 +346,31 @@ and further, for $i, j$, where $j \neq i$,
 Hence, we have established that the maximization function $f$ is supermodular so once again we can apply monotone comparative statics; as $\pi_i$ increases so does $x_i$.
 \end{itemize}
 \paragraph{(2.4)}
-For the form given, we are interested in comparative statics for $\partial x_l / \partial p_1$. (We can establish related conditions for $p_i$ by substituting out $x_i$ using the budget constraint). In order for us to be able to use monotone comparative statics (proposition 8), we need increasing differences in every pair $(x_l, p_1)$, $(x_l, w)$, and $(x_l, x_k)$.
+For the form given, we are interested in comparative statics for $\partial x_l / \partial p_1$. (We can establish related conditions for $p_i$ by substituting out $x_i$ using the budget constraint). In order for us to be able to use monotone comparative statics (proposition 8), we need increasing differences in every pair $(x_l, p_1)$ and $(x_l, x_k)$.
 
 %That is, it suffices to have supermodularity in $x, p_1, w$. Suppose we have $(x, p_1, w)$ and $(x', p_1', w')$. Take $\min(x_l, x_l') = \underline{x_l}$ and $\max(x_l, x_l') = \overline{x_l}$ (with similar notation for $p_1, w$). Then the supermodularity condition is, for $x, x'$:
 %\[ u\left(\frac{1}{p_1}\left( w - \sum_{l=2}^L p_l x_l \right), x_2, ... x_L \right) + u\left(\frac{1}{p_1'}\left( w' - \sum_{l=2}^L p_l x_l' \right), x_2', ... x_L' \right)\]\[ \le u\left(\frac{1}{\underline{p_1}}\left( \underline{w} - \sum_{l=2}^L p_l \underline{x_l} \right), \underline{x_2}, ... \underline{x_L}\right) + u\left(\frac{1}{\overline{p_1}}\left( \overline{w} - \sum_{l=2}^L p_l \overline{x_l} \right), \overline{x_2}, ... \overline{x_L}\right) \]
-Then by proposition 8, the maximizer values $x_l^*$ will be nondecreasing in $p_1$, $w$.
+Then by proposition 8, the maximizer values $x_l^*$ will be nondecreasing in $p_1$.
 
-We exhibit a function form of $u$ that satisfies this condition:
+We exhibit a function form of $u$ that satisfies this condition. Consider the form:
+\[ u(x_1, x_2 ... x_L) = \sum_{l=1}^L \alpha_l x_l^\rho \]
+Since this form is continuous and differentiable, to check increasing differences, we simply need the relevant second derivatives to be positive. That is,
+\[ \frac{\partial u}{\partial x_l \partial x_k} = \alpha_1 \frac{p_lp_k}{p_1^2} \rho(\rho-1) \left( (w/p_1) - \sum_{l=2}^L (p_l/p_1)x_l \right)^{\rho-2} > 0  \]
+\[ \frac{\partial u}{\partial p_1 \partial x_l} =  \alpha_1 \frac{p_l}{p_1^{\rho+1}} \rho^2 \left( w - \sum_{l=2}^L p_lx_l \right)^{\rho-1}  \]
 
-TODO finish
+We see that taking $\rho > 1$ suffices for both of these partial derivatives to be positive, implying that $u$ will then have increasing differences in $(x_l, p_1)$ and $(x_l, x_k)$ for all $l, k\neq l$. Note that if we take $\rho < 1$, we don't fit the specification; the first partial derivative is negative, so $u$ will not have increasing differences in $x_l, x_k$.
 
 \paragraph{(2.5)}
 
-TODO idfk 
+For the first point, we can take a closer look at the functional form we showed in the previous part. We actually note that the condition for increasing differences requires our utility function to have a bad shape- for $\rho > 1$ the indifference curves are actually concave! In fact, we can further argue that for any separable form:
 
+\[ u(x) = \sum_{l=1}^L u_l(x_l) \]
+then in order to have increasing differences in the expression:
+\[ u(x) = u_1\left( w/p_1 - \sum_{l=2}^L (p_l/p_1) x_l \right) + \sum_{l=2}^L u_l(x_l) \]
+the second derivative:
+\[ \frac{\partial u}{\partial x_l \partial x_k} = \frac{p_lp_k}{p_1^2}u_1''\left( w/p_1 - \sum_{l=2}^L (p_l/p_1) x_l \right) \]
+must be positive. But this implies that $u_1''$; through symmetrical arguments, we would then require all of the other $u_l''$ to also be positive! This indeed gives us a very counterintuitive utility function. Taking a step back, it appears that for some functional forms, comparative statics preconditions only hold on utilites we are not interested in. Hence, we may not always be able to pick the right utility function that allows monotone comparative statics to work. In fact, increasing differences is quite a restrictive condition in that it requires a global behavior on the utility function, whereas implicit functiion theorem-related arguments can capture behavior in utiltiy functions where this increasing differences condition fails.
+
+As for the second point, implicit function theorem-related comparative statics can often yield further insights beyond the sign of the relevant derivatives; i.e., we can often compute the magnitude of the relevant derivatives as well as the sign. Her critique is distinct from the Lucas critique, which deals with how people's expectations for exogenous variables changes endogenous variables.
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
