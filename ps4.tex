@@ -312,8 +312,23 @@ The relevant derivatives:
 \end{itemize}
 \paragraph{(2.2)}
 \begin{itemize}
-\item
-\item
+\item We generally suppose $\delta < 1$, implying that the consumer is myopic and discounts future payoffs in their present decision-making. However, after time actually progresses, the users may ``regret'' previous choices as their future utility function changes to $\tilde{u}(x_2)$. Hence, it is reasonable to reason that policy might want to actually maximize $\tilde{u}(x_1) + \tilde{u}(x_2)$ rather than the myopic time 1 utility $\tilde{u}(x_1) + \delta \tilde{u}(x_2)$ in order to minimize future regret. Comparing these two objectives, we see that an optimal bundle for the first objective requires a higher $x_2$ than the optimal bundle under the second, and hence it makes sense to want to increase savings.
+
+Mathematically speaking, consider
+\[ \frac{\partial u}{\partial x_2} = \tilde{u}'(x_1) \frac{\partial x_1}{\partial x_2} + \delta \tilde{u}'(x_2) \]
+Now from the budget constraint,
+\[ \frac{\partial x_1}{\partial x_2} = \frac{-1}{1+r} \]
+So
+\[ \frac{\partial u}{\partial x_2} = \delta \tilde{u}'(x_2) -  \frac{\tilde{u}'(x_1)}{1+r}  \]
+This is positive when
+\[ \delta \tilde{u}'(x_2)  >  \frac{\tilde{u}'(x_1)}{1+r} \]
+\[ \delta(1+r) \tilde{u}'(x_2) > \tilde{u}'(x_1) \]
+Hence it is possible that this condition fails; that as $x_2$ increases, utility actually decreases. However, we are generally interested in cases where where $I_1 >> I_2$, since the assumption is that consumers have significantly less income in retirement. In this scenario, increasing interest rates expands the budget set, affording users higher utility. Thus, although it is mathematically possible for increasing savings to decrease utility, we generally consider the condition for which in our model the opposite is true, specifically for changes in $r$.
+\item The model described above is relevant for a myopic consumer (which perhaps people are). For example, by expanding the time domain, where the consumer makes decisions over a higher frequency, the generalized form that we might argue is ``better'' might be to take utiltiy as $\sum \delta^t \tilde{x_t}$ and maximize consumption over a lifetime budget constraint over many different interest rates:
+\[ \sum \frac{x_t}{(1+r_t)^t} =  \sum \frac{I_t}{(1+r_t)^t} \]
+Now, if $\delta$ is small, then to first-order approximation in $\delta$, the generalized problem becomes exactly the problem in 2.1. Hence, our solutions can be relevant for small $\delta$, for one case. For another take, we can rewrite the budget constraint as
+\[ (1+r)x_1 + x_2 = (1+r)I_1 + I_2 \]
+We can reinterpret this as a sequential equilibrium constraint rather than an Arrow-Debreu equilibrium constraint, where the optimization choice is over only two time periods. Hence, the comparative statics might still be relevant for considering the short term sequential equilibrium.
 \end{itemize}
 \paragraph{(2.3)}
 \begin{itemize}
@@ -331,6 +346,19 @@ and further, for $i, j$, where $j \neq i$,
 Hence, we have established that the maximization function $f$ is supermodular so once again we can apply monotone comparative statics; as $\pi_i$ increases so does $x_i$.
 \end{itemize}
 \paragraph{(2.4)}
+For the form given, we are interested in comparative statics for $\partial x_l / \partial p_1$. (We can establish related conditions for $p_i$ by substituting out $x_i$ using the budget constraint). In order for us to be able to use monotone comparative statics (proposition 8), we need increasing differences in every pair $(x_l, p_1)$, $(x_l, w)$, and $(x_l, x_k)$.
+
+%That is, it suffices to have supermodularity in $x, p_1, w$. Suppose we have $(x, p_1, w)$ and $(x', p_1', w')$. Take $\min(x_l, x_l') = \underline{x_l}$ and $\max(x_l, x_l') = \overline{x_l}$ (with similar notation for $p_1, w$). Then the supermodularity condition is, for $x, x'$:
+%\[ u\left(\frac{1}{p_1}\left( w - \sum_{l=2}^L p_l x_l \right), x_2, ... x_L \right) + u\left(\frac{1}{p_1'}\left( w' - \sum_{l=2}^L p_l x_l' \right), x_2', ... x_L' \right)\]\[ \le u\left(\frac{1}{\underline{p_1}}\left( \underline{w} - \sum_{l=2}^L p_l \underline{x_l} \right), \underline{x_2}, ... \underline{x_L}\right) + u\left(\frac{1}{\overline{p_1}}\left( \overline{w} - \sum_{l=2}^L p_l \overline{x_l} \right), \overline{x_2}, ... \overline{x_L}\right) \]
+Then by proposition 8, the maximizer values $x_l^*$ will be nondecreasing in $p_1$, $w$.
+
+We exhibit a function form of $u$ that satisfies this condition:
+
+TODO finish
+
 \paragraph{(2.5)}
+
+TODO idfk 
+
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
