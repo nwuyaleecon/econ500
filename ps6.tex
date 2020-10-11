@@ -1,0 +1,178 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 6}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Part 1}
+\paragraph{(1.1)} Free disposal implies that if $y'_i \le y_i$ $\forall i$ and $y \in Y$, then $y' \in Y$.
+
+Suppose $Y$ is closed, convex, and contains the negative orthant. Suppose $y'_i \le y_i$ and $y \in Y$. Define the vector $\Delta$ as $\Delta_i = y_i' - y_i$. Then by our supposition, $\Delta_i \le 0$, so $\Delta$ lies in the negative orthant, and therefore there exists $\lambda > 1$ such that $y + \lambda \Delta$ lies in the negative orthant. This implies $y + \lambda \Delta \in Y$. Then by convexity:
+\[  y' = \Delta + y = \frac{1}{\lambda}(y + \lambda \Delta) + \frac{\lambda - 1}{\lambda} y \in Y  \]
+Hence $y' \in Y$, so $Y$ satisfies free disposal.
+\paragraph{(1.2)}
+Decreasing returns to scale:
+\[ y \in Y \implies \alpha y \in Y \ \alpha \in [0,1] \]
+Increasing returns to scale:
+\[ y \in Y \implies \alpha y \in Y \ \alpha \in [1,\infty) \]
+Constant returns to scale:
+\[ y \in Y \implies \alpha y \in Y \ \alpha \in [0,\infty) \]
+
+Suppose $Y$ exhibits constant returns to scale. Then for $y \in Y$, $\alpha \in [0,1]$, by definition of constant returns $\alpha y \in Y$, so $Y$ exhibits decreasing returns to scale. Similarly, if $\alpha \in [1, \infty)$, $\alpha y \in Y$, so $Y$ also exhibits increasing returns to scale. In the reverse, if $Y$ exhibits increasing and decreasing returns to scale, then for $y \in Y$, for any $\alpha \in [0,1] \cup [1, \infty) = [0, \infty)$, $\alpha y \in Y$, so $Y$ exhibits constant returns to scale.
+
+Decreasing returns is not equivalent to convexity of $Y$. Consider $Y = \{ (x,y) \ : \ xy < 1 \text{ or } x < 0 \text{ or }  y < 0\}$. This exhibits decreasing returns: if $x,y \in Y$, $\alpha \in [0,1]$, then $(\alpha x)(\alpha y) = \alpha^2xy < \alpha^2 \le 1 $, so $\alpha (x,y) \in Y$. However, this is not convex: $(0,3), (3, 0) \in Y$, but $(1.5, 1.5) \not \in Y$.
+
+Convexity of $Y$ does imply decreasing returns, however. If $Y$ is convex, then for any $y \in Y$, $\alpha \in [0,1]$, $\alpha y + (1-\alpha) 0 = \alpha y \in Y$.
+
+Increasing returns is not equivalent to the convexity of $Y^c$. Consider $Y = \{ (x,y) \ : \ xy < 1 \text{ or } x < 0 \text{ or }  y < 0\}$. $Y^c = \{ (x,y) \ : \ x \ge 0, y \ge 0, xy \ge 1\} $ is convex. However, $Y$ does not exhibit increasing returns: $(0.5, 0.5) \in Y$, but $(2,2) \not \in Y$.
+
+Increasing returns does not even imply the convexity of $Y^c$. Consider $Y = \{ (x,y) \ : x < 0, y < 0 \}$ (the negative orthant). Then clearly $Y$ satisfies increasing returns: if $y \in Y$, then $\alpha y \in Y$. However, $Y^c$ is not convex: $(-3, 1)$ and $(1, -3)$ are not in $Y$, but their midpoint $(-1, -1)$ is in $Y$.
+
+Now, suppose there are $L$ goods and the production set $Y$ exhibits constant returns to scale. Fix one of the inputs at $y^* < 0$, and consider the production set $Y'$ over the remaining $L-1$ goods. Suppose $(y_1, y_2, ... y_{L-1}) \in Y'$, and $\alpha \in [0,1]$. This implies that
+\[ (y_1, y_2, ... y_{L-1}, y^*) \in Y \]
+By constant returns to scale on $Y$,
+\[ (\alpha y_1, \alpha y_2, ... \alpha y_{L-1}, \alpha y^*) \in Y \]
+By free disposal, $\alpha y^* > y^*$, so
+\[ (\alpha y_1, \alpha y_2, ... \alpha y_{L-1}, y^*) \in Y \]
+Then
+\[ (\alpha y_1, \alpha y_2, ... \alpha y_{L-1}) \in Y' \]
+and hence $Y'$ exhibits decreasing returns.
+\paragraph{(1.3)}
+Increasing returns: for $\alpha \ge 1$,
+\[ F(y) \le 0 \implies F(\alpha y) \le 0 \]
+Decreasing returns: for $\alpha \in [0,1]$,
+\[ F(y) \le 0 \implies F(\alpha y) \le 0 \]
+\paragraph{(1.4)}
+TODO first part
+
+Now, consider the production set $Y = \{(x,y) \ : \ x + y \le 0 \}$. Clearly, this set exhibits decreasing returns. Suppose prices are $(1, 2)$. There is no solution to the profit maximization: for $k > 0$, $(-k, k) \in Y$, and $\pi(-k, k) = k$ is arbitrarily increasing in $k$.
+\paragraph{(1.5)}
+TODO
+\paragraph{(1.6)}
+Let the firm have production function $f$, and face prices $p_1, p_2, q$. The maximization problem is
+\[ \max qy - p_1 x_1 - p_2 x_2 \]
+From FOCs:
+\[ qf_1(x_1, x_2) = p_1 \]
+\[ qf_2(x_1, x_2) = p_2 \]
+Differentiating in $p_1$, we have
+\[ qf_{11}(x_1, x_2) \frac{\partial x_1}{\partial p_1} + qf_{12}(x_1, x_2) \frac{\partial x_2}{\partial p_1} = 1 \]
+\[ qf_{21}(x_1, x_2) \frac{\partial x_1}{\partial p_1} + qf_{22}(x_1, x_2) \frac{\partial x_2}{\partial p_1} = 0 \]
+Together, in matrix form, we have
+\[ \begin{bmatrix}
+qf_{11}(x_1, x_2) & qf_{12}(x_1, x_2) \\
+qf_{12}(x_1, x_2) & qf_{22}(x_1, x_2)
+\end{bmatrix} \begin{bmatrix} \frac{\partial x_1}{\partial p_1} \\ \frac{\partial x_2}{\partial p_1}\end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \]
+Applying Cramer's rule,
+\[ \frac{\partial x_1}{\partial p_1} = \frac{1}{|H|} (qf_{22}(x_1, x_2) - qf_{12}(x_1, x_2)) \]
+In order for this sign to be negative, we need
+\[ f_{22}(x_1, x_2) < f_{12}(x_1, x_2)) \]
+For this sign to be positive, we need
+\[ f_{22}(x_1, x_2) > f_{12}(x_1, x_2)) \]
+
+TODO relate to giffen
+\paragraph{(1.7)}
+TODO
+\paragraph{(1.8)}
+\begin{itemize}
+\item
+\item
+\item
+\end{itemize}
+\pagebreak
+\section*{Part 2}
+\paragraph{(2.1)}
+Consider the lotteries $\delta_x$, $x \in X$, which give outcome $x$ with probability $1$. Since there are finite $\delta_x$ and preferences are transitive and complete, there exists some $y,z$, such that among these $\delta_x$, $\delta_y$ is best and $\delta_z$ is worst. Now, we argue that $\delta_y$ is best among all lotteries, and $\delta_z$ is worst among all lotteries.
+
+Consider an arbitrary lottery $p$, which assigns probabilities $p(x)$ to outcome $x$, and $\sum_{x \in X} p(x) = 1$. Then since for all $x \in X$,
+\[ \delta_y \succeq \delta_x \]
+Let us enumerate the $x$s, and WLOG we set $y = x_n$, $z = x_1$. By repeatedly applying independence,
+\[ \delta_{x_n} = p(x_1) \delta_{x_n} + (1-p(x_1))\delta_{x_n}  \succeq  p(x_1) \delta_{x_1} + (1-p(x_1))\delta_{x_n}  \]
+\[ \succeq p(x_1) \delta_{x_1} + (1-p(x_1))\left( \frac{p(x_2)}{1-p(x_1)} \delta_{x_2} + \frac{1 - p(x_1) - p(x_2)}{1-p(x_1)}\delta_{x_n} \right)  \]
+\[ = p(x_1) \delta_{x_1} + p(x_2) \delta_{x_2} +  (1 - p(x_1) - p(x_2))\delta_{x_n} \]
+\[ ... \succeq \sum_{i=1}^k p(x_i)\delta_{x_i} + \left(1 - \sum_{i=1}^k p(x_i)\right) \delta_{x_n} \]
+\[ ... \succeq \sum_{i=1}^k p(x_i)\delta_{x_i} + \left(1 - \sum_{i=1}^k p(x_i)\right) \left( \frac{p(x_{k+1})}{1 - \sum_{i=1}^k p(x_i)} \delta_{x_k} + \frac{1 - \sum_{i=1}^{k+1} p(x_i)}{1 - \sum_{i=1}^k p(x_i)} \delta_{x_n} \right) \]
+and hence from induction we find
+\[ \delta_{x_n} \succeq \sum_{i=1}^n p(x_i)\delta_{x_i} = p \]
+Thus, $\delta_{x_n}$ is the best lottery. Similarly, since $\delta_x \succeq \delta_z$ for all $x \in X$, enumerating such that $x_1 = z$, we can repeatedly apply independence:
+\[ \delta_{x_1} = p(x_n) \delta_{x_1} + (1-p(x_n))\delta_{x_1}  \preceq  p(x_n) \delta_{x_n} + (1-p(x_1))\delta_{x_1}  \]
+\[ \preceq p(x_n) \delta_{x_n} + (1-p(x_n))\left( \frac{p(x_{n-1})}{1-p(x_n)} \delta_{x_{n-1}} + \frac{1 - p(x_n) - p(x_{n-1})}{1-p(x_n)}\delta_{x_1} \right)  \]
+\[ = p(x_n) \delta_{x_n} + p(x_{n-1}) \delta_{x_{n-1}} +  (1 - p(x_n) - p(x_{n-1}))\delta_{x_1} \]
+\[ ... \preceq \sum_{i=0}^k p(x_{n-i})\delta_{x_{n-i}} + \left(1 - \sum_{i=0}^k p(x_{n-i})\right) \delta_{x_1} \]
+\[ ... \preceq \sum_{i=0}^k p(x_{n-i})\delta_{x_{n-i}} + \left(1 - \sum_{i=0}^k p(x_{n-i})\right) \left( \frac{p(x_{n-k-1})}{1 - \sum_{i=0}^k p(x_{n-i})} \delta_{x_k} + \frac{1 - \sum_{i=0}^{k+1} p(x_{n-i})}{1 - \sum_{i=0}^k p(x_{n-i})} \delta_{x_1} \right) \]
+and hence from induction we find
+\[ \delta_{x_1} \preceq \sum_{i=1}^n p(x_i)\delta_{x_i} = p \]
+So $\delta_{x_1}$ is the worst lottery.
+
+\paragraph{(2.2)}
+We first show independence implies betweenness. Suppose we have independence, and $p \sim q$. Then for $\alpha \in [0,1]$
+\[ p = \alpha p + (1-\alpha) p \sim \alpha p + (1-\alpha) q  \]
+where the second part follows from independence (taking $r = p$). Hence betweenness is implied by independence.
+
+TODO finish
+\paragraph{(2.3)}
+\begin{itemize}
+\item The utility maximization problem is:
+\[ \max_x \sum_\theta p(\theta) u(\theta, x) \]
+\item The utility maximization given the state revelation of $\theta$ is
+\[ \max_x u(\theta, x) \]
+Suppose the respective argmax is given by $x^*(\theta)$, and the argmax of the previous problem is $x^*$. Then the expected utility assuming actions occur after state revelation is
+\[ \sum_\theta p(\theta) u(\theta, x^*(\theta)) \ge \sum_\theta p(\theta) u(\theta, x^*) \]
+where we have just used that $u(\theta, x^*(\theta)) \ge u(\theta, x^*)$, which follows from the properties of $x^*(\theta)$. But the RHS of this is the expected utility of acting before state revelation. Hence, we have the expected utility is greater if we can act after state revelation rather than acting before.
+
+We construct an example where the inequality is strict. Let $\theta \in \{ 0, 1\}$ with equal probability, and suppose the actions are $x \in [0,1]$. Define $u(\theta, x) = -(x - \theta)^2$. If we can pick $x$ after observing $\theta$, we clearly just take $x = \theta$, and our expected utility is $0$. However, if we must commit to $x$ before observing $\theta$, our utility maximization is
+\[ \max -\frac{1}{2}x^2 - \frac{1}{2}(x-1)^2 = \max - x^2 + x - 1/2 \]
+This is maximized at $x = 1/2$, which gives us expected utility $-1/4 < 0$.
+\item The action after state revelation allows us to always achieve better utility, sometimes strictly. Hence, we can interpret information about the state as increasing our expected utility, and we might claim in this situation that more information is better.
+\end{itemize}
+\paragraph{(2.4)}
+\begin{itemize}
+\item Your expected salary is
+\[ \int_{\underline{z}}^{\overline{z}} z f(z) \ dz \]
+and the expected utility is
+\[ \int_{\underline{z}}^{\overline{z}} u(z) f(z) \ dz \]
+\item By Jensen's inequality, since $u$ is strictly concave,
+\[ u(E[z]) > E[u(z)]  \]
+Hence, your utility from simply taking the expected salary is better than your expected utility if you take the test and reveal your score. Hence, you wouldn't want to take the exam.
+\item If you know your score, then you clearly just take the exam if $z \ge E[z]$, because as long as $u$ is increasing, your subsequent utility satisfies $u(z) \ge u(E[z])$. Therefore, the people who don't take the exam all must have $z < E[z]$, so the average score among all people not taking the exam must be less than $E[z]$.
+
+Now, suppose the salary given to people who don't take the exam is the average score of people who don't take the exam. We prove that the only people who won't take the exam have $z = \underline{z}$. Suppose the average score of people who don't take the exam is $\mu_z$ (i.e. someone with $z > \underline{z}$ doesn't take the exam). Everyone with score greater than $\mu_z$ will want to take the exam, but this implies that the average of people who don't take the exam must be at most $\mu_z$. This implies that everyone who takes the exam has score $z = \mu_z$, and the only way for that to be possible is if $\mu_z = \underline{z}$. Hence, the only people who don't take the exam have score $\underline{z}$ (to them, it does not matter whether they take the exam or not), and everyone with a score higher than that will take the exam. Anyone not taking the exam receives a salary of $\underline{z}$.
+\item The outcome of this vote depends on the distribution $f$. Let $z'$ denote the median score. If $z' > E[z]$, then a majority of students will want to take their exam, because they would get a score higher than $E[z]$ and hence a higher salary. If $z' < E[z]$, then a majority of students will not want to take the exam, since half of the students would expect to receive a higher salary $E[z]$ than what they would get if they took the exam.
+\item The students \textbf{on aggregate} do achieve a higher utility from receiving information about their score. If they all know that most of them would be better off from not taking the exam, then they will vote to not take the exam, and more than half the class would be better off. If the exam is taken, then this is the same result as the scenario previously where only the students with the lowest possible score do not take the exam, and no welfare is lost
+\end{itemize}
+\paragraph{(2.5)}
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
