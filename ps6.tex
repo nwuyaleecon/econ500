@@ -141,7 +141,17 @@ We first show independence implies betweenness. Suppose we have independence, an
 \[ p = \alpha p + (1-\alpha) p \sim \alpha p + (1-\alpha) q  \]
 where the second part follows from independence (taking $r = p$). Hence betweenness is implied by independence.
 
-TODO finish
+To argue that betweenness does not necessitate independence, consider the Allais paradox. Consider a preference over lotteries $(p, q, 1-p-q)$ on $(5,1,0)$. Suppose a consumer's utility over a lottery $(p,q)$ is given by
+\[u(p,q) = \frac{1.01 + p}{1.01 - p - q}    \]
+Note then, for any $\alpha$ if $u = u(p,q) = u(p',q')$, the lottery $ (\alpha p + (1-\alpha) p', \alpha q + (1-\alpha)q' ) $ satisfies
+\[ \frac{1.01 + (\alpha p + (1-\alpha)p')}{1.01 - (\alpha p + (1-\alpha) p') - (\alpha q + (1-\alpha)q')} = \frac{1.01+ (\alpha p + (1-\alpha)p')}{\alpha(1.01 - p - q) + (1-\alpha)(1.01-p-1)} \] \[ = \frac{1.01+ (\alpha p + (1-\alpha)p')}{\alpha(1.01 + p)/u + (1-\alpha)(1.01 + p')/u} = u \frac{1.01+(\alpha p + (1-\alpha)p')}{1.01+ \alpha p + (1-\alpha) p'} = u  \]
+and hence these preferences satisfy betweenness. We now note that this can accommodate Allais. Specifically, if we let $p$ be the probability of $5$, $q$ the probability of $1$, then our preferences say that
+\[ u(0,1) = \frac{1.01}{.01} = 101 \]
+\[ u(.1, .89) = \frac{1.11}{.02} = 55.5 \]
+And hence $A \succ B$. Additionally,
+\[ u(0, .11) =\frac{1.01}{0.9} = 1.122... \]
+\[ u(.1, 0) = \frac{1.11}{.91} = 1.219...\]
+So $D \succ C$. Hence, these preferences, which satisfy betweenness, accommodate Allais, while independence cannot accommodate Allais. Therefore, there exist situations where betweenness holds, but not independence.
 \paragraph{(2.3)}
 \begin{itemize}
 \item The utility maximization problem is:
@@ -173,6 +183,6 @@ Now, suppose the salary given to people who don't take the exam is the average s
 \item The students \textbf{on aggregate} do achieve a higher utility from receiving information about their score. If they all know that most of them would be better off from not taking the exam, then they will vote to not take the exam, and more than half the class would be better off. If the exam is taken, then this is the same result as the scenario previously where only the students with the lowest possible score do not take the exam, and no welfare is lost
 \end{itemize}
 \paragraph{(2.5)}
-
+I'd not want to know. You can modify the model by taking the actor as being risk-loving in some sense, either by assigning a utility value to the uncertainty or taking a transformed expected utility rather than a vNM utility.
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
