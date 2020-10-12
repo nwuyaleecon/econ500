@@ -166,11 +166,41 @@ We note that this is sufficient for increasing differences in $x_1, x_2$, and al
 
 \paragraph{(1.8)}
 \begin{itemize}
-\item The FOCs are
-\[ p u'(py)- \lambda \nabla F(y) = 0  \]
+\item Let the production technology be characterized by $f$, and let us split the price vector into $p, w$ for outputs and inputs, respectively. Then we can rewrite the constrainted optimization as the unconstrained:
+\[ \max u(p \cdot f(z) - w\cdot z) \]
+The FOCs are
+\[ u'(p\cdot f(z) - w\cdot z)(p\cdot f_i(z) - w_iz_i) = 0 \]
+Now assuming $u$ is a strictly increasing function, we get that this condition is equivalent to
+\[p\cdot f_i(z) - w_iz_i = 0 \]
+And hence this is the same FOC as profit maximization. Likewise, for the second derivatives, we note that the only effect is the entire bordered Hessian is multiplied by the nonzero, positive quantity $u'(p\cdot f(z) - w\cdot z)$, and so the same SOCs hold. Once again, due to convexity of the maximum function, we have that
+\[ (u(p \cdot f(z) - w \cdot z) - u(p \cdot f(z') - w \cdot z')) \ge 0 \]
+\[ (u(p' \cdot f(z') - w' \cdot z') - u(p' \cdot f(z) - w' \cdot z)) \ge 0 \]
+If $u$ is increasing, this implies
+\[ ((p \cdot f(z) - w \cdot z) - (p \cdot f(z') - w \cdot z')) \ge 0 \]
+\[ ((p' \cdot f(z') - w' \cdot z') - (p' \cdot f(z) - w' \cdot z)) \ge 0 \]
+Hence,
+\[ ((p, -w) \cdot (f(z), z) - (p, -w) \cdot (f(z'), z') - (p', -w') \cdot (f(z), z) + (p', -w') \cdot (f(z'), z') \ge 0 \]
+\[ ((p, -w) - (p', -w')) \cdot (f(z), z) - (f(z'), z')) \ge 0 \]
+We can of course take $p', -w' \to (p,w)$ to establish the differential result. Thus, the law of supply holds.
+\item We require $u$ to be increasing and nonsatiated in order for the supply functions to be unchanged by including utility in the model. If $u$ satisfies these conditions, then
+\[ u(a) \ge u(b) \iff a \ge b \]
+and hence $y(p) = \arg \max u(p y) = \arg \max py $. We can also observe this through the FOC:
+\[ u'(p\cdot f(z) - w\cdot z)(p\cdot f_i(z) - w_iz_i) = 0 \]
+If $u'(p\cdot f(z) - w\cdot z) > 0$, then we have the same supply and conditional supply functions as the plain profit maximization ($u(\pi) = \pi$).
 
-\item
-\item
+Now, we show that under these assumptions on $u$ we have both Shepard's lemma and Hotelling's lemma. Specifically, by the envelope theorem, we get that
+\[ u'y = \frac{\partial u(\pi)}{\partial \pi} \frac{\partial \pi}{\partial p}  \]
+\[ u'y =  u' \frac{\partial \pi}{\partial p}\]
+\[ y = \frac{\partial \pi}{\partial p} \]
+So we have Hotelling's. Considering an input, we find
+\[ u'z = \frac{\partial u(\pi)}{\partial e} \frac{\partial e}{\partial w}  \]
+\[ u'z = \frac{\partial u(\pi)}{\partial e} \frac{\partial e}{\partial w}  \]
+\[ u'z = u' \frac{\partial e}{\partial w}  \]
+\[ z = \frac{\partial e}{\partial w}  \]
+and hence we have Shepard's.
+
+
+\item We can explain $u$ as the owner's utility of wealth. We have shown already that as long as $u$ is strictly increasing, the profit maximization condition is equivalent to the utility maximization for a firm owner.
 \end{itemize}
 \pagebreak
 \section*{Part 2}
