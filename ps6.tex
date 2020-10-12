@@ -76,11 +76,42 @@ Increasing returns: for $\alpha \ge 1$,
 Decreasing returns: for $\alpha \in [0,1]$,
 \[ F(y) \le 0 \implies F(\alpha y) \le 0 \]
 \paragraph{(1.4)}
-TODO first part
+We first show that increasing returns implies failure of the SOCs for profit maximization. Suppose that $Y$ satisfies increasing returns. Let $F(y)=0$ denote the frontier of $Y$. Then the maximization problem is
+\[ \max p \cdot y \]
+\[ F(y) = 0 \]
+The Lagrangian is
+\[ \mathcal{L} = p \cdot y - \lambda F(y) \]
+Consider an arbitrary critical point, $y^*$. By the FOCs,
+\[ p = \lambda \nabla F(y^*) \]
+\[ F(y^*) = 0 \]
+Consider $y' = (1+\epsilon)y^*$ for some small $\epsilon > 0$. By increasing returns, $F(y') \le 0$. However, $p \cdot y' - p \cdot y^* = \epsilon ( p \cdot y^*) > 0$ since $p \cdot y^* \ge 0$ as $0 \in Y$. This implies that $y^*$ cannot maximize the objective, and hence the second order conditions must fail.
 
-Now, consider the production set $Y = \{(x,y) \ : \ x + y \le 0 \}$. Clearly, this set exhibits decreasing returns. Suppose prices are $(1, 2)$. There is no solution to the profit maximization: for $k > 0$, $(-k, k) \in Y$, and $\pi(-k, k) = k$ is arbitrarily increasing in $k$.
+Now, consider the production set $Y = \{(x,y) \ : \ x + y \le 0 \}$. Clearly, this set exhibits decreasing returns. Suppose prices are $(1, 2)$. There is no solution to the profit maximization: for $k > 0$, $(-k, k) \in Y$, and $p \cdot (-k, k) = k$ is arbitrarily increasing in $k$.
 \paragraph{(1.5)}
-TODO
+Suppose $Y = \{ (-z, q) \ : f(z) \ge q \} $. Let the prices be given by $w$, and the cost function is the minimum value of
+\[ \min w \cdot z \]
+subject to
+\[ q \le f(z) \]
+Let $z(w,q)$ be the minimizer, $c(w,q)$ be the minimum value.
+Increasing costs implies that for $\alpha \ge 1$,
+\[ \alpha c(w, q) \le  c(w,\alpha q) \]
+Decreasing costs implies that for $\alpha \ge 1$
+\[ \alpha c(w, q) \ge  c(w,\alpha q) \]
+And constant costs implies that for $\alpha \ge 1$
+\[ \alpha c(w, q) =  c(w,\alpha q) \]
+
+We now relate this cost function to the features of the set $Y$ in terms of increasing/decreasing/constant returns.
+Suppose $Y$ satisfies increasing returns. Pick a $w$, and consider $(-z(w,q), q) \in Y$. Let $\alpha \ge 1$. By increasing returns $(-\alpha z(w,q), \alpha q) \in Y$. Then we know $f(\alpha z(w,q)) \ge \alpha q$. So $c(w, \alpha q) \le w \alpha z(w,q) = \alpha c(w,q)$. Hence increasing returns implies decreasing costs.
+
+Similarly, we show that decreasing returns implies increasing costs. Suppose $Y$ satisfies decreasing returns. Take $\alpha \ge 1$. Pick a $w$, and consider $(-z(w,\alpha q), \alpha q) \in Y$. By decreasing returns $(-\frac{1}{\alpha}z(w,\alpha q), q) \in Y$. Therefore
+\[ \frac{1}{\alpha} w \cdot z(w, \alpha q) \ge c(w, q) \]
+\[ \frac{1}{\alpha} c(w, \alpha q) \ge c(w, q) \]
+\[ c(w, \alpha q) \ge \alpha c(w, q) \]
+so we have increasing costs.
+
+Clearly, we can observe that if we have constant returns, we have both increasing and decreasing returns, and hence increasing and decreasing costs. This implies we have constant costs.
+
+TODO: if i don't feel too lazy I'll try some reverse implications.
 \paragraph{(1.6)}
 Let the firm have production function $f$, and face prices $p_1, p_2, q$. The maximization problem is
 \[ \max qy - p_1 x_1 - p_2 x_2 \]
