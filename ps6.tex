@@ -84,9 +84,11 @@ TODO
 \paragraph{(1.6)}
 Let the firm have production function $f$, and face prices $p_1, p_2, q$. The maximization problem is
 \[ \max qy - p_1 x_1 - p_2 x_2 \]
+\[ y \le f(x_1, x_2) \]
 From FOCs:
-\[ qf_1(x_1, x_2) = p_1 \]
-\[ qf_2(x_1, x_2) = p_2 \]
+\[ q - \lambda = 0 \]
+\[ \lambda f_1(x_1, x_2) = p_1 \]
+\[ \lambda f_2(x_1, x_2) = p_2 \]
 Differentiating in $p_1$, we have
 \[ qf_{11}(x_1, x_2) \frac{\partial x_1}{\partial p_1} + qf_{12}(x_1, x_2) \frac{\partial x_2}{\partial p_1} = 1 \]
 \[ qf_{21}(x_1, x_2) \frac{\partial x_1}{\partial p_1} + qf_{22}(x_1, x_2) \frac{\partial x_2}{\partial p_1} = 0 \]
@@ -96,11 +98,15 @@ qf_{11}(x_1, x_2) & qf_{12}(x_1, x_2) \\
 qf_{12}(x_1, x_2) & qf_{22}(x_1, x_2)
 \end{bmatrix} \begin{bmatrix} \frac{\partial x_1}{\partial p_1} \\ \frac{\partial x_2}{\partial p_1}\end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \]
 Applying Cramer's rule,
-\[ \frac{\partial x_1}{\partial p_1} = \frac{1}{|H|} (qf_{22}(x_1, x_2) - qf_{12}(x_1, x_2)) \]
+\[ \frac{\partial x_1}{\partial p_1} = \frac{1}{|H|} (qf_{22}(x_1, x_2) ) \]
+\[ \frac{\partial x_2}{\partial p_1} =  -\frac{1}{|H|} (qf_{12}(x_1, x_2) ) \]
+Then since at maximization, $y = f(x_1, x_2)$,
+\[ \frac{\partial y}{\partial p_1} = f_1(x_1, x_2)\frac{\partial x_1}{\partial p_1} + f_2(x_1, x_2)\frac{\partial x_2}{\partial p_1} = \frac{q}{|H|} \left(f_1(x_1, x_2)f_{22}(x_1, x_2) - f_2(x_1, x_2)f_{12}(x_1, x_2) \right)  \]
+
 In order for this sign to be negative, we need
-\[ f_{22}(x_1, x_2) < f_{12}(x_1, x_2)) \]
+\[ f_1(x_1, x_2)f_{22}(x_1, x_2) < f_2(x_1, x_2)f_{12}(x_1, x_2)) \]
 For this sign to be positive, we need
-\[ f_{22}(x_1, x_2) > f_{12}(x_1, x_2)) \]
+\[ f_1(x_1, x_2)f_{22}(x_1, x_2) > f_2(x_1, x_2)f_{12}(x_1, x_2)) \]
 
 TODO relate to giffen
 \paragraph{(1.7)}
