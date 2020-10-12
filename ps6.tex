@@ -111,7 +111,21 @@ so we have increasing costs.
 
 Clearly, we can observe that if we have constant returns, we have both increasing and decreasing returns, and hence increasing and decreasing costs. This implies we have constant costs.
 
-TODO: if i don't feel too lazy I'll try some reverse implications.
+For the opposite direction, if we suppose that the upper contour sets of $f$ are convex, we can show the converses of the above statements. Suppose we have decreasing costs, and the upper contour sets of $f$ are convex. Consider $(-z, q) \in Y$. This implies $f(z) \ge q$, and hence $\forall w$, $w \cdot z \ge c(w, q)$. Now, using the upper contour set convexity, we showed on the previous pset that
+\[ Y = \{ (-z, q) \ : \ wz \ge c(w,q) \}  \]
+Then by using decreasing costs, we get that fixing $\alpha > 1$, $\forall w$,
+\[ \alpha w \cdot z \ge \alpha c(w,q)\ge c(w, \alpha q) \]
+\[ w \cdot (\alpha z) \ge c(w, \alpha q) \]
+Hence, using the alternate definition of $Y$, we get that $(-\alpha z, \alpha q) \in Y$. Hence $Y$ satisfies increasing returns.
+
+Now, suppose we have increasing costs. Once again, consider $(-z, q) \in Y$. Consider $z' = z/\alpha,  q' = q/\alpha)$, $\alpha > 1$. It suffices to show for decreasing returns that $(-z', q') \in Y$. Suppose $(-z', q') \not \in Y$. Using the alternate definition of $Y$ we showed on the previous pset, this implies there exists some $w$ such that
+\[ w z' < c(w, q') \]
+Using increasing costs,
+\[ \alpha w z' < \alpha c(w, q') \le c(w, \alpha q') = c(w, q) \]
+\[ w z < c(w,q) \]
+But this implies that $(-z, q) \not \in Y$, a contradiction. Hence we must have $(-z', q' ) \in Y$, and therefore we have decreasing returns.
+
+From the previous parts, we showed (assuming the upper contour sets of $f$ are convex) that increasing costs implies decreasing returns and decreasing costs implies increasing returns. Trivially then, constant costs implies both increasing and decreasing costs, which imply both increasing and decreasing returns, which together imply constant returns. Hence constant costs implies constant returns.
 \paragraph{(1.6)}
 Let the firm have production function $f$, and face prices $p_1, p_2, q$. The maximization problem is
 \[ \max qy - p_1 x_1 - p_2 x_2 \]
