@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{tikz}
 	% packages that allow mathematical formatting
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -70,9 +71,27 @@ Due to continuity and strictly convex preferences, both $f''$ and $g''$ are nonz
 \section*{Problem 3}
 .... TODO smoothness ....
 
-To show $x_i$ is a diffeomorphism, it suffices to argue the preimage map $x_i^{-1}$ is a well-defined function and smooth.
+To show $x_i$ is a diffeomorphism, it suffices to argue the preimage map $x_i^{-1}$ is a well-defined function and smooth. Suppose that $x^*$ is some consumption bundle for player $i$, where $x^*$ is part of a feasible allocation (inside the Edgeworth box). For well-definedness, it suffices to show that there exists a unique price $p$ and wealth $w$ such that $x_i(p,w) = x^*$. The utility maximization problem is
+\[ x_i(p,w) = \argmax_{p\cdot x \le w \cdot } u(x) \]
+Let
+\[ p = \frac{\frac{\partial u}{\partial x_1} \Bigr|_{x_1 = x^*_1}}{\frac{\partial u}{\partial x_2} \Bigr|_{x_1 = x^*_2}} \]
+and
+\[ w = p x^*_1 + x^*_2  \]
+We note that by our assumptions on the utility function (i.e. differentiable and increasing), our expression for $p$ is always positive and well defined, since the denominator is never zero.
+
+Then we note first order conditions for utility maximization are: (assuming (i) - (iii) and strictly convex preferences)
+\[ \frac{\partial u}{\partial x_1} \Bigr|_{x_1 = x^*_1} = \lambda p \]
+\[ \frac{\partial u}{\partial x_2} \Bigr|_{x_1 = x^*_2} = \lambda  \]
+\[ p \cdot x^* = w  \]
+Hence, $p$ solves these at $x^*$, so by our assumptions, and $x^*$ is feasible and binding under the budget constraint at $(p,w)$. Hence we have that
+$x_i(p,w) = x^*$, and so $x_i$ is invertible.
+
+Further, we can examine our expression for $p$:
+\[ p(x^*) = \frac{\frac{\partial u}{\partial x_1} \Bigr|_{x = x^*}}{\frac{\partial u}{\partial x_2} \Bigr|_{x = x^*}} \]
+Since $u$ is assumed to be smooth, we know that the partial derivatives of $u$ with respect to $x_1$ and $x_2$ are also smooth. Now, we note the transformation $f(x,y) = x/y$ is smooth for $x,y > 0$, and $u_1, u_2 > 0$, we know that since a composition of smooth functions is smooth, we have that $p(x^*)$ is smooth. Similarly, since $w(x^*) = p(x^*) x^*_1 + x^*_2$ is also a composition of a smooth function and $p$ is smooth, $w$ is also smooth. Therefore, we have the preimage of demand under fixation of the numeraire price of good 2 is well-defined and smooth, so $x_i$ is a diffeomorphism between the 2-manifolds of the consumption space and the price/wealth $(p,w)$ space (where $p$ is the price of good 2).
+
 \section*{Problem 4}
-The offer curve is $\mathcal{O}$
+The offer curve is $\mathcal{O} = $
 
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
