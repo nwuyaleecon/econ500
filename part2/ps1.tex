@@ -42,12 +42,57 @@
 \section*{Problem 2}
 \paragraph{(15.B.4)}
 \begin{enumerate}[label=(\alph*)]
-\item 
+\item See the diagram. Note that as the price of good 2 increases, the quantity of 2 demanded decreases and the quantity of 1 increases.
+
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (5.5,0) ;
+\draw[thick,->] (0,0) -- (0,5.5) ;
+\draw[thick,->] (5,5) -- (5,-0.5) ;
+\draw[thick,->] (5,5) -- (-0.5,5) ;
+\draw[red] (0.5,5) .. controls (1,1) .. (5,0.5) ;
+\draw[blue] (0,1.5) -- (5,0.25);
+\draw[purple] (0,3) -- (3.5,0);
+\end{tikzpicture}
+\item Suppose, for sake of contradiction, that there are two intersections, at price pairs $(p, 1)$ and $(p', 1)$. WLOG, suppose $p > p'$. Let the allocations at these points be $x$, $x'$. By the gross substitutes property, we must have $x_{11} < x'_{11}$ and $x_{21} < x'_{21}$. But we know that intersections of the offer curves constitute Walrasian equilibria, so we must have by market clearing
+\[ x_{11} + x_{21} = \omega_{11} + \omega_{12}  \]
+\[ x'_{11} + x'_{21} = \omega_{11} + \omega_{12}  \]
+but this is clearly impossible with $x_{11} < x'_{11}$ and $x_{21} < x'_{21}$. Hence, we cannot have multiple intersections of the offer curves outside of the initial endowment if both consumers satisfy gross substitutes.
+\item See the diagram. Note that the demand of good 2 does increase at high prices for good 2, but good 1's demand also increases when demand for good 2 increases. Note that this fails gross substitutes.
+
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (5.5,0) ;
+\draw[thick,->] (0,0) -- (0,5.5) ;
+\draw[thick,->] (5,5) -- (5,-0.5) ;
+\draw[thick,->] (5,5) -- (-0.5,5) ;
+\draw[red] (1.5,5) .. controls (1,1) .. (5,0.5) ;
+\draw[blue] (0,1.5) -- (5,0.25);
+\draw[purple] (0,3) -- (3.75,0);
+\draw[brown] (1,5) -- (3.05,0);
+\end{tikzpicture}
+\item See the diagram. Note this demand curve fails normality. Between the purple and brown budget lines, the demand for good 2 increases but the demand for good 1 falls.
+
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (5.5,0) ;
+\draw[thick,->] (0,0) -- (0,5.5) ;
+\draw[thick,->] (5,5) -- (5,-0.5) ;
+\draw[thick,->] (5,5) -- (-0.5,5) ;
+\draw[red] plot [smooth] coordinates {(4,5) (2,2.5) (1,2.75) (0.5, 2) (2.5, 0.9) (5,0.5)} ;
+\draw[blue] (0,1.5) -- (5,0.25);
+\draw[purple] (0,3.7) -- (3.75,0);
+\draw[brown] (0.5,5) -- (3.4,0);
+\end{tikzpicture}
+Now, we show that the demand cannot be normal if the offer curve is not normal.
 \item
-\item
-\item
-\item
-\item
+\item See the diagram below. There are many intersection points for these two offer curves.
+
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (5.5,0) ;
+\draw[thick,->] (0,0) -- (0,5.5) ;
+\draw[thick,->] (5,5) -- (5,-0.5) ;
+\draw[thick,->] (5,5) -- (-0.5,5) ;
+\draw[red] plot [smooth] coordinates {(4,5) (2,2.5)  (0.5, 2) (2.5, 0.9) (5,0.5)} ;
+\draw[blue] plot [smooth] coordinates {(0, 1) (2.5,3) (3,4.5) (4.1,2.5) (4.5, 0)};
+\end{tikzpicture}
 \end{enumerate}
 \paragraph{(15.B.8)} Let the two utility functions be
 \[ u_1(x,y) = x + f(y) \]
