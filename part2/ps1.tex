@@ -42,7 +42,7 @@
 \section*{Problem 2}
 \paragraph{(15.B.4)}
 \begin{enumerate}[label=(\alph*)]
-\item
+\item 
 \item
 \item
 \item
@@ -78,16 +78,22 @@ We know from the first half of this course that since preferences are strictly c
 By definition, we have
 \[ x_i(p,w) = \argmax_{p\cdot x \le w \cdot } u(x) \]
 The FOCs require
-\[ u_2(x_i(p,w)) - \lambda = 0 \]
 \[ u_1(x_i(p,w)) - \lambda p = 0 \]
+\[ u_2(x_i(p,w)) - \lambda = 0 \]
 \[ (p,1) \cdot x_i(p,w) - w  = 0\]
+Stacking the LHS into a vector, we have
+\[ v = \begin{bmatrix}
+  u_1(x_i(p,w)) - \lambda p \\
+  u_2(x_i(p,w)) - \lambda  \\
+  (p, 1) \cdot x_i(p,w) - w
+\end{bmatrix} \]
 The bordered Hessian is
 \[ H = \begin{bmatrix} u_{11} & u_{21} & -p \\ u_{21} & u_{22} & -1 \\ -p & -1 & 0 \\ \end{bmatrix}\]
 Assuming $|H| \neq 0$, we can then use the implicit function theorem.
-\[ \frac{\partial x_i}{\partial p} =  \]
-
-TODO finish
-
+\[ \begin{bmatrix}
+  \frac{\partial x_1}{\partial p} & \frac{\partial x_1}{\partial w} \\  \frac{\partial x_2}{\partial p} & \frac{\partial x_2}{\partial w}  \\ \frac{\partial \lambda}{\partial p} & \frac{\partial \lambda}{\partial w}  \\
+\end{bmatrix} = H^{-1} (D_{p,w} v) \]
+Then we note that the expressions for the partial derivatives of $x_1, x_2$ with respect to $p, w$ are a smooth linear transformation of smooth functions, and hence are smooth. Therefore, since first derivative matrix of $x_1$, $x_2$ is smooth, we have that $x_1, x_2$ are smooth.
 
 To show $x_i$ is a diffeomorphism, it suffices to argue the preimage map $x_i^{-1}$ is a well-defined function and smooth. Suppose that $x^*$ is some consumption bundle for player $i$, where $x^*$ is part of a feasible allocation (inside the Edgeworth box). For well-definedness, it suffices to show that there exists a unique price $p$ and wealth $w$ such that $x_i(p,w) = x^*$. The utility maximization problem is
 \[ x_i(p,w) = \argmax_{p\cdot x \le w \cdot } u(x) \]
