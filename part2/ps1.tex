@@ -190,7 +190,9 @@ which varies continuously in $x_1, x_2$.
 
 Finally, we know that at each point on the offer curve, since $x_i$ maximizes utility and $\omega$ is in the budget set, for any $x \neq \omega$, $x \in \mathcal{O}_i$, $u(x) \ge u(\omega)$. Now, suppose $\mathcal{O}$ is not tangent to $I(\omega)$ at $\omega$. This implies that $\mathcal{O}$ must cross $I(\omega)$ at $\omega$, which means since $u$ is increasing, for any neighborhood of $\omega$, there exist points $x', x''$ such that $u(x') > u(\omega)$ and $u(x'') < u(\omega)$. But $x', x''$ cannot both lie on the offer curve, a contradiction. Hence we must have that $\mathcal{O}$ is tangent to $I(\omega)$ at $\omega$.
 
-TODO normal vector
+Now, we already showed that the offer curve is smooth, and is the image of the line $p \omega_1 + \omega_2 = w$ under $x_i$. Fix some bundle $x^* \in \mathcal{O}_i$, and let $p^*$ be the price that yields the offer $x^*$. We know $x^* = x_i(p^*, p^*\cdot \omega)$, so the normal vector is given by
+\[ \lambda(x^*) = \nabla x_i(p^*, p^* \cdot \omega) \] From problem 3, we argued by the implicit function theorem that $x_i$ was smooth in $p, w$, and hence is smooth under the parametrization $p^*, p^* \cdot \omega$. Therefore,
+$ \lambda(x^*) $ is continuously differentiable.
 
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
