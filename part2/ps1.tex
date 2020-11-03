@@ -52,6 +52,11 @@
 \paragraph{(15.B.8)} Let the two utility functions be
 \[ u_1(x,y) = x + f(y) \]
 \[ u_2(x,y) = x + g(y) \]
+If preferences are strictly convex, then
+\[  x +  f(\lambda y + (1-\lambda)y')  > \lambda (x+f(y)) + (1-\lambda)(x + f(y')) \]
+\[ f(\lambda y + (1-\lambda)y')> \lambda f(y) + (1-\lambda) f(y')  \]
+Similarly for $g$. So both $f$ and $g$ are strictly concave.
+
 By the second welfare theorem, any Pareto optimal allocation is supported by some prices and endowment choices. Normalize the numeraire price to 1. Let some interior Pareto optimal allocation be supported by the price vector $(1, p)$. By the optimization FOCs, since the allocation is interior, we require
 \[ 1 - \lambda = 0 \]
 \[ f'(y_1) - \lambda p =0 \]
@@ -69,29 +74,58 @@ Then
 Due to continuity and strictly convex preferences, both $f''$ and $g''$ are nonzero and have the same sign, and hence $h$ is a strictly monotonic function. Therefore, $h(y) = 0$ for at most one unique value of $y$, and since $y_1$ satisfies $h(y_1) = 0$, we know that since any interior Pareto optimal allocation must satisfy $h(y) = 0$, any interior Pareto optimal allocation always assigns $y_1$ to consumer 1 and $\omega_y - y_1$ to consumer 2.
 
 \section*{Problem 3}
-.... TODO smoothness ....
+We know from the first half of this course that since preferences are strictly convex, the demand correspondence is a function and hence single-valued. It remains to show that the demand is indeed smooth.
+By definition, we have
+\[ x_i(p,w) = \argmax_{p\cdot x \le w \cdot } u(x) \]
+The FOCs require
+\[ u_2(x_i(p,w)) - \lambda = 0 \]
+\[ u_1(x_i(p,w)) - \lambda p = 0 \]
+\[ (p,1) \cdot x_i(p,w) - w  = 0\]
+The bordered Hessian is
+\[ H = \begin{bmatrix} u_{11} & u_{21} & -p \\ u_{21} & u_{22} & -1 \\ -p & -1 & 0 \\ \end{bmatrix}\]
+Assuming $|H| \neq 0$, we can then use the implicit function theorem.
+\[ \frac{\partial x_i}{\partial p} =  \]
+
+TODO finish
+
 
 To show $x_i$ is a diffeomorphism, it suffices to argue the preimage map $x_i^{-1}$ is a well-defined function and smooth. Suppose that $x^*$ is some consumption bundle for player $i$, where $x^*$ is part of a feasible allocation (inside the Edgeworth box). For well-definedness, it suffices to show that there exists a unique price $p$ and wealth $w$ such that $x_i(p,w) = x^*$. The utility maximization problem is
 \[ x_i(p,w) = \argmax_{p\cdot x \le w \cdot } u(x) \]
 Let
-\[ p = \frac{\frac{\partial u}{\partial x_1} \Bigr|_{x_1 = x^*_1}}{\frac{\partial u}{\partial x_2} \Bigr|_{x_1 = x^*_2}} \]
+\[ p = \frac{\frac{\partial u}{\partial x_1} \Bigr|_{ x^*}}{\frac{\partial u}{\partial x_2} \Bigr|_{x^*}} \]
 and
 \[ w = p x^*_1 + x^*_2  \]
 We note that by our assumptions on the utility function (i.e. differentiable and increasing), our expression for $p$ is always positive and well defined, since the denominator is never zero.
 
 Then we note first order conditions for utility maximization are: (assuming (i) - (iii) and strictly convex preferences)
-\[ \frac{\partial u}{\partial x_1} \Bigr|_{x_1 = x^*_1} = \lambda p \]
-\[ \frac{\partial u}{\partial x_2} \Bigr|_{x_1 = x^*_2} = \lambda  \]
+\[ \frac{\partial u}{\partial x_1} \Bigr|_{x^*} = \lambda p \]
+\[ \frac{\partial u}{\partial x_2} \Bigr|_{x^*} = \lambda  \]
 \[ p \cdot x^* = w  \]
-Hence, $p$ solves these at $x^*$, so by our assumptions, and $x^*$ is feasible and binding under the budget constraint at $(p,w)$. Hence we have that
+Hence, $p$ uniquely solves these at $x^*$, since $\lambda$ is fully determined from equation 2, so $p$ is fully determined, and hence $w$ is also fully determined. So $x^*$ is feasible and binding under the budget constraint at $(p,w)$. Hence we have that
 $x_i(p,w) = x^*$, and so $x_i$ is invertible.
 
 Further, we can examine our expression for $p$:
-\[ p(x^*) = \frac{\frac{\partial u}{\partial x_1} \Bigr|_{x = x^*}}{\frac{\partial u}{\partial x_2} \Bigr|_{x = x^*}} \]
+\[ p(x^*) = \frac{\frac{\partial u}{\partial x_1} \Bigr|_{x^*}}{\frac{\partial u}{\partial x_2} \Bigr|_{x^*}} \]
 Since $u$ is assumed to be smooth, we know that the partial derivatives of $u$ with respect to $x_1$ and $x_2$ are also smooth. Now, we note the transformation $f(x,y) = x/y$ is smooth for $x,y > 0$, and $u_1, u_2 > 0$, we know that since a composition of smooth functions is smooth, we have that $p(x^*)$ is smooth. Similarly, since $w(x^*) = p(x^*) x^*_1 + x^*_2$ is also a composition of a smooth function and $p$ is smooth, $w$ is also smooth. Therefore, we have the preimage of demand under fixation of the numeraire price of good 2 is well-defined and smooth, so $x_i$ is a diffeomorphism between the 2-manifolds of the consumption space and the price/wealth $(p,w)$ space (where $p$ is the price of good 2).
 
 \section*{Problem 4}
-The offer curve is $\mathcal{O} = $
+
+The offer curve is $\mathcal{O}_i = \{ x_i(p', p' \cdot \omega) \ : \ p' = (p, 1) > 0 \} $ where we have normalized the price of good 2 to 1 as the numeraire.
+Now, since $x_i$ is a diffeomorphism (we showed this in the previous problem) we have that since the offer curve is the image of the line $p \omega_1 + \omega_2 = w$ under the mapping $x_i$. Since $x_i$ is smooth, and the line $p \omega_1 + \omega_2 = w$ is smooth in the $(p,w)$ space, we have that the offer curve is also smooth. Further, we note that using the inverse we computed in the previous problem,
+\[ x_i \left( \frac{u_1(\omega)}{u_2(\omega)}, \frac{u_1(\omega)}{u_2(\omega)}\omega_1  + \omega_2 \right) = \omega \]
+And we note that
+\[ \left( \frac{u_1(\omega)}{u_2(\omega)}, \frac{u_1(\omega)}{u_2(\omega)}\omega_1  + \omega_2 \right) \]
+lies on the offer curve preimage $p \omega_1 + \omega_2 = w$. Hence the offer curve passes through the endowment.
+
+The indifference curve at $\omega$ is given by the equation:
+\[ u_i(x_1, x_2) = u_i(\omega) \]
+It follows that since $u_i$ is smooth, and $u_i(\omega)$ is a constant, the indifference curve is smooth, since the normal vector to $I(\omega)$ is (assuming smoothness of $u$)
+\[ (u_1(x_1, x_2), u_2(x_1, x_2)) \]
+which varies continuously in $x_1, x_2$.
+
+Finally, we know that at each point on the offer curve, since $x_i$ maximizes utility and $\omega$ is in the budget set, for any $x \neq \omega$, $x \in \mathcal{O}_i$, $u(x) \ge u(\omega)$. Now, suppose $\mathcal{O}$ is not tangent to $I(\omega)$ at $\omega$. This implies that $\mathcal{O}$ must cross $I(\omega)$ at $\omega$, which means since $u$ is increasing, for any neighborhood of $\omega$, there exist points $x', x''$ such that $u(x') > u(\omega)$ and $u(x'') < u(\omega)$. But $x', x''$ cannot both lie on the offer curve, a contradiction. Hence we must have that $\mathcal{O}$ is tangent to $I(\omega)$ at $\omega$.
+
+TODO normal vector
 
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
