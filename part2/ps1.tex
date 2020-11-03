@@ -81,8 +81,22 @@ but this is clearly impossible with $x_{11} < x'_{11}$ and $x_{21} < x'_{21}$. H
 \draw[purple] (0,3.7) -- (3.75,0);
 \draw[brown] (0.5,5) -- (3.4,0);
 \end{tikzpicture}
-Now, we show that the demand cannot be normal if the offer curve is not normal.
-\item
+Now, we show that the demand cannot be normal if the offer curve is not normal. Suppose the offer curve is not normal, and consider two price points $(p,1), (p', 1)$, $p' > p$, such that moving on the offer curve from $(p,1)$ to $(p',1)$, the quantity of good 1 demanded increases and the quantity of good 2 demanded decreases. Define $w = p\omega_1 + \omega_2$, $w' = p'\omega_1 + \omega_2 > w$.
+\[ x_1(p, w) < x_1(p', w') \]
+\[ x_2(p, w) > x_2(p', w') \]
+If good 2 is inferior, we are done. Otherwise, since $x_2(p,w) > x_2(p',w')$, it must be the case that real wealth has decreased from $(p,w)$ to $(p',w')$. But since the consumption of good 1 increased as real wealth decreased from $(p,w)$ to $(p',w')$, it must be the case then that good 1 is inferior. Hence at least one of the goods is inferior, and so the demand is not normal.
+\item Suppose we have multiple intersections, at prices $(p,1)$ and $(p',1)$, $p' > p$. Let the allocations at these points be $x$, $x'$. By the gross substitutes property, we must have $x_{11} < x'_{11}$ and $x_{12} > x'_{12}$. Further, by normality, we require either $x_{21} < x'_{21}$ or both of $x_{21} > x'_{21}$ and $x_{22} > x'_{22}$.
+
+But we know that intersections of the offer curves constitute Walrasian equilibria, so we must have by market clearing
+\[ x_{11} + x_{21} = \omega_{11} + \omega_{21}  \]
+\[ x_{12} + x_{22} = \omega_{12} + \omega_{22}  \]
+\[ x'_{11} + x'_{21} = \omega_{11} + \omega_{21}  \]
+\[ x'_{12} + x'_{22} = \omega_{12} + \omega_{22}  \]
+Importantly, we require
+\[ x_{11} + x_{21} = x'_{11} + x'_{21} \]
+\[ x_{12} + x_{22} = x'_{12} + x'_{22} \]
+Since $x_{11} < x'_{11}$, we must have $x_{21} > x'_{21}$. But by normality, this necessitates that $x_{22} > x'_{22}$, and by gross substitutes, $x_{12} > x'_{12}$. But these imply $x_{12} + x_{22} > x'_{12} + x'_{22}$, a contradiction. Hence, we can only have one intersection of the offer curves if one consumer has gross substitutes and the other is normal.
+
 \item See the diagram below. There are many intersection points for these two offer curves.
 
 \begin{tikzpicture}
