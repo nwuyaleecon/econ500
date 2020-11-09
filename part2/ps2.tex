@@ -51,15 +51,35 @@ We provide a counterexample. Take $K = [0,1]$, and let $\gamma(0) = (0,1)$ and $
 \section*{Problem 8}
 We first prove a lemma.
 
-\textbf{Lemma}: Any compact, convex set $K \subseteq \mathbb{R}^n$ is diffeomorphic to a $d$-simplex for some $d$.
+\textbf{Lemma}: Any compact, convex set $K \subseteq \mathbb{R}^d$ is diffeomorphic to a $n$-simplex for some $n$.
 
 \textbf{Proof}: TODO
 
-Now, the generalization of Brouwer's follows from this lemma. Suppose $f: K \to K$ is continuous. Since $K$ is diffeomorphic to a $d$-simplex, let $g: K \to S$ be such a diffeomorphism to some $d$-simplex $S$. Consider the composition $h = g\circ f \circ g^{-1}$. Then $h$ takes $S \to S$, and since composition of continuous functions is continuous, $h$ must be continuous. So by Brouwer's theorem on simplices, we have that $h$ has some fixed point $p \in S$. This implies
+Now, the generalization of Brouwer's follows from this lemma. Suppose $f: K \to K$ is continuous. Since $K$ is diffeomorphic to a $d$-simplex, let $g: K \to S$ be such a diffeomorphism to some $n$-simplex $S$. Consider the composition $h = g\circ f \circ g^{-1}$. Then $h$ takes $S \to S$, and since composition of continuous functions is continuous, $h$ must be continuous. So by Brouwer's theorem on simplices, we have that $h$ has some fixed point $p \in S$. This implies
 \[ (g \circ f \circ g^{-1}) (p) = p \]
 \[ g^{-1}((g \circ f \circ g^{-1}) (p)) = g^{-1}(p)\]
 \[ f(g^{-1}(p)) = g^{-1}(p) \]
 Then since $g^{-1}(p) \in K$, we have that $g^{-1}(p)$ is a fixed point of $f$. Hence we have extended Brouwer to an arbitrary compact convex domain $K$.
 \section*{Problem 9}
+\textit{Collaborator: Jingyi Cui, but solutions independently written}
+
+Take an arbitrary labelling of the vertices $v_0, v_1, ... v_n$ of the simplex $S$. Define $\phi$ as the shift-by-one mapping, or \[ \phi(i) = i + 1 \mod {n+1} \]
+We construct a continuous mapping $\varphi$ as follows. Consider an arbitrary $s \in S$. Define the subdivision carrier $\chi^*(s)$ as the vertices of the smallest simplex in the subdivision $\{ S_i \}$ that contains $s$, which exists yy definition of a subdivision. Let $L_i$ denote the labelling map of the vertices of $S_i$, that is it maps each vertex $v$ of $S_i$ to a number $0, ... n$. Let the vector of barycentric coordinates $\vec{\lambda}^{S_i}_s$ of $s$ with respect to the vertices of the subdivision $S_i$; specifically,
+\[ s = \sum_{v \in \chi^*(s) } \lambda^{S_i}_s(v) v  \]
+Then define
+\[ \varphi(s) = \sum_{w \in \chi^*(s) } \lambda^{S_i}(w) v_{\phi(L(w))} \]
+We need a couple of important properties of $\varphi$, that we will prove.
+
+\textbf{Lemma 1}: $\varphi$ has no fixed points on the boundary of the simplex $S$.
+\textbf{Proof}:
+
+\textbf{Lemma 2}: $\varphi$ is continuous.
+\textbf{Proof}:
+
+Now, by Brouwer, we have that since $\varphi$ is a continuous mapping $S \to S$ by Lemma 2, we know that there exists a fixed point $p$ of $\varphi$. Now, by Lemma 1, $p$ must be in the interior of $S$. Let $\lambda^S_p$ be the barycentric coordinates of $p$ with respect to the vertices of $S$. We then note that since $p$ is interior, $\lambda^S_p > 0$. Further, since $p$ is a fixed point of $\varphi$, we have
+\[  \sum_{w \in \chi^*(s) } \lambda^{S_i}(w) v_{\phi(L(w))} = \varphi(p) = p = \sum_{j = 0}^n \lambda^S(v_j) v_j \]
+Then since each of the $v_i$ are linearly independent and form a basis for the simplex $S$, we can match sum terms in the projection in the direction of each $v_j$. Specifically,
+\[ \lambda^S(v_j) = \lambda^{S_i}(w_j)  \]
+where $w_j$ is such that $\phi(L(w_j)) = j$, or $L(w_j) = j-1 \mod (n+1)$. Since $p$ exists, each $w_j$ must exist, and therefore $(L(w_1), L(w_2), ... L(w_n), L(w_0)) = (0, 1, ... n)$ in that order. Hence, this implies that the subdivision $S_i$ containing $p$ is fully labeled, and thus Sperner's lemma holds. 
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
