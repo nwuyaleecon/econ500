@@ -41,21 +41,24 @@
 
 \section*{Problem 2}
 \paragraph{(16.AA.1)}
-\begin{enumerate}[label=(\alph*)]
-\item
-\end{enumerate}
+\paragraph{(16.AA.2)}
+\paragraph{(16.AA.3)}
 \section*{Problem 4}
+\paragraph{(17.B.2)}
 \section*{Problem 6}
 We provide a counterexample. Take $K = [0,1]$, and let $\gamma(0) = (0,1)$ and $\gamma(k) = \{ 0.5 \} $ for any $k \in (0, 1]$. It is clear that $\gamma$ is a (constant) continuous function on $(0,1]$, so we just need to check upper hemicontinuity at 0. Take a sequence $k_n \in K$ converging to 0. Then $\gamma(k_n)$ only contains $0.5$ if $k_n \neq 0$, so we can always pick out a subsequence $k'_n$ such that $0.5$ is always in the image, and hence the image sequence converges to 0.5, and $0.5 \in \gamma(0)$. So $\gamma$ is upper hemicontinuous. It is trivial to see that $\gamma$ is not closed; $\gamma(0)$ is not closed.
 \section*{Problem 7}
+Fix an arbitrary $x$. We prove $\Gamma = \text{co} (\gamma)$ is UHC at $x$. Pick an arbitrary neighborhood $V$ containing $\Gamma(x)$. Then since $\Gamma(x) = \text{co} \ \gamma(x) \supseteq \gamma(x) $, $V \supseteq \gamma(x)$. It is sufficient to show that $\exists$ a neighborhood $U$ of $x$, such
+
 \section*{Problem 8}
 We first prove a lemma.
 
-\textbf{Lemma}: Any compact, convex set $K \subseteq \mathbb{R}^d$ is diffeomorphic to a $n$-simplex for some $n$.
+\textbf{Lemma}: Any compact, convex set with nonempty interior $K \subseteq \mathbb{R}^d$ is isomorphic to the closed unit ball $B_n$ in some dimension $n$.
 
-\textbf{Proof}: TODO
+\textbf{Proof}: Select some point $c$ in the interior of $K$, and define $K'$ as $\{ k - c \ | \ k \in  K \}$, the translation of $K$ so that $c$ gets mapped to the origin. Consider the mapping $\varphi: K' \to B_n$
+\[ \varphi(k) = \frac{k}{\max_{c \in \mathbb{R}^+, ck \in K'} ||ck||} \] Clearly, since $k \in K'$, the denominator is at least $||k||$, and hence $||\varphi(k)|| \le 1$, so $ \varphi(k) \in B_n$. Further, $\varphi$ is injective (two points along different rays cannot be mapped to the same point, and two points along the same ray have their ratio of magnitudes preserved) and surjective (any point in $B_n$ can be multiplied by $\max_{c \in \mathbb{R}^+, ck \in K'} ||ck||$ to recover a point in $K'$), so $\varphi$ is bijective. Finally, since $K'$ is convex, the denominator varies continuously, so $\varphi$ is continuous. Thus, $\varphi$ is an isomorphism between $K'$ and $B_n$, and since $K$ is isomorphic to $K'$ (translation is an isomorphism) we have that $K$ is isomorphic to $B_n$. $\blacksquare$ \\
 
-Now, the generalization of Brouwer's follows from this lemma. Suppose $f: K \to K$ is continuous. Since $K$ is diffeomorphic to a $d$-simplex, let $g: K \to S$ be such a diffeomorphism to some $n$-simplex $S$. Consider the composition $h = g\circ f \circ g^{-1}$. Then $h$ takes $S \to S$, and since composition of continuous functions is continuous, $h$ must be continuous. So by Brouwer's theorem on simplices, we have that $h$ has some fixed point $p \in S$. This implies
+Now, the generalization of Brouwer's follows from this lemma. Suppose $f: K \to K$ is continuous. If $K$ has empty interior, we can redefine a basis such that $K$ lies in a lower dimensional $\mathbb{R}^m$, $m < d$, and $K$ has nonempty interior in $\mathbb{R}^m$. Thus, it is without loss to consider $K$ with nonempty interior. By lemma 1, $K$ is isomorphic to the unit sphere $B_n$. Also by lemma 1, the $n+1$-simplex has nonempty interior after isomorphically projected into $\mathbb{R}^n$, so it is also isomorphic to $B_n$. These two facts together imply the $n+1$-simplex is isomorphic to $K$. Let $g: K \to S$ be an isomorphism from $K$ to the $n+1$-simplex $S$. Consider the composition $h = g\circ f \circ g^{-1}$. Then $h$ takes $S \to S$, and since composition of continuous functions is continuous, $h$ must be continuous. So by Brouwer's theorem on simplices, we have that $h$ has some fixed point $p \in S$. This implies
 \[ (g \circ f \circ g^{-1}) (p) = p \]
 \[ g^{-1}((g \circ f \circ g^{-1}) (p)) = g^{-1}(p)\]
 \[ f(g^{-1}(p)) = g^{-1}(p) \]
@@ -68,18 +71,26 @@ We construct a continuous mapping $\varphi$ as follows. Consider an arbitrary $s
 \[ s = \sum_{v \in \chi^*(s) } \lambda^{S_i}_s(v) v  \]
 Then define
 \[ \varphi(s) = \sum_{w \in \chi^*(s) } \lambda^{S_i}(w) v_{\phi(L(w))} \]
-We need a couple of important properties of $\varphi$, that we will prove.
+Note that for the vertices $v_j$ of $S$, $\varphi(v_j)$ maps $v_j$ to $v_{j+1}$ if $j < n$ and to $v_0$ if $j=n$. Now we need a couple of important properties of $\varphi$, that we will prove.
 
 \textbf{Lemma 1}: $\varphi$ has no fixed points on the boundary of the simplex $S$.
-\textbf{Proof}:
+
+\textbf{Proof}:  Pick any arbitrary point $p$ on the boundary of $S$. Since $p$ is on the boundary, the carrier $\chi(p)$ does not contain all the vertices of $S$. Further, by definition of carrier, $p$ can be written as a combination of the vertices of $\chi(p)$,
+\[ p = \sum_{w \in \chi(p)} \mu_p(w)w  \]
+where $\mu_p(w) > 0$ for each $w \in \chi(p)$. Then, we have by definition of $\varphi$,
+\[ \varphi(p) = \sum_{w \in \chi^*(p) } \lambda^{S_i}(w) v_{\phi(L(w))} \]
+Since $L$ is admissible, $v_{L(w)} \in \chi(p)$. Since $p$ is a boundary point, $\chi(p)$ does not contain all the vertices of $S$, and hence the set $\{ v_{\phi(L(w))} \ | \ w \in \chi^*(p)\} \neq \chi(p) $. Therefore, expressing in terms of barycentric coordinates, there exists some barycentric coordinate direction $v^*$ such that only one of $p$ or $\varphi(p)$ has a nonzero barycentric coordinate in the direction of $v^*$. Hence, we cannot have $p = \varphi(p)$, so $p$ cannot be a fixed point of $\varphi$. $\blacksquare$ \\
 
 \textbf{Lemma 2}: $\varphi$ is continuous.
-\textbf{Proof}:
+
+\textbf{Proof}: It suffices to argue that $\varphi$ is continuous within the closure of each subdivision $cl(S_i)$. Then, since the union of the closures of $S_i$ covers the simplex $S$ by the definition of a valid subdivision, this implies that $\varphi$ is continuous on $S$.
+
+Consider a sequence of points $s_n \to s \in cl(S_i)$, where each $s_n \in cl(S_i)$. Consider the barycentric coordinates of $s_n$ with respect to the vertices of $S_i$ as $\mu_n^{S_i}$, and let $s$ have barycentric coordinates $\mu^{S_i}$ with respect to $S_i$. Since coordinate mappings are continuous, and $s_n \to s$, we must have $\mu_n^{S_i} \to \mu^{S_i}$. But since the labeling $L$ is fixed for the vertices of $S_i$, we thus have \[ \sum_{w \in S_i} \mu_n^{S_i}(w) \cdot v_{(\phi\circ L)(w)} \to \sum_{w \in S_i} \mu^{S_i}(w) \cdot v_{(\phi\circ L)(w)} \]  \[ \varphi(s_n) \to \varphi(s) \ \blacksquare\] \\
 
 Now, by Brouwer, we have that since $\varphi$ is a continuous mapping $S \to S$ by Lemma 2, we know that there exists a fixed point $p$ of $\varphi$. Now, by Lemma 1, $p$ must be in the interior of $S$. Let $\lambda^S_p$ be the barycentric coordinates of $p$ with respect to the vertices of $S$. We then note that since $p$ is interior, $\lambda^S_p > 0$. Further, since $p$ is a fixed point of $\varphi$, we have
 \[  \sum_{w \in \chi^*(s) } \lambda^{S_i}(w) v_{\phi(L(w))} = \varphi(p) = p = \sum_{j = 0}^n \lambda^S(v_j) v_j \]
 Then since each of the $v_i$ are linearly independent and form a basis for the simplex $S$, we can match sum terms in the projection in the direction of each $v_j$. Specifically,
 \[ \lambda^S(v_j) = \lambda^{S_i}(w_j)  \]
-where $w_j$ is such that $\phi(L(w_j)) = j$, or $L(w_j) = j-1 \mod (n+1)$. Since $p$ exists, each $w_j$ must exist, and therefore $(L(w_1), L(w_2), ... L(w_n), L(w_0)) = (0, 1, ... n)$ in that order. Hence, this implies that the subdivision $S_i$ containing $p$ is fully labeled, and thus Sperner's lemma holds. 
+where $w_j$ is such that $\phi(L(w_j)) = j$, or $L(w_j) = j-1 \mod (n+1)$. Since $p$ exists, each $w_j$ must exist, and therefore $(L(w_1), L(w_2), ... L(w_n), L(w_0)) = (0, 1, ... n)$ in that order. Hence, this means that the subdivision $S_i$ containing $p$ is fully labeled, and thus Sperner's lemma holds.
 \end{document}
 	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
