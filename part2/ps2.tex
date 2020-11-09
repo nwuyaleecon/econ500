@@ -1,0 +1,65 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 1}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Problem 2}
+\paragraph{(16.AA.1)}
+\begin{enumerate}[label=(\alph*)]
+\item
+\end{enumerate}
+\section*{Problem 4}
+\section*{Problem 6}
+We provide a counterexample. Take $K = [0,1]$, and let $\gamma(0) = (0,1)$ and $\gamma(k) = \{ 0.5 \} $ for any $k \in (0, 1]$. It is clear that $\gamma$ is a (constant) continuous function on $(0,1]$, so we just need to check upper hemicontinuity at 0. Take a sequence $k_n \in K$ converging to 0. Then $\gamma(k_n)$ only contains $0.5$ if $k_n \neq 0$, so we can always pick out a subsequence $k'_n$ such that $0.5$ is always in the image, and hence the image sequence converges to 0.5, and $0.5 \in \gamma(0)$. So $\gamma$ is upper hemicontinuous. It is trivial to see that $\gamma$ is not closed; $\gamma(0)$ is not closed.
+\section*{Problem 7}
+\section*{Problem 8}
+We first prove a lemma.
+
+\textbf{Lemma}: Any compact, convex set $K \subseteq \mathbb{R}^n$ is diffeomorphic to a $d$-simplex for some $d$.
+
+\textbf{Proof}: TODO
+
+Now, the generalization of Brouwer's follows from this lemma. Suppose $f: K \to K$ is continuous. Since $K$ is diffeomorphic to a $d$-simplex, let $g: K \to S$ be such a diffeomorphism to some $d$-simplex $S$. Consider the composition $h = g\circ f \circ g^{-1}$. Then $h$ takes $S \to S$, and since composition of continuous functions is continuous, $h$ must be continuous. So by Brouwer's theorem on simplices, we have that $h$ has some fixed point $p \in S$. This implies
+\[ (g \circ f \circ g^{-1}) (p) = p \]
+\[ g^{-1}((g \circ f \circ g^{-1}) (p)) = g^{-1}(p)\]
+\[ f(g^{-1}(p)) = g^{-1}(p) \]
+Then since $g^{-1}(p) \in K$, we have that $g^{-1}(p)$ is a fixed point of $f$. Hence we have extended Brouwer to an arbitrary compact convex domain $K$.
+\section*{Problem 9}
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
