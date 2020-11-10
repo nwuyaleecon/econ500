@@ -41,10 +41,71 @@
 
 \section*{Problem 2}
 \paragraph{(16.AA.1)}
+Pick a sequence $(x^n, y^n) \to (x,y)$. By closure of $X, Y$, we have $x \in X$ and $y \in Y$. Then $\sum_i x_i^n = \omega + \sum_j y_j^n$, so by continuity $\sum_i x_i = \bar{\omega} + \sum_j y_j$. Hence $(x,y) \in A$, so $A$ is closed.
 \paragraph{(16.AA.2)}
+By assumption (i) $Y$ is closed, so $Y + \{ \bar{\omega} \} \cap \mathbb{R}^L_+ $ is closed. For compactness we just need to show boundedness. Suppose, for sake of contradiction, that $Y + \{ \bar{\omega} \} \cap \mathbb{R}^L_+ $ is unbounded. Pick a diverging sequence $y^n \in Y + \{ \bar{\omega} \} \cap \mathbb{R}^L_+ $. Then consider $||y^n - \bar{\omega}||$.
+Since $y^n$ diverges, $||y^n - \bar{\omega}|| \to \infty$, and $y^n - \bar{\omega} \in Y$. Let $z^n = y^n - \bar{\omega}$. Then by convexity of $Y$, since $0 \in Y$, $z^n \in Y$, $z^n / ||z^n|| \in Y$. By closure of $Y$, the sequence $z^n / ||z^n|| \to z \in Y$. But $||z|| = 1$ (since the norm is continuous) and $z \in \mathbb{R}^L_+$, so we have a contradiction that $Y \cap \mathbb{R}^L_+ = \{ 0 \}$. So no such unbounded sequence can exist, and hence we have $Y + \{ \bar{\omega} \} \cap \mathbb{R}^L_+ $ is compact.
+
+For the counterexamples, we show graphs of $Y$ for the 2-good case, where $Y + \{ \bar{\omega} \} \cap \mathbb{R}^L_+$ is not compact.
+
+If $Y$ is not closed, the resulting set $Y + \{ \bar{\omega} \} \cap \mathbb{R}^L_+$ is not closed.
+
+\begin{tikzpicture}
+\draw[thick,->] (-4,0) -- (4,0) ;
+\draw[thick,->] (0,-4) -- (0, 4) ;
+\draw[dashed, red] (-3.5, 3.5) -- (3.5, -3.5);
+\node at (0,0)[circle,fill,red,inner sep=1.5pt]{};
+\end{tikzpicture}
+
+
+If $Y$ is not convex:
+
+\begin{tikzpicture}
+\draw[thick,->] (-4,0) -- (4,0) ;
+\draw[thick,->] (0,-4) -- (0, 4) ;
+\draw[red] plot [smooth] coordinates {(-0.5, 3.5) (0,0) (3.5, -0.5)};
+\end{tikzpicture}
+
+If $0 \not \in Y$ :
+
+\begin{tikzpicture}
+\draw[thick,->] (-4,0) -- (4,0) ;
+\draw[thick,->] (0,-4) -- (0, 4) ;
+\draw[red] plot [smooth] coordinates {(-0.5, 4) (-0.5, -4)};
+\end{tikzpicture}
+
+If $Y \cap \mathbb{R}^L_+ \neq \{ 0 \}$  :
+
+\begin{tikzpicture}
+\draw[thick,->] (-4,0) -- (4,0) ;
+\draw[thick,->] (0,-4) -- (0, 4) ;
+\draw[red] plot [smooth] coordinates {(0.5, 4) (0.5, -4)};
+\end{tikzpicture}
 \paragraph{(16.AA.3)}
+We first provide a lemma we will need later:
+
+\textbf{Lemma}: Let $s_1^n$, $s_2^n$ be two divergent sequences, $||s_i^n|| \to \infty$, and suppose $s_i^n /||s_i^n|| \to s_i$, and $s_1 + s_2 \neq 0$. Then $||s_1^n + s_2^n|| \to \infty$.
+
+\textbf{Proof}: Based on the given convergences, pick any value $K$. Since $s_i^n /||s_i^n|| \to s_i$, we have $|| s_1^n /||s_1^n|| + s_2^n /||s_2^n|| || \to ||s_1 + s_2||$, so there exists some $N$ such that for all $n > N$, $|| s_1^n /||s_1^n|| + s_2^n /||s_2^n|| || > \alpha || s_1 + s_2||$, $\alpha \in (0,1)$.
+Since $s_1 + s_2 \neq 0$ and $s_i$ diverges, there exists some $N$ such that for all $n > N$, $||s_i^n|| > (1/\alpha) K / ||s_1 + s_2 ||$ for the same $\alpha \in (0,1)$.
+Then $\forall n > N$, \[ || s^1_n + s^2_n|| \ge \min_i ||s^i_n|| || s_1^n /||s_1^n|| + s_2^n /||s_2^n|| || \ge \alpha || s_1 + s_2|| \left((1/\alpha) K / ||s_1 + s_2 || \right) = K\]
+so $||s_1^n + s_2^n|| \to \infty$. $\blacksquare$.
+
+
+Suppose, for sake of contradiction, that the given set is unbounded. Take a sequence $y_1^n$ such that $|| y_1^n || \to \infty$. Since $Y$ satisfies the properties of 16.AA.2, $y_1^n + y_2^n$ must be bounded. Consider $z_1^n = y_1^n/||y_1^n||$, $z_2^n = y_2^n/||y_2^n||$. Set $z_1^n \to z_1$, $z_2^n \to z_2$. Applying the contrapositive of the lemma implies that $z_1 + z_2 = 0$. Note by construction, $z_1, z_2$ have norm 1.
+But $z_1$ is the limit point of the sequence $(y_1^n + y_2^1) /||y_1^n + y_2^1|| $ and by the fact that $0 \in Y$ and $Y$ is convex, we have that the sequence lies in $Y$, and hence by closure of $Y$, this implies $z_1 \in Y$. By the parallel argument, $z_2 \in Y$. But $z_1 + z_2 = 0$, $z_1, z_2 \in Y$, and $||z_1|| = 1 = ||z_2||$ a contradiction of the irreversibility assumption. Hence no such divergent sequence $y_1^n$ exists, and so we are done.
 \section*{Problem 4}
 \paragraph{(17.B.2)}
+Suppose, for sake of contradiction, that the max of the excess demands converges. Fix some individual $i$ with nonzero limit endowment: $p \cdot \omega_i > 0$. Since the total excess demands converge, it must be the case that the excess demand of individual $i$ also converges. Let $z^*_i$ denote the limit excess demand of individual $i$. Denote the limit demand then as $x^*_i = z^*_i + \omega_i$. Consider any feasible bundle at price $p$, $x_i$. By feasibility, $p \cdot x_i \le p \cdot \omega_i$. Then
+\[ p \cdot x_i + (p^n - p)\cdot x_i \le p \cdot \omega_i + (p^n-p) \cdot x_i \]
+\[ p^n \cdot x_i \le p \cdot \omega_i + (p^n-p) \cdot x_i \]
+\[ p^n \cdot x_i\left(\frac{p^n \cdot \omega_i}{p \cdot \omega_i + (p^n-p) \cdot x_i} \right) \le p^n \cdot \omega_i \]
+So by the maximization of utility for demand, we have
+\[ x_i(p^n) \succeq_i x_i \left(\frac{p^n \cdot \omega_i}{p \cdot \omega_i + (p^n-p) \cdot x_i} \right) \]
+Since $p^n \to p$, the parenthesized expression on the RHS $\to$ 1, so the RHS $\to x_i$, and since $x_i = z_i(p^n) + w_i \to z^*_i + w_i = x^*_i$, we get by continuity of preferences
+\[ x^*_i \succeq x_i \]
+for all $x_i$ such that $p \cdot x_i \le p \cdot \omega_i$. But this is a contradiction of monotonicity of preferences: since $p_l = 0$, we can arbitrarily add good $l$ to bundle $x^*_i$ to get a bundle that is still affordable at $p$ but should yield higher utility from monotonicity. Hence, we have a contradiction, so the max of the excess demands cannot converge.
+
 \section*{Problem 6}
 We provide a counterexample. Take $K = [0,1]$, and let $\gamma(0) = (0,1)$ and $\gamma(k) = \{ 0.5 \} $ for any $k \in (0, 1]$. It is clear that $\gamma$ is a (constant) continuous function on $(0,1]$, so we just need to check upper hemicontinuity at 0. Take a sequence $k_n \in K$ converging to 0. Then $\gamma(k_n)$ only contains $0.5$ if $k_n \neq 0$, so we can always pick out a subsequence $k'_n$ such that $0.5$ is always in the image, and hence the image sequence converges to 0.5, and $0.5 \in \gamma(0)$. So $\gamma$ is upper hemicontinuous. It is immediate that $\gamma$ is not closed; $\gamma(0)$ is not closed.
 \section*{Problem 7}
