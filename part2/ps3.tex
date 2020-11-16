@@ -1,0 +1,89 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 3}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Problem 2}
+\paragraph{(17.BB.2)}
+Suppose, for sake of contradiction, that some allocation $x^*$, prices $p^*$ are a Walrasian quasiequilibrium, but not a Walrasian equilibrium. This implies some consumer fails the cheaper bundle condition. Consider the set $S$ of consumers with a worthless endowment, i.e. $S = \{ i \ : p^* \cdot \omega_i = 0 \} $. Since some consumer must fail the cheaper bundle condition, this implies that $S$ is nonempty. Then $I \setminus S$ is the set of consumers with a valuable endowment. $I \setminus S$ cannot be empty, as that would imply all consumers are in $S$ and hence no goods are desirable. So $S, I\setminus S$ is a partition of the consumers. By the indecomposibility assumption, some consumer $j$ in $I \setminus S$ must desire a good $k$ in the endowments of $S$. Since that consumer must have strictly monotone preferences in this good by assumption, and the consumer is utility maximizing, the price $p^*_k > 0$, else $j$ would demand arbitrarily high amounts of good $k$.
+But this contradicts the construction of $S$: at least one consumer $i \in S$ has a $\omega_{i, k} > 0$, and hence $p^* \cdot \omega_i > 0$. Thus, we cannot have a quasiequilibrium that is not also an equilibrium.
+\paragraph{(17.BB.4)}
+Let $\delta = \sum_i x^*_i - \sum_i \omega_i - \sum_j y^*_j$. $\delta << 0$ elementwise, by assumption. Since $Y_1$ satisfies free disposal, let $y'_1 = y^*_1 + \delta \in Y_1$. Then
+\[ \sum_i x_i = \delta + \sum_i \omega_i + \sum_j y^*_j = \sum_i \omega_i + y'_1 + \sum_{j > 1} y^*_j \]
+So market clearing holds. We just have to check that the changed output still maximizes profits of firm 1. But we know by assumption $p \cdot \delta = 0$, so $p \cdot y'_1 = p \cdot \delta + p \cdot y^*_1 = p \cdot y^*_1$, and since $y^*_1$ maximizes profits, so does $y'_1$. So by only changing the output of firm 1, we have a true quasiequilibrium.
+
+\paragraph{(17.BB.5)}
+Suppose for sake of contradiction, both occur. From local nonsatiation and continuity, we can pick some $x_i''$ such that $x_i \succ x_i'' \succ x_{i\alpha}$ and $x'_i \succ x_i'' \succ x_{i\alpha}$. By convexity, then
+\[ x_{i\alpha} = \alpha x_i + (1-\alpha) x'_i \succeq x_i'' \]
+a contradiction of $x_i'' \succ x_{i\alpha}$. So we are done.
+\paragraph{(17.BB.6)}
+Pick $y, y' \in \tilde{y}_j$, and fix any other $y'' \in Y_j$. Then we have
+\[ p \cdot(\alpha y + (1-\alpha)y') = \alpha p \cdot y + (1-\alpha) p \cdot y' \]
+\[ \ge \alpha p \cdot y'' + (1-\alpha) p \cdot y'' = p \cdot y'' \]
+since $y, y' \in \tilde{y}_j$. This implies that $\alpha y + (1-\alpha)y' \in \tilde{y}_j$, so $\tilde{y}_j$ is convex.
+
+Now, pick $p, p' \in \tilde{p}$, and some other $q \in \Delta$. Then
+\[ (\alpha p + (1-\alpha)p')\cdot \left( \sum_i x_i  - \sum_i \omega_i - \sum_j y_j \right) \]
+\[ = \alpha p \cdot \left( \sum_i x_i  - \sum_i \omega_i - \sum_j y_j \right) + (1-\alpha) p' \cdot \left( \sum_i x_i  - \sum_i \omega_i - \sum_j y_j \right) \]
+\[ \ge \alpha q \cdot \left( \sum_i x_i  - \sum_i \omega_i - \sum_j y_j \right) + (1-\alpha) q' \cdot \left( \sum_i x_i  - \sum_i \omega_i - \sum_j y_j \right) \]
+\[ = q \cdot \left( \sum_i x_i  - \sum_i \omega_i - \sum_j y_j \right) \]
+Hence $\alpha p + (1-\alpha)p' \in \tilde{p}$, so $\tilde{p}$ is convex.
+
+
+\paragraph{(17.BB.7)}
+We first show $\tilde{y}_j$ is upper hemicontinuous. Take sequences $p^n \to p$, $x^n \to x$. $y^n \to y$, and $z^n \in \tilde{y}_j(x^n, y^n, p^n)$, $z^n \to z$. Consider an arbitrary $y' \in Y_j$. Then by definition, $p^n \cdot z^n \ge p^n \cdot y'$. Taking limit as $n \to \infty$, we get $p \cdot z \ge p \cdot y'$, for arbitrary $y'$. This implies that $z \in \tilde{y}_j$, so $\tilde{y}_j$ is upper hemicontinuous.
+
+Now, we show $\tilde{p}$ is upper hemicontinuous. Take sequences $p^n \to p$, $x^n \to x$, $y^n \to y$, and $q^n \in \tilde{p}(x^n, y^n, p^n)$, $q^n \to q$. Take an arbitrary $q' \in \Delta$. By definitiion,
+\[ q^n \cdot \left( \sum_i x^n_i - \sum_i \omega_i - \sum_j y^n_j \right) \ge q' \cdot \left( \sum_i x^n_i - \sum_i \omega_i - \sum_j y^n_j \right)  \]
+Taking the limit as $n \to \infty$, we find
+\[ q \cdot \left( \sum_i x_i - \sum_i \omega_i - \sum_j y_j \right) \ge q' \cdot \left( \sum_i x_i - \sum_i \omega_i - \sum_j y_j \right)  \]
+And hence $q \in \tilde{p}(x,y,p)$. So $\tilde{p}$ is also upper hemicontinuous.
+
+
+\section*{Problem 3}
+\begin{enumerate}[label=(\alph*)]
+  \item Note that by nature of the utility function, each consumer will demand their entire budget's worth of good in the cheaper good. In order for markets to clear, and by the FOCs on the consumer utility maximization, we have that $p_1 = p_2$. We can arbitrarily set the price of $p_1$ to be some $p$. Then both consumers are indifferent between any bundles that bind their budget constraints. Hence
+  \[ x^*_1 = (16+k, 4-k)   \]
+  \[ x^*_2 = (16-k, k)   \]
+  \[ p^*_1 = p^*_2 = p \]
+  are the Walrasian equilibria, for $k \in [0, 4]$.
+  \item Suppose prices are given by $(p, \alpha p)$. The firm's optimal behavior depends on $\alpha$: if $\alpha > 2$, then the firm wants to convert as much of good 1 into good 2 as possible. If $\alpha < 2$, the firm will not operate. However, if $\alpha > 2$, then consumers will only demand good 1, and hence markets for good 2 cannot clear. Therefore, the firm will not operate, so the set of equilibria is exactly given by the exchange economy from the previous part.
+\end{enumerate}
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
