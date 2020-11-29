@@ -1,0 +1,140 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 4}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Problem 2}
+\paragraph{(17.D.1)}
+Normalize the price of good 2 to be 1, and let the price of good 1 be $p$. The FOCs of consumer 1 are:
+\[ p = \frac{2x_{11}^{\rho-1}}{(2x_{11}^\rho + x_{21}^\rho)^{(\rho-1)/\rho}} \]
+\[ 1 = \frac{x_{21}^{\rho-1}}{(2x_{11}^\rho + x_{21}^\rho)^{(\rho-1)/\rho}} \]
+So
+\[ \left(\frac{p}{2} \right)^{1/(\rho-1)}= \frac{x_{11}}{x_{21}} \]
+Plugging in
+\[ px_{11} + x_{21} = p \]
+\[ p\left(\frac{p}{2} \right)^{1/(\rho-1)}x_{21} + x_{21} = p \]
+\[ x_{21}(p) = \frac{p}{p\left(\frac{p}{2} \right)^{1/(\rho-1)} + 1} \]
+\[ x_{11}(p) = \frac{p\left(\frac{p}{2} \right)^{1/(\rho-1)}}{p\left(\frac{p}{2} \right)^{1/(\rho-1)} + 1} \]
+Doing the same for consumer 2:
+\[ p = \frac{x_{12}^{\rho-1}}{(x_{12}^\rho + 2x_{22}^\rho)^{(\rho-1)/\rho}} \]
+\[ 1 = \frac{2x_{22}^{\rho-1}}{(x_{12}^\rho + 2x_{22}^\rho)^{(\rho-1)/\rho}} \]
+\[ (2p)^{1/(\rho-1)} = \frac{x_{12}}{x_{22}}  \]
+\[ px_{12} + x_{22} = 1 \]
+\[x_{22} = \frac{1}{ p(2p)^{1/(\rho-1)} + 1} \]
+\[x_{21} = \frac{(2p)^{1/(\rho-1)}}{ p(2p)^{1/(\rho-1)} + 1} \]
+So the economy-wide excess demand functions are:
+\[ z_1(p) = \frac{p\left(\frac{p}{2} \right)^{1/(\rho-1)}}{p\left(\frac{p}{2} \right)^{1/(\rho-1)} + 1} + \frac{(2p)^{1/(\rho-1)}}{ p(2p)^{1/(\rho-1)} + 1} - 1\]
+\[ = \frac{(2p)^{1/(\rho-1)}}{ p(2p)^{1/(\rho-1)} + 1} - \frac{2^{1/(\rho-1)}}{p^{\rho/(\rho-1)} + 2^{1/(\rho-1)}} \]
+% \[ = \frac{p^{\rho/(\rho-1)}(p(2p)^{1/(\rho-1)} + 1)+(2p)^{1/(\rho-1)}(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)}) - (p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})(p(2p)^{1/(\rho-1)} + 1)}{(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})(p(2p)^{1/(\rho-1)} + 1)}\]
+% \[ = \frac{(2p)^{1/(\rho-1)}(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})   - 2^{1/(\rho-1)}(p(2p)^{1/(\rho-1)} + 1)}{(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})(p(2p)^{1/(\rho-1)} + 1)}\]
+% \[ = \frac{2^{1/(\rho-1)}\left(p^{1/(\rho-1)}(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})   - (p(2p)^{1/(\rho-1)} + 1)\right)}{(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})(p(2p)^{1/(\rho-1)} + 1)}\]
+% \[ = \frac{2^{1/(\rho-1)}\left(p^{(\rho+1)/(\rho-1)}-1 + (1 - p)(2p)^{1/(\rho-1)} \right)}{(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})(p(2p)^{1/(\rho-1)} + 1)}\]
+\[ z_2(p) = \frac{p}{p\left(\frac{p}{2} \right)^{1/(\rho-1)} + 1} + \frac{1}{ p(2p)^{1/(\rho-1)} + 1} - 1\]
+\[= \frac{2^{1/(\rho-1)} p}{p^{\rho/(\rho-1)} + 2^{1/(\rho-1)} } - \frac{p^{\rho/(\rho-1)}2^{1/(\rho-1)}}{ p^{\rho/(\rho-1)}2^{1/(\rho-1)} + 1}\]
+We can clearly see that these are 0 at $p=1$, and $z_1'(p) > 0 $, which implies by the index theorem that there are more zeros since $z_1, z_2$ are continuous. Hence there are multiple equilibria.
+\paragraph{(17.D.3)}
+
+Consider $D_{\omega_1}z_1(p)$. Since $z_1(p) = x_1(p, p\cdot\omega_1) - \omega_1$, if we define $I^*$ as the truncated $(L-1) x L$ identity matrix (with the last row removed), we have that
+\[ D_{\omega_1} z_1(p) = \frac{\partial x_1(p, p\cdot\omega_1) }{\partial w} p^T - I^* \]
+To show this matrix is full rank, consider any arbitrary vector $v \in \mathbb{R}^{L-1}$. Consider
+\[ D_{\omega_1}z_1(p) \begin{bmatrix} -v \\ \sum_{l=1}^{L-1} p_l v_l \end{bmatrix} = \frac{\partial x_1(p, p\cdot\omega_1) }{\partial w} p^T \begin{bmatrix} -v \\ \sum_{l=1}^{L-1} p_l v_l \end{bmatrix} - I^* \begin{bmatrix} -v \\ \sum_{l=1}^{L-1} p_l v_l \end{bmatrix} \]
+
+\[ = 0 + v = v \]
+Hence all of $\mathbb{R}^{L-1}$ is in the image of the operator $D_{\omega_1}z_1(p)$, so this operator has full rank.
+
+\paragraph{(17.D.8)}
+
+Let the consumer utility be
+\[ u(x) = \prod_l x_l^{\alpha_l} \]
+where $\sum_l \alpha_l = 1$. Then the consumer demand is
+\[ x_l(p) = \frac{\alpha_l (p \cdot \omega)}{p} \]
+So excess demand in good $l$ is
+\[ z_l(p) = \frac{\alpha_l (p \cdot \omega)}{p} - \omega_l \]
+
+
+
+TODO finish
+
+
+\paragraph{(17.E.1)}
+By homogeneity of $z$, we get $z(\alpha p ) = z(p)$. Differentiating both sides wrt $\alpha$, and evaluating at $\alpha = 1$, we get
+\[ \sum_k p_k \frac{\partial z_l(p)}{\partial p_k} =  0 \]
+which is 17.E.1. Now, by Walras' law, we have
+\[ p \cdot z(p) = 0 \]
+Differentiating both sides wrt $p_l$, we get
+\[ 0 = z_l(p) + p_l \frac{\partial z_l(p)}{ \partial p_l} + \sum_{k\neq l} p_k \frac{\partial z_k(p)}{\partial p_l} \]
+\[ -z_l(p) = \sum_{k} p_k \frac{\partial z_k(p)}{\partial p_l} \]
+which is 17.E.2.
+\paragraph{(17.E.2)}
+We know
+\[ z_i(p) = x_i(p, p\cdot \omega_i) - \omega_i \]
+Taking the derivative matrix wrt $p$, we get
+\[ Dz_i(p) = D_1x_i(p, p\cdot \omega_i) + D_2x_i(p, p\cdot \omega_i) \omega_i^T \]
+By the Slutsky equation,
+\[ S_i(p, p \cdot \omega_i) = D_1x_i(p, p\cdot \omega_i) + D_2 x_i(p, p\cdot\omega_i)x_i(p, p\cdot\omega_i)^T \]
+or
+\[ S_i(p, p \cdot \omega_i)-  D_2 x_i(p, p\cdot\omega_i)x_i(p, p\cdot\omega_i)^T = D_1x_i(p, p\cdot \omega_i) \]
+Plugging this in, we get
+\[ Dz_i(p) = S_i(p, p \cdot \omega_i) -  D_2 x_i(p, p\cdot\omega_i)x_i(p, p\cdot\omega_i)^T  + D_2x_i(p, p\cdot \omega_i) \omega_i^T \]
+\[ Dz_i(p) = S_i(p, p \cdot \omega_i) -  D_2 x_i(p, p\cdot\omega_i)z_i(p)^T   \]
+Since $z(p) = \sum_i z_i(p)$,
+\[ Dz(p) = \sum_i Dz_i(p) = \sum_i S_i(p, p \cdot \omega_i) -  D_2 x_i(p, p\cdot\omega_i)z_i(p)^T  \]
+as desired.
+\paragraph{(17.E.3)}
+
+TODO
+
+\paragraph{(17.E.6)}
+
+Suppose $p \neq p'$, and $||p|| = ||p'|| = 1$. Note that this implies $p \cdot p' < 1$. It suffices to show that $z_i(p)$ is not proportional to $z_i(p')$. We know by Walras's law that $p \cdot z_i(p) = 0$. WLOG, suppose $p_i \ge p_i'$. Then we have $p \cdot z_i(p') = p_i - p_i (p \cdot p') > p_i - p_i = 0$. Since $p' \cdot z_i(p') = 0$ and $p \cdot z_i(p') > 0$, we have that $z_i(p)$ is not proportional to $z_i(p')$ and hence this is proportionally one-to-one.
+
+\section*{Problem 3}
+Suppose, for sake of contradiction, a Walrasian equilibrium exists. Fix the price of good 1 to be 1, and suppose the equilibrium price of good 2 is $p$. (It is quick to see that if the price of good 1 is 0, then each consumer will just demand infinite amounds of good 1, so this cannot happen in an equilibrium).
+
+If $p < 1$, then each consumer's optimal bundle will demand their entire budget's worth of good 2. Then, the excess demand of good 2 will be positive, and markets cannot clear at these prices and consumer optimal bundles, a contradiction.
+
+If $p > 1$, each consumer will demand their entire budget in good 1. Once again, the excess demand of good 1 will be positive, and markets cannot clear.
+
+If $p = 1$, then the only demanded bundles for consumer 1 are $(12,0)$ and $(0, 12)$. Similarly, for conumer 2, the demanded bundles are $(20, 0)$ and $(0, 20)$. Likewise, for consumer 3, the optimal bundles are $(16,0)$ and $(0,16)$. By manual inspection of each of the 8 potential combinations (it is symmetric so we only really have to inspect 4 of them), we can see that in no case can each consumer consume an optimal bundle and have markets clear for both goods.
+
+Hence, all together, it is impossible for a Walrasian equilibrium to exist for this economy.
+
+The convexity of preferences assumption fails; for an illustrative example, $(8,0) \succ (5,0)$ and $(0,8) \succ (5,0)$ but $(4,4) \not \succ (5,0)$.
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
