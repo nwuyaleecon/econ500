@@ -11,6 +11,7 @@
 	% packages that allow mathematical formatting
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\sign}{sign}
 \usepackage{graphicx}
 	% package that allows you to include graphics
 
@@ -67,7 +68,9 @@ So the economy-wide excess demand functions are:
 % \[ = \frac{2^{1/(\rho-1)}\left(p^{(\rho+1)/(\rho-1)}-1 + (1 - p)(2p)^{1/(\rho-1)} \right)}{(p^{\rho/(\rho-1)} + 2^{1/(\rho-1)})(p(2p)^{1/(\rho-1)} + 1)}\]
 \[ z_2(p) = \frac{p}{p\left(\frac{p}{2} \right)^{1/(\rho-1)} + 1} + \frac{1}{ p(2p)^{1/(\rho-1)} + 1} - 1\]
 \[= \frac{2^{1/(\rho-1)} p}{p^{\rho/(\rho-1)} + 2^{1/(\rho-1)} } - \frac{p^{\rho/(\rho-1)}2^{1/(\rho-1)}}{ p^{\rho/(\rho-1)}2^{1/(\rho-1)} + 1}\]
-We can clearly see that these are 0 at $p=1$, and $z_1'(p) > 0 $, which implies by the index theorem that there are more zeros since $z_1, z_2$ are continuous. Hence there are multiple equilibria.
+
+I plotted the excess demand, and it doesn't appear that there are multiple equilibria. However, for sake of the exercise, one way to show that there are multiple equilibria is to compute one equilibrium (the obvious case is $p=1$), and show that the index of this equilibrium is negative and hence at least two other equilibria must exist. (I've struggled with this algebra for a bit, but it appears that that $z_1'(p) < 0$, which means that $p=1$ is not the equilibrium that has negative index, assuming one exists in this economy).
+
 \paragraph{(17.D.3)}
 
 Consider $D_{\omega_1}z_1(p)$. Since $z_1(p) = x_1(p, p\cdot\omega_1) - \omega_1$, if we define $I^*$ as the truncated $(L-1) x L$ identity matrix (with the last row removed), we have that
@@ -83,13 +86,31 @@ Hence all of $\mathbb{R}^{L-1}$ is in the image of the operator $D_{\omega_1}z_1
 Let the consumer utility be
 \[ u(x) = \prod_l x_l^{\alpha_l} \]
 where $\sum_l \alpha_l = 1$. Then the consumer demand is
-\[ x_l(p) = \frac{\alpha_l (p \cdot \omega)}{p} \]
+\[ x_l(p) = \frac{\alpha_l (p \cdot \omega)}{p_l} \]
 So excess demand in good $l$ is
-\[ z_l(p) = \frac{\alpha_l (p \cdot \omega)}{p} - \omega_l \]
-
-
-
-TODO finish
+\[ z_l(p) = \frac{\alpha_l (p \cdot \omega)}{p_l} - \omega_l \]
+The partial derivative matrix is for $k \neq l$
+\[ \frac{\partial z_l(p)}{\partial p_k} = \frac{\alpha_l \omega_k}{p_l} \]
+and
+\[ \frac{\partial z_l(p)}{\partial p_l} = \frac{\alpha_l \omega_l}{p_l} -\frac{ \alpha_l (p \cdot \omega)}{p_l^2} \]
+Let $\Delta$ denote the diagonal matrix with $-\frac{ \alpha_l (p \cdot \omega)}{p_l^2}$ as the $l$th entry, and let $q_l$ denote the vector $\{ \alpha_l/p_l \}$. Then we have
+\[ D\hat{z}(p) = \Delta + q \omega^T  \]
+By the matrix determinant lemma,
+\[ |D\hat{z}(p)| = (1 + \omega^T \Delta^{-1} q) |\Delta| \]
+Note that $\Delta$ is conveniently diagonal, so $\Delta^{-1}$ is the diagonal matrix with the $l$th entry given by $-\frac{p_l^2}{ \alpha_l (p \cdot \omega)}$. So we get
+\[ \omega^T \Delta^{-1}q = - \sum_{l=1}^{L-1} \frac{p_l \omega_l}{p \cdot \omega} = 1 - \frac{p_L \omega_L}{ p \cdot \omega} \]
+So using this, we get
+\[ |D\hat{z}(p)| = (1 + \omega^T \Delta^{-1} q) |\Delta| \]
+\[ = \frac{p_L \omega_L}{ p \cdot \omega}|\Delta| \]
+But $\Delta$ is diagonal, so
+\[ |\Delta| = \prod_{l=1}^{L-1} \left(-\frac{ \alpha_l (p \cdot \omega)}{p_l^2} \right) \]
+\[ = (-1)^{L-1} \prod_{l=1}^{L-1} \left(\frac{ \alpha_l (p \cdot \omega)}{p_l^2} \right) \]
+So
+\[ |D\hat{z}(p)| = \frac{p_L \omega_L}{ p \cdot \omega}|\Delta| \]
+\[ = (-1)^{L-1} \frac{p_L \omega_L}{ p \cdot \omega} \prod_{l=1}^{L-1} \left(\frac{ \alpha_l (p \cdot \omega)}{p_l^2} \right) \]
+Hence
+\[ \sign(|D\hat{z}(p)|) = (-1)^{L-1} \]
+So the index is $+1$.
 
 
 \paragraph{(17.E.1)}
@@ -118,7 +139,11 @@ Since $z(p) = \sum_i z_i(p)$,
 as desired.
 \paragraph{(17.E.3)}
 
-TODO
+Taking after the diagram in the proof of proposition 17.E.2, we try to construct a utility function such that the indifference curve at $x_i$ has a kink at $x_i$ and $x_i$ minimizes the dot product in the direction of the vector $p$ (equivalently, the indifference curve lies entirely within the half-plane defined by $\{ \lambda \ : p \cdot \lambda \ge p \cdot x_i \}$). To construct the kink, fix some $\alpha \in (0, 1)$, and consider the set of vector directions $\{ \lambda^l = p - \alpha p_l e^l \}$. Define the renormalized vectors $\{ \mu^l_i = \lambda^l / \lambda^l_i \}$ Note that by construction
+\[ \sum_l \mu^l_i = Lp/\lambda^l_i - \alpha p/\lambda^l_i = (L - \alpha)/\lambda^l_i p \]
+and hence $p$ is a linear combination of the vectors $\mu^l_i$ for each $i$. We can then define the utility of agent $i$ as
+\[ u_i(y_i) = \min_l (\mu^l_i \cdot y_i - \mu^l_i \cdot x_i)  \]
+Note that the indifference curve containing $x_i$ also contains $x_i + v$ for any $v$ that is orthogonal to some $\mu^l_i$ (and also $\lambda^l$), which gives us the desired kink at $x_i$. Now, note that $\mu^l_i \cdot e^i = 1$, so $D_wx_i(p, p\cdot \omega_i) = \frac{1}{p_i}e^i$ and hence this satisfies the desired condition in the proof of proposition 17.E.2. We can then select the right endowments $\omega_i$ such that $x_i = \omega_i - e^i (a^i)^T$ and then give us the desired excess demand properties, so this utility works.
 
 \paragraph{(17.E.6)}
 
