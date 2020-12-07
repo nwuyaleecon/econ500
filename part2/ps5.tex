@@ -1,0 +1,96 @@
+%Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+	% packages that allow mathematical formatting
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\sign}{sign}
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+	% package that specifies normal margins
+
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+
+\title{ECON500: Problem Set 5}
+
+\author{Nicholas Wu}
+
+\date{Fall 2020}
+	% Note: when you omit this command, the current dateis automatically included
+
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Problem 2}
+\paragraph{(18.B.2)}
+Suppose everyone has the same utility function $u(x_1, x_2) = \sqrt{x_1x_2}$. Let individuals 1 and 2 have endowment $(1, 0)$ and individual 3 have endowment $(0, 2)$. Consider the allocation:
+\[ x_1 = (0.49, 0.49) \]
+\[ x_2 = (0.51, 0.51) \]
+\[ x_3 = (1, 1) \]
+First, we note that this is Pareto optimal: it an equilibrium with wealth transfers for $w_1 = 0.98$, $w_2 = 1.02$, and $w_3 = 2$ and prices $(1,1)$. Hence the grand coalition does not block this. Further, we note that any individual on his/her own cannot possibly do better, since they need someone with the other type of good in order to attain nonzero utility. So no individual blocks this allocation. We also note that individuals 1 and 2 together cannot block this allocation, because neither is endowed with any of good 2. So we just have to show that the coalitions $\{ 1, 3 \}$ and $\{ 2, 3 \}$ do not block this allocation. In fact, we can easily see that if $\{ 1, 3 \}$ does not block this allocation, then $\{ 2, 3\}$ cannot either, since 2 receives a strictly better allocation than 1 with the same resources. So it is sufficient to show that $\{ 1, 3 \}$ does not block this allocation. Consider any allocation that is Pareto optimal in coalition $\{ 1, 3 \}$.
+By the SWT, this is supportable as an equilibrium with transfers. Take the wealth of 1 to be $w$. By the Cobb-Douglas utility, fixing the price of good 1 to 1, we find for clearing the prices must be $(1, 1/2)$, and so the Pareto optimal allocations are of the form
+\[ x'_1 = (w/2 , w) \]
+\[ x'_3 = (1 - w/2, 2 - w) \]
+Hence, the welfare of $u(x'_1) = w / \sqrt{2}$ and $u(x'_3) = (2-w)/\sqrt{2}$. But the total welfare of $x_1$ and $x_3$ in allocation $x$ is $1.49$, and $u(x'_1) + u(x'_3) = 2/\sqrt{2} = \sqrt{2} < 1.49$, so it is impossible for both $u(x'_1) \ge u(x_1)$ and $u(x'_3) \ge u(x_3)$. Thus the coalition $\{ 1, 3 \}$ does not block, and hence this allocation is in the core.
+\paragraph{(18.B.5)}
+\begin{enumerate}[label=(\alph*)]
+  \item
+  \item
+  \item
+  \item 
+\end{enumerate}
+\paragraph{(18.C.1)}
+\paragraph{(19.C.1)}
+\paragraph{(19.C.4)}
+\paragraph{(19.D.4)}
+\section*{Problem 3}
+We first compute $C^1$. This is just the contract curve of the Edgeworth box. However, we note that the indifference curves of the initial endowments of both individuals is just the border of the box, and so the set of all Pareto optimal allocations is the contract curve, and is hence in the core. Thus,
+\[ C^1 = \{ (\alpha, \alpha), (5 - \alpha, 5- \alpha) \ : \ \alpha \in [0,5] \} \]
+Now, to compute $C^2$, we note that $C^2 \subset C^1$. By the equal treatment property, all the individuals of type 1 receive the same bundle and all the individuals of type 2 receive the same bundle in any core allocation. We already know that the allocations from $C^1$ are Pareto optimal, so the only coalitions we need to consider now are coalitions containing two consumers of one type and one consumer of the other.
+
+For sake of convenience, let us define $x(\alpha) = (\alpha, \alpha), (5-\alpha, 5-\alpha)$, $\alpha \in [0,5]$. Note that $x(\alpha) \in C^1$.  If $ x(\alpha) \not \in C^2$, by considering the blocking coalition in $C^2$ and reversing the type counts, we note that $x(1-\alpha)$ will be blocked as well, so $x(5-\alpha) \not \in C^2$. So we first consider the coalition of two individuals of type 1, and one of type 2, and note that we get a symmetric constraint due to the coalition of two individuals of type 2 and one of type 1.
+
+Focusing on the coalition of two individuals of type 1 and one of type 2, we know that if $x(\alpha)$ is blocked by this coalition, there exists some allocation $x'$ within this coalition that dominates $x(\alpha)$. We can take this allocation $x'$ to be Pareto optimal for this coalition. (If $x'$ is not Pareto optimal within this subeconomy, then there exists some other $x''$ which Pareto dominates it, and $x''$ also Pareto dominates $x(\alpha)$ since Pareto dominance is transitive. By iterating, we can hence always pick an $x'$ that is Pareto optimal within this subeconomy.) Since $x'$ is Pareto optimal within this subeconomy, it is supported as a Walrasian equilibrium with transfers by the second welfare theorem. Let the wealth of the two consumers of type 1 be $w_1$ and $w_2$. The only prices that support market clearing in this equilibrium with transfers must be scalar multiples of $(1,2)$. Then the we have that $x'$ must be of the form
+\[ (x')^1_1 = (w_1/2, w_1/4)\]
+\[ (x')^1_2 = (w_2/2, w_2/4)\]
+\[ (x')^2 = \left(10 - \frac{w_1+w_2}{2}, 5 - \frac{w_1+w^1_2}{2}\right) = \left(\frac{20 - w_1 -w_2}{2}, \frac{20 - w_1 - w_2}{4} \right) \]
+
+The welfare of the individuals under $x'$ are then
+\[ u((x')^1_1) = \frac{w_1}{2\sqrt{2}} \]
+\[ u((x')^1_2) = \frac{w_2}{2\sqrt{2}} \]
+\[ u((x')^2) = \frac{20 - w_1 - w_2}{2\sqrt{2}} \]
+
+In order for $x(\alpha)$ to be blocked by this coalition, it must be the case that the following holds for some $w_1, w_2$
+\[ \alpha \le \frac{w_1}{2\sqrt{2}} \]
+\[ \alpha \le \frac{w_2}{2\sqrt{2}} \]
+\[ 5 - \alpha \le \frac{20 - w_1 - w_2}{2\sqrt{2}} \]
+with at least one inequality strict. Taking $w_1 = w_2 = 2\alpha \sqrt{2}$
+we find that $x(\alpha)$ is blocked by this coalition if
+\[ \alpha < 5(\sqrt{2} - 1) \]
+Likewise for the symmetric coalition of opposite types, $x(\alpha)$ will be blocked by a coalition of two individuals of type 2 and one individual of type 1 if
+\[ \alpha > 5 (2 - \sqrt{2}) \]
+So
+\[ C^2 = \{ x(\alpha) \ : \ \alpha \in [5\sqrt{2} - 5, 10 - 5\sqrt{2}]  \}  \]
+
+Finally, we know that if an allocation is in the core $C^N$ for all $N$, the allocation is a Walrasian equilibrium. So we just choose the Walrasian equilibrium allocation $(2.5, 2.5), (2.5, 2.5)$ (supported by prices $(1,1)$) is in $C^N$ for all $N$.
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
