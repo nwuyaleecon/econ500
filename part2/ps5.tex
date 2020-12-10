@@ -50,18 +50,119 @@ First, we note that this is Pareto optimal: it an equilibrium with wealth transf
 By the SWT, this is supportable as an equilibrium with transfers. Take the wealth of 1 to be $w$. By the Cobb-Douglas utility, fixing the price of good 1 to 1, we find for clearing the prices must be $(1, 1/2)$, and so the Pareto optimal allocations are of the form
 \[ x'_1 = (w/2 , w) \]
 \[ x'_3 = (1 - w/2, 2 - w) \]
-Hence, the welfare of $u(x'_1) = w / \sqrt{2}$ and $u(x'_3) = (2-w)/\sqrt{2}$. But the total welfare of $x_1$ and $x_3$ in allocation $x$ is $1.49$, and $u(x'_1) + u(x'_3) = 2/\sqrt{2} = \sqrt{2} < 1.49$, so it is impossible for both $u(x'_1) \ge u(x_1)$ and $u(x'_3) \ge u(x_3)$. Thus the coalition $\{ 1, 3 \}$ does not block, and hence this allocation is in the core.
+Hence, the welfare of $u(x'_1) = w / \sqrt{2}$ and $u(x'_3) = (2-w)/\sqrt{2}$. But the total welfare of $x_1$ and $x_3$ in allocation $x$ is $1.49$, and $u(x'_1) + u(x'_3) = 2/\sqrt{2} = \sqrt{2} < 1.49 = u(x_1) + u(x_3)$, so it is impossible for both $u(x'_1) \ge u(x_1)$ and $u(x'_3) \ge u(x_3)$. Thus the coalition $\{ 1, 3 \}$ does not block, and hence this allocation is in the core.
+
+It is impossible to construct this situation with only two consumers. In fact, each of them receives the same utility as their endowment.
 \paragraph{(18.B.5)}
 \begin{enumerate}[label=(\alph*)]
-  \item
-  \item
-  \item
-  \item 
+  \item We need to show an allocation is Pareto optimal if and only if every shoe is matched (except for one left shoe).
+
+  Suppose all pairs are matched, and one person has a single left shoe. Suppose some alternative allocation Pareto dominates it, and so grants a higher utility to one individual, while everyone else is at least as good. Then the $I$ individuals that had a pair previously must still have a pair, and someone has an additional pair of shoes (either one of the $I+1$ individuals who didn't have a pair previously received a pair, or one of the $I$ individuals with a pair received another pair). However, this requires $2(I+1) > 2I+1$ shoes, and hence cannot be feasible. Thus, if all pairs are matched, the allocation is Pareto optimal.
+
+  We now argue that any Pareto optimal allocation must match all the right shoes. Suppose we have an allocation with an unmatched right shoe. Let individual $i$ have that single unmatched right shoe. Since there are $I + 1$ left shoes and $I-1$ remaining right shoes distributed among the remaining $2I$ consumers, at least one individual $j$ has more left shoes than right shoes. Then if $j$ gives $i$ one left shoe, $j$ will be as good as before, and $i$'s utility will have strictly increased. Hence, this allocation cannot be Pareto optimal, so any Pareto optimal allocation must match all the right shoes.
+  \item We claim the only allocations in the core are when each owner of right shoes receives a left shoe, and one individual with a left shoe holds on to the shoe.
+
+  We first show that these allocations are indeed in the core. Consider a coalition consisting of $M$ people with right shoes, and $N$ people with left shoes. In order for this coalition to block, each right shoe owner must be at least as well off, and hence must receive a pair. However, someone must be strictly better off, so either one of the $N$ people with left shoes also has a pair, or one of the $M$ people has an additional pair. But this implies there are $> M$ right shoes in allocation, which is not feasible for the coalition. Hence, no coalition cannot block the allocation, so this allocation is in the core.
+
+  Now, we show nothing else can be in the core. Suppose some individual $i$ had a right shoe and doesn't receive a pair. Since there are $I+1$ left shoes, and only $I$ right shoes, some individual $j$ has a left shoe but not a right shoe in this allocation. Consider the coalition $\{ i, j\}$. Then if $j$ gives the left shoe to $i$, $i$ will be strictly better off than the allocation, and $j$ will still have utility 0. Hence, this coalition blocks, so no core allocation can give a right shoe owner nothing. Hence, the only core allocations give each right shoe owner a pair, and leaves someone else with a single left shoe.
+  \item If $p_R = 0, p_L > 0$, then the excess demand for right shoes is $1$, since each of the $I+1$ owners of left shoes will buy a right shoe. This is not zero, so it is impossible to have an equilibrium at these prices.
+
+  If $p_R > 0, p_L = 0$, then we achieve the core allocations; each owner of a right shoe buys a left shoe, and someone has an extra left shoe.
+
+  If $p_R > 0, p_L > 0$, then there's a degenerate equilibria (which only exists because of the failure of local nonsatiation with indivisible goods). Every individual retains their original endowment shoe, and no one can afford to buy a different shoe. Technically, the consumed bundle is in the demand set at the given prices (because no one can afford a pair, the consumers are indifferent between anything that gives utility 0).
+  \item There is a non-core degenerate equilibria in this situation because the conditions of the first welfare theorem fail (i.e., local nonsatiation fails since goods are indivisible).
 \end{enumerate}
 \paragraph{(18.C.1)}
+Focusing on the $L=2$ case, it suffices to argue that the budget set frontier is strictly concave (this would imply that there are no straight segments, and the set is convex). Fix an individual, and let his/her endowment be $(\omega_1, \omega_2)$. Fix the sum of everyone else's orders at the trading post for good 1 as $(a', b')$. Part of the frontier is determined by the trading orders where the individual sells, and the other part by when the individual buys. Let
+\[ a \le \omega_1 \]
+Then by selling good 1, the attainable bundles are:
+\[ \left(\omega_1 - a , \omega_2 + a\frac{b'}{a' + a} \right) \]
+Let $x_1 = \omega_1 - a$. Then
+\[ a = \omega_1 - x  \]
+So we can solve for $x_2$ in terms of $x_1$ on this part of the frontier:
+\[ x_2 = \omega_2 + \frac{b' (\omega_1 - x_1)}{a' + \omega_1 - x_1} \]
+THe first derivative is
+\[ \frac{\partial x_2 }{\partial x_1} = \frac{b' \left( -(a' + \omega_1 - x_1) + (\omega_1 - x_1) \right)}{(a'+ \omega_1 - x_1)^2} \]
+\[  = \frac{ -a'b'}{(a' + \omega_1 - x_1 )^2} \]
+And the second derivative is
+\[ \frac{\partial^2 x_2 }{\partial x_1^2} = \frac{ -2 a'b'}{(a' + \omega_1 - x_1 )^3} \]
+which is negative since $\omega_1 - x = a \ge 0$. So the frontier is concave and decreasing for $x_1 > \omega_1$.
+
+Similarly, when the individual is buying net good 1, the attainable bundles are:
+\[ \left(\omega_1 + b\frac{a'}{b' + b}, \omega_2 - b \right) \]
+Let $x_1 = \omega_1 + b\frac{a'}{b' + b}$. Then we have
+\[ (x_1 - \omega_1)(b' + b) = b a' \]
+\[ (x_1 - \omega_1)b'  = b(a' + \omega_1 - x_1) \]
+\[ b = \frac{(x_1 - \omega_1)b'}{a' + \omega_1 - x_1} \]
+So we have
+\[ x_2 = \omega_2 + \frac{(\omega_1 - x_1)b'}{a' + \omega_1 - x_1} \]
+The first derivative is
+\[ \frac{\partial x_2 }{\partial x_1} = \frac{- b'(a' + \omega_1 - x_1) + (\omega_1 - x_1)b'}{(a'  + \omega_1 - x_1)^2} = \frac{- b'a'}{(a' + \omega_1 - x_1)^2} \]
+And the second derivative is
+\[ \frac{\partial x_2 }{\partial x_1}  = \frac{- 2b'a'}{(a' + \omega_1 - x_1)^3} \]
+which is negative again. So the frontier is still decreasing and concave over this segment as well $(x_1 < \omega_1)$. So we just have to check continuity and differentiability at $x_1 = \omega_1$. At $x_1 = \omega_1$, the frontier is $x_2 = \omega_2$. We easily check that this limit is continuous from both the left and right. We also can verify that the derivative from the left and right are both $-b'/a'$, and hence it is continuous and smooth at $\omega_1$. Hence, since the frontier is concave and decreasing, the effective budget set is convex and has no straight segments on its frontier.
+
+
 \paragraph{(19.C.1)}
+Fix an $\vec{x}, \vec{x'}$. Consider $\lambda \in (0,1)$. Then
+\[ U(\lambda \vec{x} + (1-\lambda) \vec{x'}) = \sum_s u_s(\lambda x_s + (1-\lambda) x'_s) \]
+\[ \ge \sum_s (\lambda u_s(x_s) + (1-\lambda) u_s(x'_s)) \]
+\[ = \lambda \sum_s  u_s(x_s) + (1-\lambda) \sum_s  u_s(x'_s) \]
+\[ = \lambda U(\vec{x}) + (1-\lambda) U(\vec{x'}) \]
+so $U$ is concave.
+
 \paragraph{(19.C.4)}
+\begin{enumerate}[label=(\alph*)]
+\item At equilibrium, the prices satisfy:
+\[ \frac{p_1}{p_2} = \frac{\pi_{11}u_1'(x_{11})}{\pi_{21}u_1'(x_{21})} = \frac{\pi_{12}u_2'(x_{12})}{\pi_{22}u_2'(x_{22})} \]
+Since the subjective probabilities are identical,
+\[ \frac{u_1'(x_{11})}{u_1'(x_{21})} = \frac{u_2'(x_{12})}{u_2'(x_{22})} \]
+Since consumer 1 is risk-neutral, the LHS is 1. So we get
+\[ 1 = \frac{u_2'(x_{12})}{u_2'(x_{22})} \]
+\[ u_2'(x_{22}) = u_2'(x_{12})  \]
+ Assuming $u$ is monotonically increasing, this implies $x_{12} = x_{22}$. So consumer 2 insures completely.
+\item Following the same process as the previous part, we find
+\[ \frac{\pi_{11}\pi_{22}}{\pi_{21}\pi_{12}} = \frac{u_2'(x_{12})}{u_2'(x_{22})} \]
+\[ \frac{\pi_{22}}{\pi_{21}}u_2'(x_{22}) = \frac{\pi_{21}}{\pi_{11}}u_2'(x_{12}) \]
+Due to strict concavity of $u$, $x_{12} > x_{22}$ iff $\pi_{21}/\pi{11} > \pi_{22}/\pi_{12}  $ (that is, consumer 2 consumes more in state 1 iff consumer 2 thinks the probability of state 1 is higher than consumer 1 thinks it is).
+
+Consumer 1's FOC just yields $p_1 / p_2 = \pi_{11} / \pi_{21}$ since their utility is risk-neutral. Hence, consumer 1 is just indfiferent between anything on the budget line.
+\end{enumerate}
+
 \paragraph{(19.D.4)}
+\begin{enumerate}[label=(\alph*)]
+  \item An A-D equilibrium consists of prices $p_{t,E}$ at time $t$ and event $E$ where the only admissible pairs are:
+  \[ (0,\{ 1,2,3,4\}), (1,\{1,2\}),(1,\{2,3\}),(2,\{1\}),(2,\{2\}),(2,\{3\}),(2,\{4\}) \]
+  and allocations $x^i$ such that
+  \begin{itemize}
+    \item $x^i$ maximizes $U$ subject to the budget constraint $\sum p_{t,E}x^i_{t,E} \le \sum p_{t,E} \omega^i_{t,E}$
+    \item $\sum x^i \le \sum \omega^i$ for each $t,E$
+  \end{itemize}
+  \item A Radner equilibrium consists of spot prices $p_{t,E}$, contingent commodity prices $q_{t,E}(t+1, E')$ where $E'$ can be a next-timestep realization of $E$, and consumption plans $z^i_{t,E}(t+1, E')$, $x^i$ such that
+   \begin{itemize}
+   \item The consumption plan maximizes $U$ for the budget constraint from the spot prices and contingent commodity prices:
+   \[ p_{t,E} x^i_{t,E} + \sum_{t+1, E'} q_{t,E}(t+1, E')z^i_{t,E}(t+1, E') \le p_{t,E} \omega_{t,E} + p_{t,E} z_{t-1, E^*}(t, E) \]
+   (where $E^*$ is the precursor event to $E$).
+   \item $\sum_i z^i_{t,E} (t+1, E') \le 0 $ and $\sum_i x^i \le \sum_i \omega^i$ at each $t,E, E'$.
+   \end{itemize}
+  \item We need to argue that the budget sets are the same for both types of equilibria. That is sufficient for the result of Proposition 19.D.1 to be true.
+
+  Suppose we have an A-D equilibrium. We show we can construct the right sequences $z^i$, $q^i$. Take $q^i_{tE}(t+1, E') = p_{t+1, E'}$, and we define $z^i$ as follows:
+  \[ z^i_{1E}(2, E') = p_{2E'}\cdot (x^i_{2E'} - \omega^i_{2E'}) / p_{2E'}  \]
+  \[ z^i_{0E}(1, \{1,2\}) = (p_{1\{1,2\}}\cdot (x^i_{1\{1,2\}} - \omega^i_{1\{1,2\}}) + q_{1,\{1,2\}}(2,\{1\})z_{1, \{1,2\}}(2,\{2\})) / p_{1\{1,2\}} \]
+  \[ z^i_{0E}(1, \{3,4\}) = (p_{1\{3,4\}}\cdot (x^i_{1\{3,4\}} - \omega^i_{1\{3,4\}}) + q_{1,\{3,4\}}(2,\{3\})z_{1, \{3,4\}}(2,\{4\})) / p_{1\{3,4\}} \]
+  And under these choices the two budget sets are identical (we can manually check this across the time-state pairs).
+
+  Similarly, suppose we have a Radner equilibrium. Consider the choice of $\mu$ such that
+  \[ \mu_{0E} = 1 \]
+  \[ \mu_{1E} = \frac{q_{0\{1,2,3,4\}}(1, E)}{p_{0,\{1,2,3,4\}}} \]
+  \[ \mu_{2\{1\}} = \frac{q_{1\{1,2\}}(2, \{1\})}{p_{1,\{1,2\}}}\mu_{1\{1,2\}} \]
+  \[ \mu_{2\{2\}} = \frac{q_{1\{1,2\}}(2, \{2\})}{p_{1,\{1,2\}}}\mu_{1\{1,2\}} \]
+  \[ \mu_{2\{3\}} = \frac{q_{1\{3,4\}}(2, \{3\})}{p_{1,\{3,4\}}}\mu_{1\{3,4\}} \]
+  \[ \mu_{2\{4\}} = \frac{q_{1\{3,4\}}(2, \{4\})}{p_{1,\{3,4\}}}\mu_{1\{3,4\}} \]
+  Then just as in Proposition 19.D.1, prices $\mu \cdot p$ generate the same Arrow-Debreu budget sets (we can manually check this across the time-state pairs).
+\end{enumerate}
+
 \section*{Problem 3}
 We first compute $C^1$. This is just the contract curve of the Edgeworth box. However, we note that the indifference curves of the initial endowments of both individuals is just the border of the box, and so the set of all Pareto optimal allocations is the contract curve, and is hence in the core. Thus,
 \[ C^1 = \{ (\alpha, \alpha), (5 - \alpha, 5- \alpha) \ : \ \alpha \in [0,5] \} \]
